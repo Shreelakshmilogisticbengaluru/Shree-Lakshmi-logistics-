@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHREE LAKSHMI LOGISTIC PVT LTD</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Smooth transition for slider */
+        .slider-img {
+            display: none;
+        }
+        .slider-img.active {
+            display: block;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(1.02); }
+            to { opacity: 1; transform: scale(1); }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans min-h-screen flex flex-col justify-between relative">
+
+    <header class="bg-blue-900 text-white p-4 shadow-lg fixed top-0 left-0 right-0 z-40 flex justify-between items-center">
+        <button onclick="toggleMenu(true)" class="p-2 hover:bg-blue-800 rounded-lg transition cursor-pointer flex items-center gap-2">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+            <span class="font-medium text-sm hidden sm:inline">Menu</span>
+        </button>
+
+        <a href="https://wa.me/917665296227" target="_blank" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-full font-bold text-xs sm:text-sm flex items-center gap-2 shadow transition whitespace-nowrap">
+            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397 0 12.008 0c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 12.004-11.95 12.004-.001 0-.001 0 0 0-2.005-.001-3.98-.535-5.711-1.549L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.42 9.864-9.858.002-2.634-1.023-5.11-2.887-6.974-1.864-1.864-4.341-2.887-6.978-2.888-5.439 0-9.864 4.42-9.868 9.859-.001 1.748.47 3.456 1.364 4.972l-.98 3.58 3.658-.962zm10.744-6.666c-.303-.152-1.791-.882-2.069-.983-.278-.101-.481-.152-.682.152-.201.304-.777.983-.953 1.186-.177.203-.354.23-.657.079-1.371-.689-2.316-1.18-3.239-2.763-.242-.415.242-.385.693-1.284.076-.152.038-.285-.019-.386-.057-.102-.481-1.159-.66-1.584-.175-.42-.35-.363-.481-.369-.125-.005-.268-.006-.412-.006-.144 0-.379.054-.577.271-.198.217-.757.74-757 1.802 0 1.063.773 2.089.88 2.234.107.145 1.52 2.321 3.682 3.256.514.223.916.356 1.229.455.517.165.987.141 1.359.085.414-.061 1.791-.732 2.043-1.44.253-.707.253-1.314.177-1.44-.077-.126-.278-.203-.581-.355z"/></svg>
+            WhatsApp Us
+        </a>
+    </header>
+
+    <div id="sidebarMenu" class="fixed inset-0 bg-black/50 z-50 hidden transition-opacity duration-300">
+        <div class="w-80 bg-blue-900 text-white h-full p-6 shadow-2xl flex flex-col justify-between">
+            <div>
+                <div class="flex justify-between items-center border-b border-blue-800 pb-4 mb-6">
+                    <h3 class="font-bold text-lg tracking-wide">📌 Navigation</h3>
+                    <button onclick="toggleMenu(false)" class="text-gray-300 hover:text-white text-2xl font-bold cursor-pointer">&times;</button>
+                </div>
+                <nav class="space-y-3">
+                    <button onclick="openPage('transportDetails')" class="w-full text-left py-3 px-4 rounded-lg bg-blue-800 hover:bg-blue-700 transition font-medium flex items-center gap-3 cursor-pointer">
+                        <span>🏢</span> Check Transport Details
+                    </button>
+                    <button onclick="openPage('contactUs')" class="w-full text-left py-3 px-4 rounded-lg bg-blue-800 hover:bg-blue-700 transition font-medium flex items-center gap-3 cursor-pointer">
+                        <span>📞</span> Contact Us
+                    </button>
+                    <button onclick="openPage('bankDetails')" class="w-full text-left py-3 px-4 rounded-lg bg-blue-800 hover:bg-blue-700 transition font-medium flex items-center gap-3 cursor-pointer">
+                        <span>💳</span> Bank Account Details
+                    </button>
+                </nav>
+            </div>
+            <div class="text-xs text-blue-300 border-t border-blue-800 pt-4 text-center">
+                SHREE LAKSHMI LOGISTIC PVT LTD
+            </div>
+        </div>
+    </div>
+
+    <main class="mt-20 flex-grow max-w-4xl w-full mx-auto p-4 mb-8">
+        
+        <div id="homePage" class="space-y-8">
+            <div class="text-center my-6">
+                <div class="inline-block p-1 bg-white rounded-full shadow-md mb-3">
+                    <img src="https://i.postimg.cc/3N56G1Rw/image-search-1782066959399.png" alt="Logo" class="w-24 h-24 rounded-full object-cover">
+                </div>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-blue-900 uppercase tracking-tight">SHREE LAKSHMI LOGISTIC PVT LTD</h2>
+                <p class="text-xs sm:text-sm text-gray-500 mt-2 max-w-xl mx-auto px-4 italic font-medium">
+                    Address: H1/12 first floor, yashwantpur, Bengaluru Karnataka India 560022
+                </p>
+            </div>
+
+            <div class="relative w-full h-48 sm:h-64 md:h-80 rounded-2xl overflow-hidden shadow-lg bg-gray-200">
+                <img src="https://i.postimg.cc/5ydGzg06/image-search-1782066953651.png" alt="Banner 1" class="slider-img active w-full h-full object-cover">
+                <img src="https://i.postimg.cc/B61ktkqG/image-search-1782066972418.png" alt="Banner 2" class="slider-img w-full h-full object-cover">
+                <img src="https://i.postimg.cc/T1MSb0w1/image-search-1782066977204.jpg" alt="Banner 3" class="slider-img w-full h-full object-cover">
+                
+                <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent pointer-events-none"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-white p-6 rounded-2xl shadow-md border border-gray-100 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="text-2xl">📦</span>
+                            <h4 class="text-lg font-bold text-gray-800">Option 1: Order Tracking</h4>
+                        </div>
+                        <label class="block text-sm font-semibold text-gray-600 mb-2">Enter Order ID</label>
+                        <input type="text" id="orderIdInput" placeholder="Order ID yahan likhein..." class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-700 text-sm mb-4">
+                    </div>
+                    <button onclick="handleTracking('orderIdInput')" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-xl shadow transition duration-200 cursor-pointer text-sm">
+                        Track Order
+                    </button>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl shadow-md border border-gray-100 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="text-2xl">📄</span>
+                            <h4 class="text-lg font-bold text-gray-800">Option 2: Bilty / LR Tracking</h4>
+                        </div>
+                        <label class="block text-sm font-semibold text-gray-600 mb-2">Enter Your Bilty or LR Number</label>
+                        <input type="text" id="biltyInput" placeholder="Bilty / LR Number yahan likhein..." class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-700 text-sm mb-4">
+                    </div>
+                    <button onclick="handleTracking('biltyInput')" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-xl shadow transition duration-200 cursor-pointer text-sm">
+                        Track Order
+                    </button>
+                </div>
+            </div>
+        </div>
+
+
+        <div id="trackingResultPage" class="bg-white p-8 rounded-2xl shadow-xl border border-gray-100 max-w-xl mx-auto text-center hidden">
+            <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4 text-green-600 text-3xl font-bold">✓</div>
+            <h3 class="text-2xl font-extrabold text-green-600 mb-2">Your Order Shipped Successfully</h3>
+            <p class="text-gray-500 text-sm font-medium mb-6 bg-gray-50 py-2 px-4 rounded-lg inline-block border border-gray-100">
+                Other updates update in 24 hours
+            </p>
+            <div class="border-t border-gray-100 pt-6">
+                <button onclick="goBackHome()" class="bg-gray-800 hover:bg-gray-900 text-white px-6 py-2.5 rounded-xl font-bold text-sm shadow transition cursor-pointer">← Go Back Home</button>
+            </div>
+        </div>
+
+        <div id="transportDetailsPage" class="bg-white p-6 sm:p-8 rounded-2xl shadow-xl border border-gray-100 hidden">
+            <h3 class="text-xl font-bold text-blue-900 border-b border-gray-100 pb-3 mb-5 flex items-center gap-2">
+                <span>🏢</span> Transport Official Details
+            </h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div class="p-3 bg-gray-50 rounded-lg"><span class="text-xs font-bold text-gray-400 uppercase block">Tag Line Number</span><strong class="text-gray-800 text-sm">RANGE-DED9</strong></div>
+                <div class="p-3 bg-gray-50 rounded-lg"><span class="text-xs font-bold text-gray-400 uppercase block">Service Route</span><strong class="text-gray-800 text-sm">All India</strong></div>
+                <div class="p-3 bg-gray-50 rounded-lg"><span class="text-xs font-bold text-gray-400 uppercase block">Gst Number</span><strong class="text-blue-600 text-sm">29ASLPL8036G1ZC</strong></div>
+                <div class="p-3 bg-gray-50 rounded-lg"><span class="text-xs font-bold text-gray-400 uppercase block">Pan Number</span><strong class="text-gray-800 text-sm">ASLPL8036G</strong></div>
+                <div class="p-3 bg-gray-50 rounded-lg"><span class="text-xs font-bold text-gray-400 uppercase block">Udhyam Registration Number</span><strong class="text-gray-800 text-sm">AAECS-4363HUIN-5433</strong></div>
+                <div class="p-3 bg-gray-50 rounded-lg"><span class="text-xs font-bold text-gray-400 uppercase block">UIN Number</span><strong class="text-gray-800 text-sm">AAECS-4363HUIN-5411</strong></div>
+                <div class="p-3 bg-gray-50 rounded-lg"><span class="text-xs font-bold text-gray-400 uppercase block">TAN Number</span><strong class="text-gray-800 text-sm">AAECS-4363</strong></div>
+                <div class="p-3 bg-gray-50 rounded-lg"><span class="text-xs font-bold text-gray-400 uppercase block">CIN Number</span><strong class="text-gray-800 text-sm">AAECS-4363HUIN-5433</strong></div>
+                <div class="p-3 bg-gray-50 rounded-lg sm:col-span-2"><span class="text-xs font-bold text-gray-400 uppercase block">Registration Info</span><strong class="text-gray-800 text-sm">REG.8920266638 |</strong></div>
+            </div>
+            <button onclick="goBackHome()" class="mt-6 w-full sm:w-auto bg-gray-800 hover:bg-gray-900 text-white px-6 py-2.5 rounded-xl font-bold text-sm shadow transition cursor-pointer text-center block">← Back to Main Page</button>
+        </div>
+
+        <div id="contactUsPage" class="bg-white p-6 sm:p-8 rounded-2xl shadow-xl border border-gray-100 max-w-md mx-auto hidden">
+            <h3 class="text-xl font-bold text-blue-900 border-b border-gray-100 pb-3 mb-5 flex items-center gap-2">
+                <span>📞</span> Contact Us
+            </h3>
+            <div class="space-y-4">
+                <a href="https://wa.me/917665296227" target="_blank" class="block p-4 bg-green-50 rounded-xl border border-green-200 hover:bg-green-100 transition shadow-sm">
+                    <span class="text-xs font-bold text-green-600 uppercase block mb-1">WhatsApp Number (Click to Chat)</span>
+                    <strong class="text-green-700 text-lg flex items-center gap-2">🟢 7665296227</strong>
+                </a>
+                <a href="mailto:Shreelakshmilogisticbengaluru@gmail.com" class="block p-4 bg-blue-50 rounded-xl border border-blue-200 hover:bg-blue-100 transition shadow-sm">
+                    <span class="text-xs font-bold text-blue-600 uppercase block mb-1">Official Email Address</span>
+                    <strong class="text-blue-800 text-sm break-all">✉ Shreelakshmilogisticbengaluru@gmail.com</strong>
+                </a>
+            </div>
+            <button onclick="goBackHome()" class="mt-6 w-full bg-gray-800 hover:bg-gray-900 text-white px-6 py-2.5 rounded-xl font-bold text-sm shadow transition cursor-pointer text-center block">← Back to Main Page</button>
+        </div>
+
+        <div id="bankDetailsPage" class="bg-white p-6 sm:p-8 rounded-2xl shadow-xl border border-gray-100 max-w-lg mx-auto hidden">
+            <h3 class="text-xl font-bold text-blue-900 border-b border-gray-100 pb-3 mb-5 flex items-center gap-2">
+                <span>💳</span> Bank Account Details
+            </h3>
+            <div class="bg-gradient-to-br from-blue-900 to-blue-950 text-white p-6 rounded-2xl shadow-md space-y-4 font-mono relative overflow-hidden">
+                <div class="absolute top-[-20px] right-[-20px] text-blue-800 text-9xl font-bold opacity-20 select-none pointer-events-none">BANK</div>
+                <div>
+                    <span class="text-[10px] uppercase text-blue-300 block tracking-widest">Account Name</span>
+                    <strong class="text-lg tracking-wide font-sans">Rahul Dutta</strong>
+                </div>
+                <div>
+                    <span class="text-[10px] uppercase text-blue-300 block tracking-widest">Bank Name</span>
+                    <strong class="text-base font-sans">NSDL Payments Bank</strong>
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <span class="text-[10px] uppercase text-blue-300 block tracking-widest">IFSC Code</span>
+                        <strong class="text-sm">NSPB0000002</strong>
+                    </div>
+                    <div>
+                        <span class="text-[10px] uppercase text-blue-300 block tracking-widest">Branch Name</span>
+                        <strong class="text-xs font-sans block leading-tight">One International Center, Prabhadevi</strong>
+                    </div>
+                </div>
+                <div class="pt-2 border-t border-blue-800">
+                    <span class="text-[10px] uppercase text-blue-300 block tracking-widest">Account Number</span>
+                    <strong class="text-xl tracking-wider text-yellow-400">501066746547</strong>
+                </div>
+            </div>
+            <button onclick="goBackHome()" class="mt-6 w-full bg-gray-800 hover:bg-gray-900 text-white px-6 py-2.5 rounded-xl font-bold text-sm shadow transition cursor-pointer text-center block">← Back to Main Page</button>
+        </div>
+
+    </main>
+
+    <footer class="bg-blue-950 text-gray-400 text-center py-4 text-xs border-t border-blue-900 w-full mt-auto">
+        &copy; 2026 SHREE LAKSHMI LOGISTIC PVT LTD. All rights reserved.
+    </footer>
+
+    <script>
+        // Automatic Slider Logic
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slider-img');
+        
+        function nextSlide() {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+        // Slide changes automatically every 3 seconds (3000ms)
+        setInterval(nextSlide, 3000);
+
+        // Sidebar Drawer Toggle Logic
+        function toggleMenu(show) {
+            const menu = document.getElementById('sidebarMenu');
+            if(show) {
+                menu.classList.remove('hidden');
+            } else {
+                menu.classList.add('hidden');
+            }
+        }
+
+        // View Management (New Page System) Logic
+        const allPages = ['homePage', 'trackingResultPage', 'transportDetailsPage', 'contactUsPage', 'bankDetailsPage'];
+
+        function openPage(pageId) {
+            toggleMenu(false); // Menu band karein
+            allPages.forEach(id => {
+                document.getElementById(id).classList.add('hidden');
+            });
+            document.getElementById(pageId + 'Page').classList.remove('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function goBackHome() {
+            allPages.forEach(id => {
+                document.getElementById(id).classList.add('hidden');
+            });
+            document.getElementById('homePage').classList.remove('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Handling Tracking Buttons
+        function handleTracking(inputId) {
+            const inputValue = document.getElementById(inputId).value.trim();
+            if(inputValue === "") {
+                alert("Kripya id/number enter karein!");
+                return;
+            }
+            // Input clear karein future ke liye
+            document.getElementById(inputId).value = "";
+            // Naya tracking result page open karein
+            allPages.forEach(id => {
+                document.getElementById(id).classList.add('hidden');
+            });
+            document.getElementById('trackingResultPage').classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
