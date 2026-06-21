@@ -111,6 +111,40 @@
             </div>
         </div>
 
+        <div id="trackingDetailsView" class="bg-white p-6 sm:p-8 rounded-2xl shadow-xl border border-gray-100 max-w-lg mx-auto hidden">
+            <h3 class="text-xl font-bold text-blue-900 border-b border-gray-100 pb-3 mb-5 flex items-center gap-2">
+                <span>📦</span> Shipment Details
+            </h3>
+            <div class="space-y-4 text-sm text-gray-700">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div class="bg-gray-50 p-3 rounded-lg"><span class="text-xs font-bold text-gray-400 block mb-1">Receiver Name</span><strong class="text-gray-800">Rishidhaa store owner</strong></div>
+                    <div class="bg-gray-50 p-3 rounded-lg"><span class="text-xs font-bold text-gray-400 block mb-1">Product Name</span><strong class="text-gray-800">Dry fruits and spices</strong></div>
+                    <div class="bg-gray-50 p-3 rounded-lg"><span class="text-xs font-bold text-gray-400 block mb-1">Order Date</span><strong class="text-gray-800">19/06/2026</strong></div>
+                    <div class="bg-gray-50 p-3 rounded-lg"><span class="text-xs font-bold text-gray-400 block mb-1">Delivery Date</span><strong class="text-gray-800">22/06/2026 to 23/06/2026</strong></div>
+                </div>
+                
+                <div class="bg-gray-50 p-3 rounded-lg">
+                    <span class="text-xs font-bold text-gray-400 block mb-1">Consignee</span>
+                    <strong class="text-gray-800 block leading-tight">SHOP ADDRESS: 8A / 90 / ABCD, AMMOOR TO WALAJA ROAD, THIRUVALLUVAR NAGAR (NEAR REGISTER OFFICE), WALAJAPET - 632513. TAMIL NADU. 99433 08482 / 99433 08410</strong>
+                </div>
+
+                <div class="bg-gray-50 p-3 rounded-lg">
+                    <span class="text-xs font-bold text-gray-400 block mb-1">Consignor</span>
+                    <strong class="text-gray-800">Babu trading company yashwantpur, Bengaluru Karnataka 560022</strong>
+                </div>
+
+                <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 border-t border-gray-100 pt-4">
+                    <div><span class="text-xs font-bold text-gray-400 block mb-1">Weight</span><strong class="text-gray-800">50 kgs</strong></div>
+                    <div><span class="text-xs font-bold text-gray-400 block mb-1">Freight Charges</span><strong class="text-gray-800">750</strong></div>
+                    <div><span class="text-xs font-bold text-gray-400 block mb-1">Remaining Amount</span><strong class="text-red-600">17610/-</strong></div>
+                </div>
+
+                <div class="text-center mt-4 pt-4 border-t border-gray-100">
+                    <p class="text-blue-900 font-bold">Thank you for choosing shree Lakshmi logistics Pvt Ltd</p>
+                </div>
+            </div>
+            <button onclick="goBackHome()" class="mt-6 w-full bg-gray-800 hover:bg-gray-900 text-white px-6 py-2.5 rounded-xl font-bold text-sm shadow transition cursor-pointer text-center block">← Back to Main Page</button>
+        </div>
 
         <div id="trackingResultPage" class="bg-white p-8 rounded-2xl shadow-xl border border-gray-100 max-w-xl mx-auto text-center hidden">
             <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4 text-green-600 text-3xl font-bold">✓</div>
@@ -220,13 +254,13 @@
             else { menu.classList.add('hidden'); }
         }
 
-        // View Management (New Page System) List
-        const allPages = ['homePage', 'trackingResultPage', 'transportDetailsPage', 'contactUsPage', 'bankDetailsPage'];
+        // View Management (New Page System) List - UPDATED with trackingDetailsView
+        const allPages = ['homePage', 'trackingResultPage', 'transportDetailsPage', 'contactUsPage', 'bankDetailsPage', 'trackingDetailsView'];
 
         // Function to open sub-pages and register it in browser history
         function openPage(pageId) {
             toggleMenu(false); 
-            history.pushState({page: pageId}, null, '#' + pageId.replace('Page', ''));
+            history.pushState({page: pageId}, null, '#' + pageId.replace('Page', '').replace('View', ''));
             showPage(pageId);
         }
 
@@ -247,7 +281,7 @@
             history.back(); 
         }
 
-        // FIX: Handle physical / virtual phone back buttons intelligently
+        // Handle physical / virtual phone back buttons intelligently
         window.onpopstate = function(event) {
             if (event.state && event.state.page) {
                 showPage(event.state.page);
@@ -256,14 +290,20 @@
             }
         };
 
-        // Handling Tracking Buttons Click
+        // Handling Tracking Buttons Click - UPDATED
         function handleTracking(inputId) {
             const inputValue = document.getElementById(inputId).value.trim();
             if(inputValue === "") { alert("Kripya id/number enter karein!"); return; }
             document.getElementById(inputId).value = "";
             
-            history.pushState({page: 'trackingResultPage'}, null, '#trackingResult');
-            showPage('trackingResultPage');
+            // Check logic for specific bilty number
+            if(inputValue === "123689658994") {
+                history.pushState({page: 'trackingDetailsView'}, null, '#trackingDetails');
+                showPage('trackingDetailsView');
+            } else {
+                history.pushState({page: 'trackingResultPage'}, null, '#trackingResult');
+                showPage('trackingResultPage');
+            }
         }
     </script>
 </body>
