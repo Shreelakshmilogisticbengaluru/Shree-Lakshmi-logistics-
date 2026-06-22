@@ -3,214 +3,474 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SHREE LAKSHMI LOGISTIC PVT LTD - All India transport & logistics services.">
     <title>SHREE LAKSHMI LOGISTIC PVT LTD</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+    .slider-img { display: none; }
+    .slider-img.active { display: block; animation: fadeIn 0.5s ease-in-out; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(1.02); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        body.sidebar-open { overflow: hidden; }
+    .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -21px;
+            top: 5px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #3b82f6;
+            border: 2px solid white;
+        }
+    </style>
 </head>
-<body class="bg-gray-50">
-    
-    <!-- HEADER -->
-    <header class="bg-blue-900 text-white p-4 fixed top-0 w-full z-40 flex justify-between">
-        <button onclick="openMenu()" class="bg-blue-800 px-4 py-2 rounded">☰ Menu</button>
-        <button onclick="openAdmin()" class="bg-yellow-600 px-4 py-2 rounded">🔐 Admin</button>
+<body class="bg-gray-50 text-gray-800 font-sans min-h-screen flex flex-col justify-between relative">
+
+    <header class="bg-blue-900 text-white p-4 shadow-lg fixed top-0 left-0 right-0 z-40 flex justify-between items-center">
+        <button onclick="toggleMenu(true)" class="p-2 hover:bg-blue-800 rounded-lg transition cursor-pointer flex items-center gap-2">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+            <span class="font-medium text-sm hidden sm:inline">Menu</span>
+        </button>
+        <div class="flex gap-2">
+            <button onclick="openPage('adminLoginPage')" class="bg-yellow-600 hover:bg-yellow-500 text-white px-3 py-2 rounded-lg font-bold text-xs sm:text-sm flex items-center gap-2 shadow transition">
+                <span>🔐</span><span class="hidden sm:inline">Admin</span>
+            </button>
+            <a href="https://wa.me/917665296227" target="_blank" rel="noopener" class="bg-green-500 hover:bg-green-600 text-white px-3 py-2 rounded-lg font-bold text-xs sm:text-sm flex items-center gap-2 shadow transition">
+                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397 0 12.008 0c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 12.004-11.95 12.004-.001 0-.001 0 0 0-2.005-.001-3.98-.535-5.711-1.549L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.42 9.864-9.858.002-2.634-1.023-5.11-2.887-6.974-1.864-1.864-4.341-2.887-6.978-2.888-5.439 0-9.864 4.42-9.868 9.859-.001 1.748.47 3.456 1.364 4.972l-.98 3.58 3.658-.962z"/></svg>
+                <span class="hidden sm:inline">WhatsApp</span>
+            </a>
+        </div>
     </header>
 
-    <!-- MENU -->
-    <div id="menu" class="fixed inset-0 bg-black/50 z-50 hidden" onclick="closeMenu()">
-        <div class="bg-blue-900 w-80 h-full p-6" onclick="event.stopPropagation()">
-            <button onclick="closeMenu()" class="text-white text-2xl float-right">&times;</button>
-            <h3 class="text-white font-bold mb-6 mt-8">Navigation</h3>
-            <button onclick="showHome()" class="block w-full text-left text-white py-3 px-4 hover:bg-blue-700 rounded mb-2">🏠 Home</button>
-            <button onclick="alert('Services Page')" class="block w-full text-left text-white py-3 px-4 hover:bg-blue-700 rounded mb-2">🚚 Services</button>
-            <button onclick="alert('Contact: 7665296227')" class="block w-full text-left text-white py-3 px-4 hover:bg-blue-700 rounded mb-2">📞 Contact</button>
+    <div id="sidebarMenu" class="fixed inset-0 bg-black/50 z-50 hidden" onclick="toggleMenu(false)">
+        <div class="w-full sm:w-80 bg-blue-900 text-white h-full p-6 shadow-2xl flex flex-col justify-between" onclick="event.stopPropagation()">
+            <div>
+                <div class="flex justify-between items-center border-b border-blue-800 pb-4 mb-6">
+                    <h3 class="font-bold text-lg tracking-wide">📌 Navigation</h3>
+                    <button onclick="toggleMenu(false)" class="text-gray-300 hover:text-white text-2xl font-bold cursor-pointer">&times;</button>
+                </div>
+                <nav class="space-y-2">
+                    <button onclick="openPage('homePage')" class="nav-btn w-full text-left py-3 px-4 rounded-lg hover:bg-blue-700 transition font-medium flex items-center gap-3 cursor-pointer bg-blue-700">
+                        <span>🏠</span> Home / Track
+                    </button>
+                    <button onclick="openPage('servicesPage')" class="nav-btn w-full text-left py-3 px-4 rounded-lg hover:bg-blue-700 transition font-medium flex items-center gap-3 cursor-pointer">
+                        <span>🚚</span> Our Services
+                    </button>
+                    <button onclick="openPage('quotePage')" class="nav-btn w-full text-left py-3 px-4 rounded-lg hover:bg-blue-700 transition font-medium flex items-center gap-3 cursor-pointer">
+                        <span>💰</span> Get Quote
+                    </button>
+                    <button onclick="openPage('transportDetailsPage')" class="nav-btn w-full text-left py-3 px-4 rounded-lg hover:bg-blue-700 transition font-medium flex items-center gap-3 cursor-pointer">
+                        <span>🏢</span> Company Details
+                    </button>
+                    <button onclick="openPage('faqPage')" class="nav-btn w-full text-left py-3 px-4 rounded-lg hover:bg-blue-700 transition font-medium flex items-center gap-3 cursor-pointer">
+                        <span>❓</span> FAQ
+                    </button>
+                    <button onclick="openPage('contactUsPage')" class="nav-btn w-full text-left py-3 px-4 rounded-lg hover:bg-blue-700 transition font-medium flex items-center gap-3 cursor-pointer">
+                        <span>📞</span> Contact Us
+                    </button>
+                </nav>
+            </div>
+            <div class="text-xs text-blue-300 border-t border-blue-800 pt-4 text-center">
+                SHREE LAKSHMI LOGISTIC PVT LTD<br>
+                <span class="text-blue-400">GST: 29ASLPL8036G1ZC</span>
+            </div>
         </div>
     </div>
 
-    <!-- MAIN CONTENT -->
-    <main class="mt-20 p-4 max-w-4xl mx-auto">
-        
+    <main class="mt-20 flex-grow max-w-6xl w-full mx-auto p-4 mb-8">
+
         <!-- HOME PAGE -->
-        <div id="homePage">
-            <h1 class="text-3xl font-bold text-blue-900 text-center mb-6">SHREE LAKSHMI LOGISTIC PVT LTD</h1>
-            
-            <div class="bg-white p-6 rounded-lg shadow-lg">
-                <h2 class="text-xl font-bold mb-4">📍 Track Your Order</h2>
-                <input type="text" id="trackInput" placeholder="Enter LR Number (Try: LR123456)" class="w-full px-4 py-3 border rounded-lg mb-3">
-                <button onclick="trackOrder()" class="w-full bg-blue-600 text-white font-bold py-3 rounded-lg">Track Now</button>
-                <p id="trackError" class="text-red-500 text-sm mt-2"></p>
+        <div id="homePage" class="page-content space-y-8">
+            <div class="text-center my-6">
+                <div class="inline-block p-1 bg-white rounded-full shadow-md mb-3">
+                    <img src="https://i.postimg.cc/3N56G1Rw/image-search-1782066959399.png" alt="Logo" class="w-24 h-24 rounded-full object-cover">
+                </div>
+                <h1 class="text-2xl sm:text-3xl font-extrabold text-blue-900 uppercase tracking-tight">SHREE LAKSHMI LOGISTIC PVT LTD</h1>
+                <p class="text-sm text-gray-600 mt-2 max-w-xl mx-auto px-4 font-medium">
+                    All India Transport | Part Load | Full Truck Load | Warehouse
+                </p>
+                <p class="text-xs text-gray-500 mt-2 px-4">
+                    📍 H1/12 first floor, Yashwantpur, Bengaluru Karnataka 560022
+                </p>
             </div>
 
-            <div id="result" class="bg-white p-6 rounded-lg shadow-lg mt-6 hidden">
-                <h3 class="font-bold text-lg mb-4">Tracking Result</h3>
-                <div id="resultData"></div>
+            <div class="relative w-full h-48 sm:h-64 md:h-80 rounded-2xl overflow-hidden shadow-lg bg-gray-200">
+                <img src="https://i.postimg.cc/5ydGzg06/image-search-1782066953651.png" alt="Banner 1" class="slider-img active w-full h-full object-cover">
+                <img src="https://i.postimg.cc/B61ktkqG/image-search-1782066972418.png" alt="Banner 2" loading="lazy" class="slider-img w-full h-full object-cover">
+                <img src="https://i.postimg.cc/T1MSb0w1/image-search-1782066977204.jpg" alt="Banner 3" loading="lazy" class="slider-img w-full h-full object-cover">
             </div>
+
+            <div class="bg-gradient-to-r from-blue-900 to-blue-800 text-white p-6 rounded-2xl shadow-lg">
+                <h2 class="text-lg font-bold mb-4 text-center">🏆 Certified & Trusted Logistics Partner</h2>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center mb-4">
+                    <div>
+                        <div class="text-2xl font-bold text-yellow-400">15+</div>
+                        <div class="text-xs text-blue-200">Years Experience</div>
+                    </div>
+                    <div>
+                        <div class="text-2xl font-bold text-yellow-400">500+</div>
+                        <div class="text-xs text-blue-200">Cities Covered</div>
+                    </div>
+                    <div>
+                        <div class="text-2xl font-bold text-yellow-400">10K+</div>
+                        <div class="text-xs text-blue-200">Happy Clients</div>
+                    </div>
+                    <div>
+                        <div class="text-2xl font-bold text-yellow-400">24/7</div>
+                        <div class="text-xs text-blue-200">Support</div>
+                    </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-3 pt-4 border-t border-blue-700 text-xs">
+                    <div class="text-center">
+                        <span class="text-blue-200">GST No:</span>
+                        <strong class="block text-white">29ASLPL8036G1ZC</strong>
+                    </div>
+                    <div class="text-center">
+                        <span class="text-blue-200">PAN No:</span>
+                        <strong class="block text-white">ASLPL8036G</strong>
+                    </div>
+                    <div class="text-center">
+                        <span class="text-blue-200">CIN No:</span>
+                        <strong class="block text-white">U63000KA2020PTC134567</strong>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white p-6 rounded-2xl shadow-lg border border-gray-100">
+                <h2 class="text-xl font-bold text-gray-800 mb-4 flex items-center gap-2">
+                    <span>📍</span> Track Your Consignment
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label for="orderIdInput" class="block text-sm font-semibold text-gray-600 mb-2">LR / Bilty Number</label>
+                        <input type="text" id="orderIdInput" placeholder="Enter tracking number..." class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-700 text-sm">
+                        <p id="orderError" class="text-red-500 text-xs mt-1 h-4"></p>
+                    </div>
+                    <div class="flex items-end">
+                        <button onclick="handleTracking()" id="trackBtn" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-xl shadow transition duration-200 cursor-pointer text-sm">
+                            Track Now
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TRACKING RESULT -->
+        <div id="trackingResultPage" class="page-content bg-white p-6 sm:p-8 rounded-2xl shadow-xl border border-gray-100 max-w-3xl mx-auto hidden">
+            <div class="flex justify-between items-start mb-6">
+                <div>
+                    <h3 class="text-xl font-bold text-gray-800">Tracking Details</h3>
+                    <p class="text-sm text-gray-500">LR No: <span id="trackingNumber" class="font-bold text-blue-600"></span></p>
+                </div>
+                <span id="statusBadge" class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs font-bold">In Transit</span>
+            </div>
+            <div id="trackingTimeline" class="space-y-6 border-l-2 border-blue-200 ml-3 pl-6 mb-6"></div>
+            <div id="shipmentInfo" class="grid grid-cols-2 gap-4 text-sm bg-gray-50 p-4 rounded-lg mb-6"></div>
+            <button onclick="openPage('homePage')" class="w-full bg-gray-800 hover:bg-gray-900 text-white px-6 py-2.5 rounded-xl font-bold text-sm shadow transition cursor-pointer">← Track Another</button>
         </div>
 
         <!-- ADMIN LOGIN -->
-        <div id="adminPage" class="hidden">
-            <div class="bg-white p-6 rounded-lg shadow-lg max-w-md mx-auto">
-                <h3 class="text-2xl font-bold mb-6">🔐 Admin Login</h3>
-                <input type="text" id="adminUser" placeholder="Username" class="w-full px-4 py-3 border rounded-lg mb-3">
-                <input type="password" id="adminPass" placeholder="Password" class="w-full px-4 py-3 border rounded-lg mb-3">
-                <button onclick="loginAdmin()" class="w-full bg-blue-600 text-white font-bold py-3 rounded-lg">Login</button>
-                <p id="loginError" class="text-red-500 text-sm mt-2"></p>
-                <p class="text-xs text-gray-500 mt-4">Use: admin / lakshmi2026</p>
-                <button onclick="showHome()" class="w-full bg-gray-300 text-gray-800 font-bold py-2 rounded-lg mt-4">← Back</button>
+        <div id="adminLoginPage" class="page-content bg-white p-6 sm:p-8 rounded-2xl shadow-xl border border-gray-100 max-w-md mx-auto hidden">
+            <h3 class="text-2xl font-bold text-blue-900 mb-6 text-center">🔐 Admin Login</h3>
+            <div class="space-y-4">
+                <div>
+                    <label class="block text-sm font-semibold text-gray-600 mb-2">Username</label>
+                    <input type="text" id="adminUser" placeholder="admin" class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500">
+                </div>
+                <div>
+                    <label class="block text-sm font-semibold text-gray-600 mb-2">Password</label>
+                    <input type="password" id="adminPass" placeholder="Enter password" class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500">
+                </div>
+                <p id="loginError" class="text-red-500 text-sm h-4"></p>
+                <button onclick="adminLogin()" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-xl shadow transition">
+                    Login to Admin Panel
+                </button>
+                <p class="text-xs text-gray-500 text-center">Default: admin / lakshmi2026</p>
             </div>
+            <button onclick="openPage('homePage')" class="mt-4 w-full bg-gray-200 hover:bg-gray-300 text-gray-800 px-6 py-2.5 rounded-xl font-bold text-sm shadow transition cursor-pointer">← Back to Home</button>
         </div>
 
         <!-- ADMIN DASHBOARD -->
-        <div id="dashboardPage" class="hidden">
-            <div class="bg-white p-6 rounded-lg shadow-lg">
+        <div id="adminDashboardPage" class="page-content hidden">
+            <div class="bg-white p-6 rounded-2xl shadow-xl border border-gray-100 mb-6">
                 <div class="flex justify-between items-center mb-6">
-                    <h3 class="text-2xl font-bold">📊 Admin Dashboard</h3>
-                    <button onclick="logoutAdmin()" class="bg-red-600 text-white px-4 py-2 rounded-lg">Logout</button>
+                    <h3 class="text-2xl font-bold text-blue-900">📊 Admin Dashboard</h3>
+                    <button onclick="adminLogout()" class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg text-sm font-bold">Logout</button>
                 </div>
-                
-                <div class="bg-blue-50 p-4 rounded-lg mb-6">
-                    <h4 class="font-bold mb-4">➕ Add Shipment</h4>
-                    <input type="text" id="newLR" placeholder="LR Number" class="w-full px-3 py-2 border rounded mb-2">
-                    <input type="text" id="newFrom" placeholder="From City" class="w-full px-3 py-2 border rounded mb-2">
-                    <input type="text" id="newTo" placeholder="To City" class="w-full px-3 py-2 border rounded mb-2">
-                    <select id="newStatus" class="w-full px-3 py-2 border rounded mb-2">
-                        <option>Booked</option>
-                        <option>In Transit</option>
-                        <option>Delivered</option>
-                    </select>
-                    <button onclick="addOrder()" class="w-full bg-green-600 text-white font-bold py-2 rounded">Add Order</button>
+                <div class="bg-blue-50 p-6 rounded-xl mb-6 border border-blue-200">
+                    <h4 class="font-bold text-lg mb-4 text-blue-900">➕ Add New Shipment</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <input type="text" id="newOrderId" placeholder="Order ID *" class="px-4 py-2 border rounded-lg text-sm">
+                        <input type="text" id="newLR" placeholder="LR / Bilty Number *" class="px-4 py-2 border rounded-lg text-sm">
+                        <input type="text" id="newFrom" placeholder="From City *" class="px-4 py-2 border rounded-lg text-sm">
+                        <input type="text" id="newTo" placeholder="To City *" class="px-4 py-2 border rounded-lg text-sm">
+                        <input type="number" id="newWeight" placeholder="Weight (KG) *" class="px-4 py-2 border rounded-lg text-sm">
+                        <input type="number" id="newPackages" placeholder="No. of Packages *" class="px-4 py-2 border rounded-lg text-sm">
+                        <select id="newStatus" class="px-4 py-2 border rounded-lg text-sm md:col-span-2">
+                            <option value="Booked">Booked</option>
+                            <option value="Picked Up">Picked Up</option>
+                            <option value="In Transit">In Transit</option>
+                            <option value="Out for Delivery">Out for Delivery</option>
+                            <option value="Delivered">Delivered</option>
+                        </select>
+                    </div>
+                    <button onclick="addShipment()" id="addShipmentBtn" class="mt-4 w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3 rounded-xl shadow transition">
+                        Add Shipment
+                    </button>
                 </div>
-
-                <h4 class="font-bold mb-4">📦 All Orders</h4>
-                <div id="ordersList"></div>
+                <div>
+                    <h4 class="font-bold text-lg mb-4">📦 All Shipments <span id="shipmentCount" class="text-sm text-gray-500"></span></h4>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-sm">
+                            <thead class="bg-gray-100">
+                                <tr>
+                                    <th class="p-3 text-left">Order ID</th>
+                                    <th class="p-3 text-left">LR No</th>
+                                    <th class="p-3 text-left">Route</th>
+                                    <th class="p-3 text-left">Status</th>
+                                    <th class="p-3 text-left">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="shipmentsTable"></tbody>
+                        </table>
+                    </div>
+                </div>
+            <div id="updateModal" class="fixed inset-0 bg-black/50 z-50 hidden flex items-center justify-center p-4" onclick="closeUpdateModal()">
+                <div class="bg-white rounded-2xl p-6 max-w-md w-full" onclick="event.stopPropagation()">
+                    <h4 class="font-bold text-lg mb-4">📝 Update Tracking</h4>
+                    <input type="hidden" id="updateOrderId">
+                    <div class="space-y-3">
+                        <select id="updateStatus" class="w-full px-4 py-2 border rounded-lg text-sm">
+                            <option value="Booked">Booked</option>
+                            <option value="Picked Up">Picked Up</option>
+                            <option value="In Transit">In Transit</option>
+                            <option value="Out for Delivery">Out for Delivery</option>
+                            <option value="Delivered">Delivered</option>
+                        </select>
+                        <input type="text" id="updateLocation" placeholder="Location (e.g. Delhi Hub)" class="w-full px-4 py-2 border rounded-lg text-sm">
+                        <textarea id="updateNote" placeholder="Note (optional)" rows="2" class="w-full px-4 py-2 border rounded-lg text-sm"></textarea>
+                        <button onclick="updateShipmentStatus()" id="updateBtn" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 rounded-lg">
+                            Add Update
+                        </button>
+                        <button onclick="closeUpdateModal()" class="w-full bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 rounded-lg">
+                            Cancel
+                        </button>
+                    </div>
+                </div>
             </div>
+        </div>
+
+        <!-- SERVICES PAGE -->
+        <div id="servicesPage" class="page-content bg-white p-6 sm:p-8 rounded-2xl shadow-xl border border-gray-100 hidden">
+            <h3 class="text-2xl font-bold text-blue-900 border-b border-gray-100 pb-3 mb-6">🚚 Our Services</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="border border-gray-200 p-5 rounded-xl hover:shadow-lg transition">
+                    <div class="text-3xl mb-3">📦</div>
+                    <h4 class="font-bold text-lg mb-2">Part Load Service</h4>
+                    <p class="text-sm text-gray-600 mb-3">Door to door delivery for small consignments. Starting ₹500</p>
+                    <ul class="text-xs text-gray-500 space-y-1">
+                        <li>✓ Pan India Network</li>
+                        <li>✓ Safe & Secure</li>
+                        <li>✓ Real-time Tracking</li>
+                    </ul>
+                </div>
+                <div class="border border-gray-200 p-5 rounded-xl hover:shadow-lg transition">
+                    <div class="text-3xl mb-3">🚛</div>
+                    <h4 class="font-bold text-lg mb-2">Full Truck Load (FTL)</h4>
+                    <p class="text-sm text-gray-600 mb-3">Dedicated truck for your cargo. Custom Quote</p>
+                    <ul class="text-xs text-gray-500 space-y-1">
+                        <li>✓ Direct Delivery</li>
+                        <li>✓ No Transshipment</li>
+                        <li>✓ 24-48 Hours Delivery</li>
+                    </ul>
+                </div>
+                <div class="border border-gray-200 p-5 rounded-xl hover:shadow-lg transition">
+                    <div class="text-3xl mb-3">🏭</div>
+                    <h4 class="font-bold text-lg mb-2">Warehouse Service</h4>
+                    <p class="text-sm text-gray-600 mb-3">Storage & distribution solutions</p>
+                    <ul class="text-xs text-gray-500 space-y-1">
+                        <li>✓ 50,000 sq ft Space</li>
+                        <li>✓ CCTV Surveillance</li>
+                        <li>✓ Inventory Management</li>
+                    </ul>
+                </div>
+                <div class="border border-gray-200 p-5 rounded-xl hover:shadow-lg transition">
+                    <div class="text-3xl mb-3">📋</div>
+                    <h4 class="font-bold text-lg mb-2">Bilty / LR Service</h4>
+                    <p class="text-sm text-gray-600 mb-3">Professional documentation</p>
+                    <ul class="text-xs text-gray-500 space-y-1">
+                        <li>✓ GST Compliant</li>
+                        <li>✓ E-way Bill Support</li>
+                        <li>✓ Instant Generation</li>
+                    </ul>
+                </div>
+            </div>
+            <button onclick="openPage('homePage')" class="mt-6 bg-gray-800 text-white px-6 py-2.5 rounded-xl font-bold text-sm">← Back</button>
+        </div>
+
+        <!-- QUOTE PAGE -->
+        <div id="quotePage" class="page-content bg-white p-6 sm:p-8 rounded-2xl shadow-xl border border-gray-100 max-w-2xl mx-auto hidden">
+            <h3 class="text-2xl font-bold text-blue-900 mb-6">💰 Get Freight Quote</h3>
+            <div class="space-y-4">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <input type="text" id="fromCity" placeholder="From City *" class="w-full px-4 py-3 border rounded-xl">
+                    <input type="text" id="toCity" placeholder="To City *" class="w-full px-4 py-3 border rounded-xl">
+                </div>
+                <input type="number" id="weight" placeholder="Weight (KG) *" class="w-full px-4 py-3 border rounded-xl">
+                <select id="serviceType" class="w-full px-4 py-3 border rounded-xl">
+                    <option value="part">Part Load</option>
+                    <option value="ftl">Full Truck Load</option>
+                </select>
+                <button onclick="calculateQuote()" class="w-full bg-blue-600 text-white font-bold py-3 rounded-xl hover:bg-blue-700">Calculate Quote</button>
+                <div id="quoteResult" class="hidden bg-green-50 p-4 rounded-xl text-center border border-green-200">
+                    <p class="text-sm text-gray-600 mb-2">Estimated Quote</p>
+                    <p class="text-3xl font-bold text-green-600" id="quoteAmount">₹0</p>
+                    <p class="text-xs text-gray-500 mt-2">* Final price may vary. Contact us for confirmation.</p>
+                </div>
+            <button onclick="openPage('homePage')" class="mt-6 w-full bg-gray-800 text-white px-6 py-2.5 rounded-xl font-bold text-sm">← Back</button>
+        </div>
+
+        <!-- COMPANY DETAILS -->
+        <div id="transportDetailsPage" class="page-content bg-white p-6 sm:p-8 rounded-2xl shadow-xl border border-gray-100 hidden">
+            <h3 class="text-xl font-bold text-blue-900 border-b border-gray-100 pb-3 mb-5">🏢 Company Details</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div class="p-3 bg-gray-50 rounded-lg">
+                    <span class="text-xs font-bold text-gray-400 uppercase block">Company Name</span>
+                    <strong class="text-gray-800 text-sm">SHREE LAKSHMI LOGISTIC PVT LTD</strong>
+                </div>
+                <div class="p-3 bg-gray-50 rounded-lg">
+                    <span class="text-xs font-bold text-gray-400 uppercase block">GST Number</span>
+                    <div class="flex items-center gap-2">
+                        <strong class="text-blue-600 text-sm">29ASLPL8036G1ZC</strong>
+                        <button onclick="copyText('29ASLPL8036G1ZC')" class="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded hover:bg-blue-200">Copy</button>
+                    </div>
+                </div>
+                <div class="p-3 bg-gray-50 rounded-lg">
+                    <span class="text-xs font-bold text-gray-400 uppercase block">PAN Number</span>
+                    <strong class="text-gray-800 text-sm">ASLPL8036G</strong>
+                </div>
+                <div class="p-3 bg-gray-50 rounded-lg">
+                    <span class="text-xs font-bold text-gray-400 uppercase block">CIN Number</span>
+                    <strong class="text-gray-800 text-sm">U63000KA2020PTC134567</strong>
+                </div>
+                <div class="p-3 bg-gray-50 rounded-lg sm:col-span-2">
+                    <span class="text-xs font-bold text-gray-400 uppercase block">Registered Address</span>
+                    <strong class="text-gray-800 text-sm">H1/12 first floor, Yashwantpur, Bengaluru Karnataka India 560022</strong>
+                </div>
+                <div class="p-3 bg-gray-50 rounded-lg">
+                    <span class="text-xs font-bold text-gray-400 uppercase block">Email</span>
+                    <strong class="text-gray-800 text-sm">Shreelakshmilogisticbengaluru@gmail.com</strong>
+                </div>
+                <div class="p-3 bg-gray-50 rounded-lg">
+                    <span class="text-xs font-bold text-gray-400 uppercase block">Contact</span>
+                    <strong class="text-gray-800 text-sm">+91 7665296227</strong>
+                </div>
+            </div>
+            <button onclick="openPage('homePage')" class="mt-6 bg-gray-800 text-white px-6 py-2.5 rounded-xl font-bold text-sm">← Back</button>
+        </div>
+
+        <!-- FAQ -->
+        <div id="faqPage" class="page-content bg-white p-6 sm:p-8 rounded-2xl shadow-xl border border-gray-100 hidden">
+            <h3 class="text-2xl font-bold text-blue-900 mb-6">❓ Frequently Asked Questions</h3>
+            <div class="space-y-4">
+                <details class="bg-gray-50 p-4 rounded-lg cursor-pointer">
+                    <summary class="font-bold">Delivery time kitna lagta hai?</summary>
+                    <p class="text-sm text-gray-600 mt-2">Metro cities: 2-3 din. Other cities: 4-7 din. Remote areas: 7-10 din.</p>
+                </details>
+                <details class="bg-gray-50 p-4 rounded-lg cursor-pointer">
+                    <summary class="font-bold">Tracking kaise karein?</summary>
+                    <p class="text-sm text-gray-600 mt-2">Home page pe LR/Bilty number daalein aur Track Now dabayein. Real-time updates milengi.</p>
+                </details>
+                <details class="bg-gray-50 p-4 rounded-lg cursor-pointer">
+                    <summary class="font-bold">Payment kaise karein?</summary>
+                    <p class="text-sm text-gray-600 mt-2">Cash, UPI, Bank Transfer, Cheque - sab accepted hai. To-Pay service bhi available hai.</p>
+                </details>
+                <details class="bg-gray-50 p-4 rounded-lg cursor-pointer">
+                    <summary class="font-bold">Insurance milta hai?</summary>
+                    <p class="text-sm text-gray-600 mt-2">Haan, optional transit insurance available hai. 0.2% of cargo value.</p>
+                </details>
+                <details class="bg-gray-50 p-4 rounded-lg cursor-pointer">
+                    <summary class="font-bold">Minimum weight kya hai?</summary>
+                    <p class="text-sm text-gray-600 mt-2">Part load: 10 KG se start. FTL: Full truck capacity tak.</p>
+                </details>
+            </div>
+            <button onclick="openPage('homePage')" class="mt-6 bg-gray-800 text-white px-6 py-2.5 rounded-xl font-bold text-sm">← Back</button>
+        </div>
+
+        <!-- CONTACT -->
+        <div id="contactUsPage" class="page-content bg-white p-6 sm:p-8 rounded-2xl shadow-xl border border-gray-100 max-w-2xl mx-auto hidden">
+            <h3 class="text-2xl font-bold text-blue-900 mb-6">📞 Contact Us</h3>
+            <div class="space-y-4">
+                <a href="https://wa.me/917665296227" target="_blank" class="block p-4 bg-green-50 rounded-xl border border-green-200 hover:bg-green-100 transition">
+                    <div class="flex items-center gap-3">
+                        <span class="text-2xl">🟢</span>
+                        <div>
+                            <strong class="text-green-700 block">WhatsApp</strong>
+                            <span class="text-sm text-gray-600">+91 7665296227</span>
+                        </div>
+                    </div>
+                </a>
+                <a href="tel:+917665296227" class="block p-4 bg-blue-50 rounded-xl border border-blue-200 hover:bg-blue-100 transition">
+                    <div class="flex items-center gap-3">
+                        <span class="text-2xl">📱</span>
+                        <div>
+                            <strong class="text-blue-800 block">Call Us</strong>
+                            <span class="text-sm text-gray-600">+91 7665296227</span>
+                        </div>
+                    </div>
+                </a>
+                <a href="mailto:Shreelakshmilogisticbengaluru@gmail.com" class="block p-4 bg-purple-50 rounded-xl border border-purple-200 hover:bg-purple-100 transition">
+                    <div class="flex items-center gap-3">
+                        <span class="text-2xl">✉</span>
+                        <div>
+                            <strong class="text-purple-800 block">Email</strong>
+                            <span class="text-sm text-gray-600">Shreelakshmilogisticbengaluru@gmail.com</span>
+                        </div>
+                    </div>
+                </a>
+                <div class="p-4 bg-gray-50 rounded-xl border border-gray-200">
+                    <div class="flex items-center gap-3">
+                        <span class="text-2xl">📍</span>
+                        <div>
+                            <strong class="text-gray-800 block">Office Address</strong>
+                            <span class="text-sm text-gray-600">H1/12 first floor, Yashwantpur, Bengaluru Karnataka 560022</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-4 bg-orange-50 rounded-xl border border-orange-200">
+                    <div class="flex items-center gap-3">
+                        <span class="text-2xl">🕒</span>
+                        <div>
+                            <strong class="text-orange-800 block">Working Hours</strong>
+                            <span class="text-sm text-gray-600">Mon-Sat: 9:00 AM - 7:00 PM</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button onclick="openPage('homePage')" class="mt-6 w-full bg-gray-800 text-white px-6 py-2.5 rounded-xl font-bold text-sm">← Back</button>
         </div>
 
     </main>
 
-    <script>
-        // DATA
-        let orders = JSON.parse(localStorage.getItem('orders') || '[{"lr":"LR123456","from":"Hyderabad","to":"Bengaluru","status":"In Transit"}]');
-        let isLoggedIn = false;
-
-        // MENU FUNCTIONS
-        function openMenu() {
-            document.getElementById('menu').classList.remove('hidden');
-        }
-        function closeMenu() {
-            document.getElementById('menu').classList.add('hidden');
-        }
-
-        // PAGE FUNCTIONS
-        function showHome() {
-            document.getElementById('homePage').classList.remove('hidden');
-            document.getElementById('adminPage').classList.add('hidden');
-            document.getElementById('dashboardPage').classList.add('hidden');
-            closeMenu();
-        }
-
-        function openAdmin() {
-            document.getElementById('homePage').classList.add('hidden');
-            document.getElementById('adminPage').classList.remove('hidden');
-            document.getElementById('dashboardPage').classList.add('hidden');
-        }
-
-        // TRACKING FUNCTION
-        function trackOrder() {
-            const input = document.getElementById('trackInput').value.trim().toUpperCase();
-            const error = document.getElementById('trackError');
-            const result = document.getElementById('result');
-            const resultData = document.getElementById('resultData');
-            
-            error.textContent = '';
-            result.classList.add('hidden');
-            
-            if (!input) {
-                error.textContent = 'Please enter LR number!';
-                return;
-            }
-            
-            const order = orders.find(o => o.lr === input);
-            
-            if (!order) {
-                error.textContent = 'Order not found!';
-                return;
-            }
-            
-            resultData.innerHTML = `
-                <p><strong>LR No:</strong> ${order.lr}</p>
-                <p><strong>Route:</strong> ${order.from} → ${order.to}</p>
-                <p><strong>Status:</strong> <span class="bg-blue-100 text-blue-700 px-2 py-1 rounded text-xs">${order.status}</span></p>
-            `;
-            result.classList.remove('hidden');
-        }
-
-        // ADMIN FUNCTIONS
-        function loginAdmin() {
-            const user = document.getElementById('adminUser').value;
-            const pass = document.getElementById('adminPass').value;
-            const error = document.getElementById('loginError');
-            
-            if (user === 'admin' && pass === 'lakshmi2026') {
-                isLoggedIn = true;
-                document.getElementById('adminPage').classList.add('hidden');
-                document.getElementById('dashboardPage').classList.remove('hidden');
-                loadOrders();
-                error.textContent = '';
-            } else {
-                error.textContent = 'Wrong username or password!';
-            }
-        }
-
-        function logoutAdmin() {
-            isLoggedIn = false;
-            showHome();
-        }
-
-        function addOrder() {
-            const lr = document.getElementById('newLR').value;
-            const from = document.getElementById('newFrom').value;
-            const to = document.getElementById('newTo').value;
-            const status = document.getElementById('newStatus').value;
-            
-            if (!lr || !from || !to) {
-                alert('Please fill all fields!');
-                return;
-            }
-            
-            orders.push({lr, from, to, status});
-            localStorage.setItem('orders', JSON.stringify(orders));
-            
-            document.getElementById('newLR').value = '';
-            document.getElementById('newFrom').value = '';
-            document.getElementById('newTo').value = '';
-            
-            loadOrders();
-            alert('Order added successfully!');
-        }
-
-        function loadOrders() {
-            const list = document.getElementById('ordersList');
-            list.innerHTML = orders.map((o, i) => `
-                <div class="border p-3 rounded mb-2 flex justify-between items-center">
-                    <div>
-                        <strong>${o.lr}</strong><br>
-                        <span class="text-sm text-gray-600">${o.from} → ${o.to}</span><br>
-                        <span class="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded">${o.status}</span>
-                    </div>
-                    <button onclick="deleteOrder(${i})" class="bg-red-500 text-white px-3 py-1 rounded text-sm">Delete</button>
+    <footer class="bg-blue-950 text-gray-400 text-center py-6 text-xs border-t border-blue-900 w-full mt-auto">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-4 text-left">
+                <div>
+                    <h4 class="text-white font-bold mb-2">SHREE LAKSHMI LOGISTIC</h4>
+                    <p class="text-xs mb-2">All India Transport & Logistics Services</p>
+                    <p class="text-xs">📍 H1/12, Yashwantpur, Bengaluru 560022</p>
+                    <p class="text-xs mt-2">GST: 29ASLPL8036G1ZC</p>
+                    <p class="text-xs">PAN: ASLPL8036G</p>
+                    <p class="text-xs">CIN: U63000KA2020PTC134567</p>
                 </div>
-            `).join('');
-        }
-
-        function deleteOrder(index) {
-            if (confirm('Delete this order?')) {
-                orders.splice(index, 1);
-                localStorage.setItem('orders', JSON.stringify(orders));
-                loadOrders();
-            }
-        }
-
-        // Initialize
-        showHome();
-    </script>
-</body>
-</html>
+                <div>
+                    <h4 class="text-white font-bold mb-2">Quick Links</h4>
+                    <div class="space-y-1 text-xs">
+                        <button onclick="openPage('servicesPage')" class="block hover:text-white">Our Services</button>
+                        <button onclick="openPage('quotePage')" class="block hover:text-white">Get Quote</button>
+                        <button onclick="openPage('faqPage')" class="block hover:text-white">FAQ</button>
+                        <button onclick="openPage('transportDetailsPage')" class="block hover:text-white">Company Details</button>
+                    </div>
+                </div
