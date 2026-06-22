@@ -201,7 +201,7 @@
                 <div class="border p-4 rounded-lg"><div class="text-3xl mb-2">📦</div><h4 class="font-bold">Part Load</h4><p class="text-sm">Starting ₹500</p></div>
                 <div class="border p-4 rounded-lg"><div class="text-3xl mb-2">🚛</div><h4 class="font-bold">Full Truck Load</h4><p class="text-sm">Custom Quote</p></div>
             </div>
-            <button onclick="showPage('home')" class="mt-6 bg-gray-800 text-white px-6 py-2 rounded">← Back</button>
+            <button id="backBtn2" class="mt-6 bg-gray-800 text-white px-6 py-2 rounded">← Back</button>
         </div>
 
         <div id="quotePage" class="hidden bg-white p-6 rounded-lg shadow-lg max-w-2xl mx-auto">
@@ -213,7 +213,7 @@
             <div id="quoteResult" class="hidden bg-green-50 p-4 rounded-lg text-center mt-4">
                 <p class="text-3xl font-bold text-green-600" id="quoteAmount">₹0</p>
             </div>
-            <button onclick="showPage('home')" class="mt-6 w-full bg-gray-800 text-white px-6 py-2 rounded">← Back</button>
+            <button id="backBtn3" class="mt-6 w-full bg-gray-800 text-white px-6 py-2 rounded">← Back</button>
         </div>
 
         <div id="detailsPage" class="hidden bg-white p-6 rounded-lg shadow-lg">
@@ -224,20 +224,20 @@
                 <div class="p-3 bg-gray-50 rounded-lg"><span class="text-xs font-bold text-gray-400">PAN</span><strong class="block text-sm">ASLPL8036G</strong></div>
                 <div class="p-3 bg-gray-50 rounded-lg"><span class="text-xs font-bold text-gray-400">CIN</span><strong class="block text-sm">U63000KA2020PTC134567</strong></div>
             </div>
-            <button onclick="showPage('home')" class="mt-6 bg-gray-800 text-white px-6 py-2 rounded">← Back</button>
+            <button id="backBtn4" class="mt-6 bg-gray-800 text-white px-6 py-2 rounded">← Back</button>
         </div>
 
         <div id="faqPage" class="hidden bg-white p-6 rounded-lg shadow-lg">
             <h3 class="text-2xl font-bold mb-6">❓ FAQ</h3>
             <details class="bg-gray-50 p-4 rounded-lg mb-3"><summary class="font-bold">Delivery time?</summary><p class="text-sm mt-2">Metro: 2-3 days. Others: 4-7 days.</p></details>
-            <button onclick="showPage('home')" class="mt-6 bg-gray-800 text-white px-6 py-2 rounded">← Back</button>
+            <button id="backBtn5" class="mt-6 bg-gray-800 text-white px-6 py-2 rounded">← Back</button>
         </div>
 
         <div id="contactPage" class="hidden bg-white p-6 rounded-lg shadow-lg max-w-2xl mx-auto">
             <h3 class="text-2xl font-bold mb-6">📞 Contact Us</h3>
             <a href="https://wa.me/917665296227" target="_blank" class="block p-4 bg-green-50 rounded-lg border border-green-200 mb-3"><strong class="text-green-700">🟢 WhatsApp: 7665296227</strong></a>
             <a href="tel:+917665296227" class="block p-4 bg-blue-50 rounded-lg border border-blue-200 mb-3"><strong class="text-blue-800">📱 Call: 7665296227</strong></a>
-            <button onclick="showPage('home')" class="mt-6 w-full bg-gray-800 text-white px-6 py-2 rounded">← Back</button>
+            <button id="backBtn6" class="mt-6 w-full bg-gray-800 text-white px-6 py-2 rounded">← Back</button>
         </div>
 
     </main>
@@ -304,7 +304,7 @@
             document.getElementById(page + 'Page').classList.remove('hidden');
             closeMenu();
 
-            if (pageHistory[pageHistory.length - 1]!== page) {
+            if (pageHistory[pageHistory.length - 1] !== page) {
                 pageHistory.push(page);
                 history.pushState({page: page}, '', '#' + page);
             }
@@ -336,138 +336,130 @@
             showPage('adminLogin');
         }
 
-        // EVENT LISTENERS
-        document.getElementById('menuBtn').addEventListener('click', openMenu);
-        document.getElementById('closeMenuBtn').addEventListener('click', closeMenu);
-        document.getElementById('adminBtn').addEventListener('click', openAdmin);
-        document.getElementById('sidebarMenu').addEventListener('click', function(e) {
-            if(e.target.id === 'sidebarMenu') closeMenu();
-        });
-
-        // NAVIGATION LINKS
-        document.querySelectorAll('.nav-link').forEach(function(btn) {
-            btn.addEventListener('click', function() {
-                showPage(this.dataset.page);
+        // EVENT LISTENERS - ALL ATTACHED AFTER DOM LOADS
+        document.addEventListener('DOMContentLoaded', function() {
+            // MENU BUTTONS
+            document.getElementById('menuBtn').addEventListener('click', openMenu);
+            document.getElementById('closeMenuBtn').addEventListener('click', closeMenu);
+            document.getElementById('adminBtn').addEventListener('click', openAdmin);
+            document.getElementById('sidebarMenu').addEventListener('click', function(e) {
+                if(e.target.id === 'sidebarMenu') closeMenu();
             });
-        });
 
-        // SLIDER
-        var slideIndex = 0;
-        var slides = document.getElementsByClassName('slider-img');
-        setInterval(function() {
-            slides[slideIndex].classList.remove('active');
-            slideIndex = (slideIndex + 1) % slides.length;
-            slides[slideIndex].classList.add('active');
-        }, 3000);
+            // NAVIGATION LINKS
+            document.querySelectorAll('.nav-link').forEach(function(btn) {
+                btn.addEventListener('click', function() {
+                    showPage(this.dataset.page);
+                });
+            });
 
-        // TRACK ORDER
-        document.getElementById('trackBtn').addEventListener('click', function() {
-            var input = document.getElementById('trackInput').value.trim().toUpperCase();
-            var error = document.getElementById('trackError');
-            var result = document.getElementById('trackingResult');
-            var resultData = document.getElementById('resultData');
-            var timelineContainer = document.getElementById('timelineContainer');
+            // BACK BUTTONS
+            document.getElementById('backBtn1').addEventListener('click', function() { showPage('home'); });
+            document.getElementById('backBtn2').addEventListener('click', function() { showPage('home'); });
+            document.getElementById('backBtn3').addEventListener('click', function() { showPage('home'); });
+            document.getElementById('backBtn4').addEventListener('click', function() { showPage('home'); });
+            document.getElementById('backBtn5').addEventListener('click', function() { showPage('home'); });
+            document.getElementById('backBtn6').addEventListener('click', function() { showPage('home'); });
 
-            error.textContent = '';
-            result.classList.add('hidden');
+            // TRACK ORDER
+            document.getElementById('trackBtn').addEventListener('click', function() {
+                var input = document.getElementById('trackInput').value.trim().toUpperCase();
+                var error = document.getElementById('trackError');
+                var result = document.getElementById('trackingResult');
+                var resultData = document.getElementById('resultData');
+                var timelineContainer = document.getElementById('timelineContainer');
 
-            if (!input) {
-                error.textContent = 'Please enter LR/Bilty number!';
-                return;
-            }
-
-            var order = orders.find(function(o) { return o.lr === input; });
-
-            if (!order) {
-                error.textContent = 'Shipment not found! Please check LR number.';
-                return;
-            }
-
-            resultData.innerHTML = '<div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm"><div><strong>LR No:</strong> ' + order.lr + '</div><div><strong>Status:</strong> <span class="bg-blue-100 text-blue-700 px-2 py-1 rounded text-xs">' + order.status + '</span></div><div><strong>From:</strong> ' + order.from + ', ' + order.fromState + '</div><div><strong>To:</strong> ' + order.to + ', ' + order.toState + '</div><div><strong>Consignor:</strong> ' + order.consignor + '</div><div><strong>Consignee:</strong> ' + order.consignee + '</div><div><strong>Weight:</strong> ' + order.weight + ' KG</div><div><strong>Packages:</strong> ' + order.packages + '</div><div><strong>Freight:</strong> ₹' + order.freight + '</div><div><strong>Payment:</strong> ' + order.payment + '</div><div><strong>Vehicle:</strong> ' + (order.vehicle || 'N/A') + '</div><div><strong>Expected Delivery:</strong> ' + (order.deliveryDate || 'N/A') + '</div></div>';
-
-            timelineContainer.innerHTML = (order.timeline || []).map(function(t, i) {
-                var isCompleted = i < order.timeline.length - 1;
-                return '<div class="timeline-item relative ' + (isCompleted? 'completed' : '') + '"><div class="font-bold text-sm">' + t.status + '</div><div class="text-xs text-gray-600">' + t.location + '</div><div class="text-xs text-gray-500">' + t.date + '</div>' + (t.note? '<div class="text-xs text-gray-500 italic">' + t.note + '</div>' : '') + '</div>';
-            }).join('');
-
-            result.classList.remove('hidden');
-        });
-
-        // ADMIN LOGIN
-        document.getElementById('loginBtn').addEventListener('click', function() {
-            var user = document.getElementById('adminUser').value;
-            var pass = document.getElementById('adminPass').value;
-            var error = document.getElementById('loginError');
-
-            if (user === 'admin' && pass === 'lakshmi2026') {
-                showPage('adminDashboard');
-                loadOrders();
                 error.textContent = '';
-            } else {
-                error.textContent = 'Invalid credentials!';
-            }
-        });
+                result.classList.add('hidden');
 
-        // ADMIN LOGOUT
-        document.getElementById('logoutBtn').addEventListener('click', function() {
-            showPage('home');
-        });
+                if (!input) {
+                    error.textContent = 'Please enter LR/Bilty number!';
+                    return;
+                }
 
-        // BACK BUTTONS
-        document.getElementById('backBtn1').addEventListener('click', function() { showPage('home'); });
+                var order = orders.find(function(o) { return o.lr === input; });
 
-        // ADD ORDER
-        document.getElementById('addOrderBtn').addEventListener('click', function() {
-            var order = {
-                orderId: document.getElementById('orderId').value || 'SL' + Date.now(),
-                lr: document.getElementById('lrNo').value,
-                bookDate: document.getElementById('bookDate').value,
-                ewayBill: document.getElementById('ewayBill').value,
-                consignor: document.getElementById('consignorName').value,
-                consignorMobile: document.getElementById('consignorMobile').value,
-                consignorGST: document.getElementById('consignorGST').value,
-                from: document.getElementById('fromCity').value,
-                fromState: document.getElementById('fromState').value,
-                fromPincode: document.getElementById('fromPincode').value,
-                consignorAddr: document.getElementById('consignorAddr').value,
-                consignee: document.getElementById('consigneeName').value,
-                consigneeMobile: document.getElementById('consigneeMobile').value,
-                consigneeGST: document.getElementById('consigneeGST').value,
-                to: document.getElementById('toCity').value,
-                toState: document.getElementById('toState').value,
-                toPincode: document.getElementById('toPincode').value,
-                consigneeAddr: document.getElementById('consigneeAddr').value,
-                weight: document.getElementById('weight').value,
-                packages: document.getElementById('packages').value,
-                dimension: document.getElementById('dimension').value,
-                articleType: document.getElementById('articleType').value,
-                declaredValue: document.getElementById('declaredValue').value,
-                freight: document.getElementById('freight').value,
-                tax: document.getElementById('tax').value,
-                insurance: document.getElementById('insurance').value,
-                payment: document.getElementById('paymentMode').value,
-                deliveryDate: document.getElementById('deliveryDate').value,
-                serviceType: document.getElementById('serviceType').value,
-                invoiceNo: document.getElementById('invoiceNo').value,
-                status: document.getElementById('status').value,
-                location: document.getElementById('currentLocation').value,
-                vehicle: document.getElementById('vehicleNo').value,
-                driverName: document.getElementById('driverName').value,
-                driverMobile: document.getElementById('driverMobile').value,
-                hubName: document.getElementById('hubName').value,
-                remarks: document.getElementById('remarks').value,
-                timeline: [{
+                if (!order) {
+                    error.textContent = 'Shipment not found! Please check LR number.';
+                    return;
+                }
+
+                resultData.innerHTML = '<div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm"><div><strong>LR No:</strong> ' + order.lr + '</div><div><strong>Status:</strong> <span class="bg-blue-100 text-blue-700 px-2 py-1 rounded text-xs">' + order.status + '</span></div><div><strong>From:</strong> ' + order.from + ', ' + order.fromState + '</div><div><strong>To:</strong> ' + order.to + ', ' + order.toState + '</div><div><strong>Consignor:</strong> ' + order.consignor + '</div><div><strong>Consignee:</strong> ' + order.consignee + '</div><div><strong>Weight:</strong> ' + order.weight + ' KG</div><div><strong>Packages:</strong> ' + order.packages + '</div><div><strong>Freight:</strong> ₹' + order.freight + '</div><div><strong>Payment:</strong> ' + order.payment + '</div><div><strong>Vehicle:</strong> ' + (order.vehicle || 'N/A') + '</div><div><strong>Expected Delivery:</strong> ' + (order.deliveryDate || 'N/A') + '</div></div>';
+
+                timelineContainer.innerHTML = (order.timeline || []).map(function(t, i) {
+                    var isCompleted = i < order.timeline.length - 1;
+                    return '<div class="timeline-item relative ' + (isCompleted ? 'completed' : '') + '"><div class="font-bold text-sm">' + t.status + '</div><div class="text-xs text-gray-600">' + t.location + '</div><div class="text-xs text-gray-500">' + t.date + '</div>' + (t.note ? '<div class="text-xs text-gray-500 italic">' + t.note + '</div>' : '') + '</div>';
+                }).join('');
+
+                result.classList.remove('hidden');
+            });
+
+            // ADMIN LOGIN
+            document.getElementById('loginBtn').addEventListener('click', function() {
+                var user = document.getElementById('adminUser').value;
+                var pass = document.getElementById('adminPass').value;
+                var error = document.getElementById('loginError');
+
+                if (user === 'admin' && pass === 'lakshmi2026') {
+                    showPage('adminDashboard');
+                    loadOrders();
+                    error.textContent = '';
+                } else {
+                    error.textContent = 'Invalid credentials!';
+                }
+            });
+
+            // ADMIN LOGOUT
+            document.getElementById('logoutBtn').addEventListener('click', function() {
+                showPage('home');
+            });
+
+            // ADD ORDER
+            document.getElementById('addOrderBtn').addEventListener('click', function() {
+                var order = {
+                    orderId: document.getElementById('orderId').value || 'SL' + Date.now(),
+                    lr: document.getElementById('lrNo').value,
+                    bookDate: document.getElementById('bookDate').value,
+                    ewayBill: document.getElementById('ewayBill').value,
+                    consignor: document.getElementById('consignorName').value,
+                    consignorMobile: document.getElementById('consignorMobile').value,
+                    consignorGST: document.getElementById('consignorGST').value,
+                    from: document.getElementById('fromCity').value,
+                    fromState: document.getElementById('fromState').value,
+                    fromPincode: document.getElementById('fromPincode').value,
+                    consignorAddr: document.getElementById('consignorAddr').value,
+                    consignee: document.getElementById('consigneeName').value,
+                    consigneeMobile: document.getElementById('consigneeMobile').value,
+                    consigneeGST: document.getElementById('consigneeGST').value,
+                    to: document.getElementById('toCity').value,
+                    toState: document.getElementById('toState').value,
+                    toPincode: document.getElementById('toPincode').value,
+                    consigneeAddr: document.getElementById('consigneeAddr').value,
+                    weight: document.getElementById('weight').value,
+                    packages: document.getElementById('packages').value,
+                    dimension: document.getElementById('dimension').value,
+                    articleType: document.getElementById('articleType').value,
+                    declaredValue: document.getElementById('declaredValue').value,
+                    freight: document.getElementById('freight').value,
+                    tax: document.getElementById('tax').value,
+                    insurance: document.getElementById('insurance').value,
+                    payment: document.getElementById('paymentMode').value,
+                    deliveryDate: document.getElementById('deliveryDate').value,
+                    serviceType: document.getElementById('serviceType').value,
+                    invoiceNo: document.getElementById('invoiceNo').value,
                     status: document.getElementById('status').value,
-                    location: document.getElementById('currentLocation').value || document.getElementById('fromCity').value,
-                    date: new Date().toLocaleString(),
-                    note: 'Shipment Booked'
-                }]
-            };
+                    location: document.getElementById('currentLocation').value,
+                    vehicle: document.getElementById('vehicleNo').value,
+                    driverName: document.getElementById('driverName').value,
+                    driverMobile: document.getElementById('driverMobile').value,
+                    hubName: document.getElementById('hubName').value,
+                    remarks: document.getElementById('remarks').value,
+                    timeline: [{
+                        status: document.getElementById('status').value,
+                        location: document.getElementById('currentLocation').value || document.getElementById('fromCity').value,
+                        date: new Date().toLocaleString(),
+                        note: 'Shipment Booked'
+                    }]
+                };
 
-            if (!order.lr ||!order.from ||!order.to ||!order.consignor ||!order.consignee) {
-                alert('Please fill all required fields marked with *');
-                return;
-            }
-
-            orders.push(order);
-            localStorage.setItem('orders
+                if (!order.lr || !order.from || !order.to || !order.consign
