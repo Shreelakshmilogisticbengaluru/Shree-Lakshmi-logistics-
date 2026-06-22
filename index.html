@@ -9,9 +9,47 @@
 .hidden { display: none!important; }
 .slider-img { display: none; }
 .slider-img.active { display: block; }
+.timeline-item::before {
+        content: '';
+        position: absolute;
+        left: -21px;
+        top: 5px;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: #3b82f6;
+        border: 3px solid white;
+        box-shadow: 0 0 0 2px #3b82f6;
+    }
+.timeline-item.completed::before { background: #10b981; box-shadow: 0 0 0 2px #10b981; }
+.whatsapp-float {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 999;
+        background: #25D366;
+        color: white;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        font-size: 30px;
+        text-decoration: none;
+        animation: pulse 2s infinite;
+    }
+@keyframes pulse {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.1); }
+    }
     </style>
 </head>
 <body class="bg-gray-50">
+
+    <!-- WHATSAPP HELP BUTTON -->
+    <a href="https://wa.me/917665296227?text=Hello%20I%20need%20help%20with%20tracking" target="_blank" class="whatsapp-float">💬</a>
 
     <header class="bg-blue-900 text-white p-4 fixed top-0 w-full z-40 flex justify-between">
         <button id="menuBtn" class="bg-blue-800 px-4 py-2 rounded">☰ Menu</button>
@@ -34,7 +72,7 @@
 
     <main class="mt-20 p-4 max-w-6xl mx-auto">
 
-        <!-- HOME PAGE - PEHLE JAISA -->
+        <!-- HOME PAGE -->
         <div id="homePage">
             <div class="text-center mb-6">
                 <img src="https://i.postimg.cc/3N56G1Rw/image-search-1782066959399.png" alt="Logo" class="w-24 h-24 rounded-full mx-auto mb-3">
@@ -50,8 +88,8 @@
             </div>
 
             <div class="bg-blue-900 text-white p-6 rounded-lg mb-6">
-                <h2 class="text-lg font-bold mb-4 text-center">🏆 Certified & Trusted Logistics Partner</h2>
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center mb-4">
+                <h2 class="text-lg font-bold mb-4 text-center">🏆 Certified & Trusted</h2>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
                     <div><div class="text-2xl font-bold text-yellow-400">15+</div><div class="text-xs">Years Experience</div></div>
                     <div><div class="text-2xl font-bold text-yellow-400">500+</div><div class="text-xs">Cities Covered</div></div>
                     <div><div class="text-2xl font-bold text-yellow-400">10K+</div><div class="text-xs">Happy Clients</div></div>
@@ -74,6 +112,12 @@
             <div id="trackingResult" class="bg-white p-6 rounded-lg shadow-lg hidden mb-6">
                 <h3 class="font-bold text-lg mb-4">Tracking Details</h3>
                 <div id="resultData"></div>
+                <div id="trackingLine" class="bg-blue-50 border-l-4 border-blue-500 p-4 rounded my-4 hidden">
+                    <p class="text-sm font-bold text-blue-900">📦 Current Status:</p>
+                    <p id="trackingLineText" class="text-blue-800 mt-1"></p>
+                </div>
+                <h4 class="font-bold mt-6 mb-4">📦 Shipment Journey</h4>
+                <div id="timelineContainer" class="space-y-6 border-l-2 border-blue-200 ml-3 pl-6"></div>
             </div>
 
             <!-- TRUST SECTION -->
@@ -138,7 +182,7 @@
             </div>
         </div>
 
-        <!-- ADMIN DASHBOARD - 7 FIELDS -->
+        <!-- ADMIN DASHBOARD - 11 FIELDS TOTAL -->
         <div id="adminDashboardPage" class="hidden">
             <div class="bg-white p-6 rounded-lg shadow-lg">
                 <div class="flex justify-between items-center mb-6">
@@ -147,7 +191,7 @@
                 </div>
 
                 <div class="bg-blue-50 p-6 rounded-lg mb-6 border-2 border-blue-200">
-                    <h4 class="font-bold text-lg mb-4 text-blue-900">➕ Add New Shipment</h4>
+                    <h4 class="font-bold text-lg mb-4 text-blue-900">➕ Add New Shipment - 11 Fields</h4>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div><label class="text-xs font-bold text-gray-600">LR/Bilty No *</label><input type="text" id="lrNo" class="w-full px-3 py-2 border rounded text-sm"></div>
                         <div><label class="text-xs text-gray-600">From City *</label><input type="text" id="fromCity" class="w-full px-3 py-2 border rounded text-sm"></div>
@@ -156,6 +200,10 @@
                         <div><label class="text-xs text-gray-600">Receiver Name *</label><input type="text" id="receiverName" class="w-full px-3 py-2 border rounded text-sm"></div>
                         <div><label class="text-xs text-gray-600">Weight (KG) *</label><input type="number" id="weight" class="w-full px-3 py-2 border rounded text-sm"></div>
                         <div><label class="text-xs text-gray-600">Status *</label><select id="status" class="w-full px-3 py-2 border rounded text-sm"><option>Booked</option><option>In Transit</option><option>Delivered</option></select></div>
+                        <div><label class="text-xs text-gray-600">Item Name *</label><input type="text" id="itemName" class="w-full px-3 py-2 border rounded text-sm" placeholder="e.g. Electronics, Clothes"></div>
+                        <div class="md:col-span-2"><label class="text-xs text-gray-600">Consignee Address *</label><input type="text" id="consigneeAddress" class="w-full px-3 py-2 border rounded text-sm" placeholder="Receiver complete address"></div>
+                        <div><label class="text-xs text-gray-600">Freight Charges (₹) *</label><input type="number" id="freightCharges" class="w-full px-3 py-2 border rounded text-sm"></div>
+                        <div><label class="text-xs text-gray-600">Tracking Status Line *</label><input type="text" id="trackingLine" class="w-full px-3 py-2 border rounded text-sm" placeholder="e.g. Your order is picked up"></div>
                     </div>
                     <button id="addOrderBtn" class="mt-4 w-full bg-green-600 text-white font-bold py-3 rounded-lg">Add Shipment</button>
                 </div>
@@ -209,7 +257,6 @@
                         <li>✓ Instant Generation</li>
                     </ul>
                 </div>
-            </div>
             <button id="backBtn2" class="mt-6 bg-gray-800 text-white px-6 py-2 rounded">← Back</button>
         </div>
 
@@ -333,7 +380,6 @@
                             <span class="text-sm text-gray-600">H1/12 first floor, Yashwantpur, Bengaluru Karnataka 560022</span>
                         </div>
                     </div>
-                </div>
                 <div class="p-4 bg-orange-50 rounded-xl border border-orange-200">
                     <div class="flex items-center gap-3">
                         <span class="text-2xl">🕒</span>
@@ -343,6 +389,7 @@
                         </div>
                     </div>
                 </div>
+            </div>
             <button id="backBtn6" class="mt-6 w-full bg-gray-800 text-white px-6 py-2 rounded">← Back</button>
         </div>
 
@@ -362,7 +409,11 @@
                 sender: 'ABC Company',
                 receiver: 'XYZ Ltd',
                 weight: 250,
-                status: 'In Transit'
+                status: 'In Transit',
+                itemName: 'Electronics',
+                consigneeAddress: '456, Tech Park, Bengaluru 560022',
+                freightCharges: 5000,
+                trackingLine: 'Your order is picked up and in transit to Bengaluru'
             }];
             localStorage.setItem('orders', JSON.stringify(orders));
         }
@@ -375,7 +426,7 @@
             document.getElementById(page + 'Page').classList.remove('hidden');
             closeMenu();
 
-            if (pageHistory[pageHistory.length - 1]!== page) {
+            if (pageHistory[pageHistory.length - 1] !== page) {
                 pageHistory.push(page);
                 history.pushState({page: page}, '', '#' + page);
             }
@@ -445,6 +496,7 @@
                 var error = document.getElementById('trackError');
                 var result = document.getElementById('trackingResult');
                 var resultData = document.getElementById('resultData');
+                var timelineContainer = document.getElementById('timelineContainer');
 
                 error.textContent = '';
                 result.classList.add('hidden');
@@ -461,7 +513,20 @@
                     return;
                 }
 
-                resultData.innerHTML = '<div class="grid grid-cols-2 gap-4 text-sm"><div><strong>LR No:</strong> ' + order.lr + '</div><div><strong>Status:</strong> <span class="bg-blue-100 text-blue-700 px-2 py-1 rounded text-xs">' + order.status + '</span></div><strong>From:</strong> ' + order.from + '</div><div><strong>To:</strong> ' + order.to + '</div><div><strong>Sender:</strong> ' + order.sender + '</div><div><strong>Receiver:</strong> ' + order.receiver + '</div><div><strong>Weight:</strong> ' + order.weight + ' KG</div></div>';
+                resultData.innerHTML = '<div class="grid grid-cols-2 gap-4 text-sm"><div><strong>LR No:</strong> ' + order.lr + '</div><div><strong>Status:</strong> <span class="bg-blue-100 text-blue-700 px-2 py-1 rounded text-xs">' + order.status + '</span></div><div><strong>From:</strong> ' + order.from + '</div><div><strong>To:</strong> ' + order.to + '</div><div><strong>Sender:</strong> ' + order.sender + '</div><div><strong>Receiver:</strong> ' + order.receiver + '</div><div><strong>Item:</strong> ' + (order.itemName || 'N/A') + '</div><div><strong>Weight:</strong> ' + order.weight + ' KG</div><div><strong>Freight:</strong> ₹' + (order.freightCharges || 'N/A') + '</div></div>';
+
+                // TRACKING LINE - FLIPKART JAISE
+                var trackingLineDiv = document.getElementById('trackingLine');
+                var trackingLineText = document.getElementById('trackingLineText');
+                if (order.trackingLine) {
+                    trackingLineText.textContent = order.trackingLine;
+                    trackingLineDiv.classList.remove('hidden');
+                } else {
+                    trackingLineDiv.classList.add('hidden');
+                }
+
+                // SIMPLE TIMELINE
+                timelineContainer.innerHTML = '<div class="timeline-item relative"><div class="font-bold text-sm">' + order.status + '</div><div class="text-xs text-gray-600">' + order.from + ' → ' + order.to + '</div></div>';
 
                 result.classList.remove('hidden');
             });
@@ -472,100 +537,4 @@
                 var pass = document.getElementById('adminPass').value;
                 var error = document.getElementById('loginError');
 
-                if (user === 'admin' && pass === 'lakshmi2026') {
-                    showPage('adminDashboard');
-                    loadOrders();
-                    error.textContent = '';
-                } else {
-                    error.textContent = 'Wrong username or password!';
-                }
-            });
-
-            // ADMIN LOGOUT
-            document.getElementById('logoutBtn').addEventListener('click', function() {
-                showPage('home');
-            });
-
-            // ADD ORDER - 7 FIELDS ONLY
-            document.getElementById('addOrderBtn').addEventListener('click', function() {
-                var order = {
-                    lr: document.getElementById('lrNo').value,
-                    from: document.getElementById('fromCity').value,
-                    to: document.getElementById('toCity').value,
-                    sender: document.getElementById('senderName').value,
-                    receiver: document.getElementById('receiverName').value,
-                    weight: document.getElementById('weight').value,
-                    status: document.getElementById('status').value
-                };
-
-                if (!order.lr ||!order.from ||!order.to ||!order.sender ||!order.receiver ||!order.weight) {
-                    alert('Please fill all required fields!');
-                    return;
-                }
-
-                orders.push(order);
-                localStorage.setItem('orders', JSON.stringify(orders));
-
-                // CLEAR FORM
-                document.getElementById('lrNo').value = '';
-                document.getElementById('fromCity').value = '';
-                document.getElementById('toCity').value = '';
-                document.getElementById('senderName').value = '';
-                document.getElementById('receiverName').value = '';
-                document.getElementById('weight').value = '';
-
-                loadOrders();
-                alert('✅ Shipment added successfully!');
-            });
-
-            // QUOTE CALCULATOR
-            document.getElementById('quoteBtn').addEventListener('click', function() {
-                var from = document.getElementById('fromCityQuote').value;
-                var to = document.getElementById('toCityQuote').value;
-                var weight = document.getElementById('weightQuote').value;
-
-                if (!from ||!to ||!weight) {
-                    alert('Please fill all fields!');
-                    return;
-                }
-
-                var amount = weight * 15;
-                document.getElementById('quoteAmount').textContent = '₹' + amount;
-                document.getElementById('quoteResult').classList.remove('hidden');
-            });
-
-            // SLIDER
-            var slideIndex = 0;
-            var slides = document.getElementsByClassName('slider-img');
-            setInterval(function() {
-                slides[slideIndex].classList.remove('active');
-                slideIndex = (slideIndex + 1) % slides.length;
-                slides[slideIndex].classList.add('active');
-            }, 3000);
-
-            // LOAD ORDERS ON START
-            loadOrders();
-        });
-
-        // LOAD ORDERS FUNCTION
-        function loadOrders() {
-            var list = document.getElementById('ordersList');
-            if (!list) return;
-
-            document.getElementById('orderCount').textContent = orders.length;
-            list.innerHTML = orders.map(function(o, i) {
-                return '<div class="border p-4 rounded-lg mb-3"><div class="flex justify-between items-start mb-2"><div><strong class="text-lg">' + o.lr + '</strong><br><span class="text-sm text-gray-600">' + o.from + ' → ' + o.to + '</span></div><span class="bg-blue-100 text-blue-700 px-3 py-1 rounded text-xs">' + o.status + '</span></div><div class="grid grid-cols-2 gap-2 text-xs text-gray-600 mb-2"><div><strong>Sender:</strong> ' + o.sender + '</div><div><strong>Receiver:</strong> ' + o.receiver + '</div><div><strong>Weight:</strong> ' + o.weight + ' KG</div></div><button onclick="deleteOrder(' + i + ')" class="bg-red-500 text-white px-3 py-1 rounded text-sm">Delete</button></div>';
-            }).join('');
-        }
-
-        // DELETE ORDER
-        function deleteOrder(index) {
-            if (confirm('Delete this shipment?')) {
-                orders.splice(index, 1);
-                localStorage.setItem('orders', JSON.stringify(orders));
-                loadOrders();
-            }
-        }
-    </script>
-</body>
-</html>
+                if (user === 'admin' && pass === 'laksh
