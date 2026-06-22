@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="SHREE LAKSHMI LOGISTIC PVT LTD - All India transport, part load, full truck load, warehouse & logistics services. Track LR, bilty, consignment online.">
-    <meta name="keywords" content="transport, logistics, LR tracking, bilty tracking, freight, part load, full truck load, bangalore transport">
     <title>SHREE LAKSHMI LOGISTIC PVT LTD - Transport & Logistics Services</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
@@ -15,7 +14,7 @@
             to { opacity: 1; transform: scale(1); }
         }
         body.sidebar-open { overflow: hidden; }
-       .timeline-item::before {
+      .timeline-item::before {
             content: '';
             position: absolute;
             left: -21px;
@@ -99,7 +98,6 @@
                 </div>
             </div>
 
-            <!-- TRACKING SECTION -->
             <div class="bg-white p-6 rounded-2xl shadow-lg border border-gray-100">
                 <h2 class="text-xl font-bold text-gray-800 mb-4 flex items-center gap-2">
                     <span>📍</span> Track Your Consignment
@@ -118,7 +116,6 @@
                 </div>
             </div>
 
-            <!-- QUICK STATS -->
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
                 <div class="bg-white p-4 rounded-xl shadow text-center border border-gray-100">
                     <div class="text-2xl font-bold text-blue-600">15+</div>
@@ -138,7 +135,6 @@
                 </div>
             </div>
 
-            <!-- TESTIMONIALS -->
             <div class="bg-white p-6 rounded-2xl shadow-lg border border-gray-100">
                 <h2 class="text-xl font-bold text-gray-800 mb-4 flex items-center gap-2">
                     <span>⭐</span> What Clients Say
@@ -173,7 +169,6 @@
                 <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs font-bold">In Transit</span>
             </div>
 
-            <!-- Timeline -->
             <div class="space-y-6 border-l-2 border-blue-200 ml-3 pl-6 mb-6">
                 <div class="relative timeline-item">
                     <p class="text-sm font-bold text-green-600">Delivered</p>
@@ -278,6 +273,7 @@
                     <p class="text-3xl font-bold text-green-600" id="quoteAmount">₹0</p>
                     <p class="text-xs text-gray-500 mt-2">*Final cost may vary. Contact us for exact quote.</p>
                 </div>
+            </div>
             <button onclick="goBackHome()" class="mt-6 w-full bg-gray-800 hover:bg-gray-900 text-white px-6 py-2.5 rounded-xl font-bold text-sm shadow transition cursor-pointer">← Back to Home</button>
         </div>
 
@@ -310,6 +306,7 @@
                     <span class="text-xs font-bold text-gray-400 uppercase block">Registered Address</span>
                     <strong class="text-gray-800 text-sm">H1/12 first floor, yashwantpur, Bengaluru Karnataka India 560022</strong>
                 </div>
+            </div>
             <button onclick="goBackHome()" class="mt-6 w-full sm:w-auto bg-gray-800 hover:bg-gray-900 text-white px-6 py-2.5 rounded-xl font-bold text-sm shadow transition cursor-pointer">← Back to Home</button>
         </div>
 
@@ -409,6 +406,9 @@
     </footer>
 
     <script>
+        // FIX: Yahi main change hai - saare pages add kar diye
+        const allPages = ['homePage', 'trackingResultPage', 'servicesPage', 'quotePage', 'transportDetailsPage', 'faqPage', 'contactUsPage'];
+
         window.addEventListener('load', () => {
             history.replaceState({page: 'homePage'}, null, '');
             startSlider();
@@ -424,4 +424,21 @@
                 currentSlide = (currentSlide + 1) % slides.length;
                 slides[currentSlide].classList.add('active');
             }
-            slideInterval
+            slideInterval = setInterval(nextSlide, 3000);
+        }
+
+        function toggleMenu(show) {
+            const menu = document.getElementById('sidebarMenu');
+            const body = document.body;
+            if(show) {
+                menu.classList.remove('hidden');
+                body.classList.add('sidebar-open');
+            } else {
+                menu.classList.add('hidden');
+                body.classList.remove('sidebar-open');
+            }
+        }
+
+        function openPage(pageId) {
+            toggleMenu(false);
+            history.pushState({page: pageId}, null, '#' + page
