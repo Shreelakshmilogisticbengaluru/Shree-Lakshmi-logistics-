@@ -3,91 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SHREE LAKSHMI LOGISTIC PVT LTD</title>
+    <title>SHREE LAKSHMI LOGISTIC</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
 .hidden { display: none!important; }
-.slider-img { display: none; }
-.slider-img.active { display: block; }
-.timeline-item::before {
-        content: '';
-        position: absolute;
-        left: -21px;
-        top: 5px;
-        width: 12px;
-        height: 12px;
-        border-radius: 50%;
-        background: #3b82f6;
-        border: 3px solid white;
-        box-shadow: 0 0 0 2px #3b82f6;
-    }
-.timeline-item.completed::before { background: #10b981; box-shadow: 0 0 0 2px #10b981; }
     </style>
 </head>
 <body class="bg-gray-50">
 
+    <!-- HEADER -->
     <header class="bg-blue-900 text-white p-4 fixed top-0 w-full z-40 flex justify-between">
         <button id="menuBtn" class="bg-blue-800 px-4 py-2 rounded">☰ Menu</button>
+        <h1 class="font-bold text-lg">LAKSHMI LOGISTIC</h1>
         <button id="adminBtn" class="bg-yellow-600 px-4 py-2 rounded">🔐 Admin</button>
     </header>
 
+    <!-- MENU -->
     <div id="sidebarMenu" class="fixed inset-0 bg-black/50 z-50 hidden">
         <div class="bg-blue-900 w-80 h-full p-6">
             <button id="closeMenuBtn" class="text-white text-2xl float-right">&times;</button>
-            <h3 class="text-white font-bold mb-6 mt-8">📌 Navigation</h3>
-            <button data-page="home" class="nav-link block w-full text-left text-white py-3 px-4 hover:bg-blue-700 rounded mb-2">🏠 Home</button>
-            <button data-page="services" class="nav-link block w-full text-left text-white py-3 px-4 hover:bg-blue-700 rounded mb-2">🚚 Services</button>
-            <button data-page="quote" class="nav-link block w-full text-left text-white py-3 px-4 hover:bg-blue-700 rounded mb-2">💰 Get Quote</button>
-            <button data-page="details" class="nav-link block w-full text-left text-white py-3 px-4 hover:bg-blue-700 rounded mb-2">🏢 Company Details</button>
-            <button data-page="faq" class="nav-link block w-full text-left text-white py-3 px-4 hover:bg-blue-700 rounded mb-2">❓ FAQ</button>
-            <button data-page="contact" class="nav-link block w-full text-left text-white py-3 px-4 hover:bg-blue-700 rounded mb-2">📞 Contact</button>
+            <h3 class="text-white font-bold mb-6 mt-8">📌 Menu</h3>
+            <button data-page="home" class="nav-btn block w-full text-left text-white py-3 px-4 hover:bg-blue-700 rounded mb-2">🏠 Home</button>
+            <button data-page="services" class="nav-btn block w-full text-left text-white py-3 px-4 hover:bg-blue-700 rounded mb-2">🚚 Services</button>
+            <button data-page="contact" class="nav-btn block w-full text-left text-white py-3 px-4 hover:bg-blue-700 rounded mb-2">📞 Contact</button>
         </div>
     </div>
 
-    <main class="mt-20 p-4 max-w-7xl mx-auto">
+    <main class="mt-20 p-4 max-w-4xl mx-auto">
 
         <!-- HOME PAGE -->
         <div id="homePage">
             <div class="text-center mb-6">
-                <img src="https://i.postimg.cc/3N56G1Rw/image-search-1782066959399.png" alt="Logo" class="w-24 h-24 rounded-full mx-auto mb-3">
-                <h1 class="text-3xl font-bold text-blue-900">SHREE LAKSHMI LOGISTIC PVT LTD</h1>
-                <p class="text-gray-600 mt-2">All India Transport | Part Load | Full Truck Load</p>
-                <p class="text-sm text-gray-500">📍 H1/12, Yashwantpur, Bengaluru 560022</p>
-            </div>
-
-            <div class="relative h-64 rounded-lg overflow-hidden bg-gray-200 mb-6">
-                <img src="https://i.postimg.cc/5ydGzg06/image-search-1782066953651.png" class="slider-img active w-full h-full object-cover">
-                <img src="https://i.postimg.cc/B61ktkqG/image-search-1782066972418.png" class="slider-img w-full h-full object-cover">
-                <img src="https://i.postimg.cc/T1MSb0w1/image-search-1782066977204.jpg" class="slider-img w-full h-full object-cover">
-            </div>
-
-            <div class="bg-blue-900 text-white p-6 rounded-lg mb-6">
-                <h2 class="text-lg font-bold mb-4 text-center">🏆 Certified & Trusted</h2>
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
-                    <div><div class="text-2xl font-bold text-yellow-400">15+</div><div class="text-xs">Years Experience</div></div>
-                    <div><div class="text-2xl font-bold text-yellow-400">500+</div><div class="text-xs">Cities Covered</div></div>
-                    <div><div class="text-2xl font-bold text-yellow-400">10K+</div><div class="text-xs">Happy Clients</div></div>
-                    <div><div class="text-2xl font-bold text-yellow-400">24/7</div><div class="text-xs">Support</div></div>
-                </div>
-                <div class="grid grid-cols-3 gap-3 pt-4 mt-4 border-t border-blue-700 text-xs text-center">
-                    <div><span>GST:</span><strong class="block">29ASLPL8036G1ZC</strong></div>
-                    <div><span>PAN:</span><strong class="block">ASLPL8036G</strong></div>
-                    <div><span>CIN:</span><strong class="block">U63000KA2020PTC134567</strong></div>
-                </div>
+                <h1 class="text-3xl font-bold text-blue-900 mb-2">SHREE LAKSHMI LOGISTIC PVT LTD</h1>
+                <p class="text-gray-600">All India Transport | GST: 29ASLPL8036G1ZC</p>
             </div>
 
             <div class="bg-white p-6 rounded-lg shadow-lg mb-6">
-                <h2 class="text-xl font-bold mb-4">📍 Track Your Consignment</h2>
+                <h2 class="text-xl font-bold mb-4">📍 Track Your Order</h2>
                 <input type="text" id="trackInput" placeholder="Enter LR Number (Try: LR123456)" class="w-full px-4 py-3 border rounded-lg mb-3">
                 <button id="trackBtn" class="w-full bg-blue-600 text-white font-bold py-3 rounded-lg">Track Now</button>
                 <p id="trackError" class="text-red-500 text-sm mt-2"></p>
             </div>
 
-            <div id="trackingResult" class="bg-white p-6 rounded-lg shadow-lg hidden mb-6">
+            <div id="trackingResult" class="bg-white p-6 rounded-lg shadow-lg hidden">
                 <h3 class="font-bold text-lg mb-4">Tracking Details</h3>
                 <div id="resultData"></div>
-                <h4 class="font-bold mt-6 mb-4">📦 Shipment Journey</h4>
-                <div id="timelineContainer" class="space-y-6 border-l-2 border-blue-200 ml-3 pl-6"></div>
             </div>
         </div>
 
@@ -104,89 +64,26 @@
             </div>
         </div>
 
-        <!-- ADMIN DASHBOARD -->
+        <!-- ADMIN DASHBOARD - SIRF 7 FIELDS -->
         <div id="adminDashboardPage" class="hidden">
             <div class="bg-white p-6 rounded-lg shadow-lg">
                 <div class="flex justify-between items-center mb-6">
-                    <h3 class="text-2xl font-bold">📊 Admin Dashboard</h3>
+                    <h3 class="text-2xl font-bold">📊 Admin Panel</h3>
                     <button id="logoutBtn" class="bg-red-600 text-white px-4 py-2 rounded-lg">Logout</button>
                 </div>
 
                 <div class="bg-blue-50 p-6 rounded-lg mb-6 border-2 border-blue-200">
-                    <h4 class="font-bold text-lg mb-4 text-blue-900">➕ Add New Shipment - Professional Form</h4>
-
-                    <div class="bg-white p-4 rounded-lg mb-4">
-                        <h5 class="font-bold text-sm text-blue-900 mb-3">📋 BASIC INFORMATION</h5>
-                        <div class="grid grid-cols-1 md:grid-cols-4 gap-3">
-                            <div><label class="text-xs text-gray-600">Order ID *</label><input type="text" id="orderId" class="w-full px-3 py-2 border rounded text-sm"></div>
-                            <div><label class="text-xs text-gray-600">LR/Bilty No *</label><input type="text" id="lrNo" class="w-full px-3 py-2 border rounded text-sm"></div>
-                            <div><label class="text-xs text-gray-600">Booking Date *</label><input type="date" id="bookDate" class="w-full px-3 py-2 border rounded text-sm"></div>
-                            <div><label class="text-xs text-gray-600">E-way Bill No</label><input type="text" id="ewayBill" class="w-full px-3 py-2 border rounded text-sm"></div>
-                        </div>
+                    <h4 class="font-bold text-lg mb-4 text-blue-900">➕ Add New Shipment - 7 Fields Only</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div><label class="text-xs font-bold text-gray-600">LR/Bilty No *</label><input type="text" id="lrNo" class="w-full px-3 py-2 border rounded text-sm"></div>
+                        <div><label class="text-xs text-gray-600">From City *</label><input type="text" id="fromCity" class="w-full px-3 py-2 border rounded text-sm"></div>
+                        <div><label class="text-xs text-gray-600">To City *</label><input type="text" id="toCity" class="w-full px-3 py-2 border rounded text-sm"></div>
+                        <div><label class="text-xs text-gray-600">Sender Name *</label><input type="text" id="senderName" class="w-full px-3 py-2 border rounded text-sm"></div>
+                        <div><label class="text-xs text-gray-600">Receiver Name *</label><input type="text" id="receiverName" class="w-full px-3 py-2 border rounded text-sm"></div>
+                        <div><label class="text-xs text-gray-600">Weight (KG) *</label><input type="number" id="weight" class="w-full px-3 py-2 border rounded text-sm"></div>
+                        <div><label class="text-xs text-gray-600">Status *</label><select id="status" class="w-full px-3 py-2 border rounded text-sm"><option>Booked</option><option>In Transit</option><option>Delivered</option></select></div>
                     </div>
-
-                    <div class="bg-white p-4 rounded-lg mb-4">
-                        <h5 class="font-bold text-sm text-blue-900 mb-3">📤 CONSIGNOR (SENDER) DETAILS</h5>
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
-                            <div><label class="text-xs text-gray-600">Name *</label><input type="text" id="consignorName" class="w-full px-3 py-2 border rounded text-sm"></div>
-                            <div><label class="text-xs text-gray-600">Mobile *</label><input type="text" id="consignorMobile" class="w-full px-3 py-2 border rounded text-sm"></div>
-                            <div><label class="text-xs text-gray-600">GST No</label><input type="text" id="consignorGST" class="w-full px-3 py-2 border rounded text-sm"></div>
-                            <div><label class="text-xs text-gray-600">City *</label><input type="text" id="fromCity" class="w-full px-3 py-2 border rounded text-sm"></div>
-                            <div><label class="text-xs text-gray-600">State *</label><input type="text" id="fromState" class="w-full px-3 py-2 border rounded text-sm"></div>
-                            <div><label class="text-xs text-gray-600">Pincode *</label><input type="text" id="fromPincode" class="w-full px-3 py-2 border rounded text-sm"></div>
-                            <div class="md:col-span-3"><label class="text-xs text-gray-600">Complete Address *</label><textarea id="consignorAddr" rows="2" class="w-full px-3 py-2 border rounded text-sm"></textarea></div>
-                        </div>
-                    </div>
-
-                    <div class="bg-white p-4 rounded-lg mb-4">
-                        <h5 class="font-bold text-sm text-blue-900 mb-3">📥 CONSIGNEE (RECEIVER) DETAILS</h5>
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
-                            <div><label class="text-xs text-gray-600">Name *</label><input type="text" id="consigneeName" class="w-full px-3 py-2 border rounded text-sm"></div>
-                            <div><label class="text-xs text-gray-600">Mobile *</label><input type="text" id="consigneeMobile" class="w-full px-3 py-2 border rounded text-sm"></div>
-                            <div><label class="text-xs text-gray-600">GST No</label><input type="text" id="consigneeGST" class="w-full px-3 py-2 border rounded text-sm"></div>
-                            <div><label class="text-xs text-gray-600">City *</label><input type="text" id="toCity" class="w-full px-3 py-2 border rounded text-sm"></div>
-                            <div><label class="text-xs text-gray-600">State *</label><input type="text" id="toState" class="w-full px-3 py-2 border rounded text-sm"></div>
-                            <div><label class="text-xs text-gray-600">Pincode *</label><input type="text" id="toPincode" class="w-full px-3 py-2 border rounded text-sm"></div>
-                            <div class="md:col-span-3"><label class="text-xs text-gray-600">Complete Address *</label><textarea id="consigneeAddr" rows="2" class="w-full px-3 py-2 border rounded text-sm"></textarea></div>
-                        </div>
-                    </div>
-
-                    <div class="bg-white p-4 rounded-lg mb-4">
-                        <h5 class="font-bold text-sm text-blue-900 mb-3">📦 SHIPMENT DETAILS</h5>
-                        <div class="grid grid-cols-1 md:grid-cols-4 gap-3">
-                            <div><label class="text-xs text-gray-600">Weight (KG) *</label><input type="number" id="weight" class="w-full px-3 py-2 border rounded text-sm"></div>
-                            <div><label class="text-xs text-gray-600">No. of Packages *</label><input type="number" id="packages" class="w-full px-3 py-2 border rounded text-sm"></div>
-                            <div><label class="text-xs text-gray-600">Dimensions (LxWxH)</label><input type="text" id="dimension" class="w-full px-3 py-2 border rounded text-sm"></div>
-                            <div><label class="text-xs text-gray-600">Article Type</label><input type="text" id="articleType" class="w-full px-3 py-2 border rounded text-sm"></div>
-                            <div><label class="text-xs text-gray-600">Declared Value (₹)</label><input type="number" id="declaredValue" class="w-full px-3 py-2 border rounded text-sm"></div>
-                            <div><label class="text-xs text-gray-600">Freight Amount (₹)</label><input type="number" id="freight" class="w-full px-3 py-2 border rounded text-sm"></div>
-                            <div><label class="text-xs text-gray-600">Tax/GST (₹)</label><input type="number" id="tax" class="w-full px-3 py-2 border rounded text-sm"></div>
-                            <div><label class="text-xs text-gray-600">Insurance (₹)</label><input type="number" id="insurance" class="w-full px-3 py-2 border rounded text-sm"></div>
-                            <div><label class="text-xs text-gray-600">Payment Mode</label><select id="paymentMode" class="w-full px-3 py-2 border rounded text-sm"><option>To Pay</option><option>Paid</option><option>TBB</option></select></div>
-                            <div><label class="text-xs text-gray-600">Expected Delivery</label><input type="date" id="deliveryDate" class="w-full px-3 py-2 border rounded text-sm"></div>
-                            <div><label class="text-xs text-gray-600">Service Type</label><select id="serviceType" class="w-full px-3 py-2 border rounded text-sm"><option>Part Load</option><option>Full Truck Load</option><option>Express</option></select></div>
-                            <div><label class="text-xs text-gray-600">Invoice No</label><input type="text" id="invoiceNo" class="w-full px-3 py-2 border rounded text-sm"></div>
-                        </div>
-                    </div>
-
-                    <div class="bg-white p-4 rounded-lg mb-4">
-                        <h5 class="font-bold text-sm text-blue-900 mb-3">🚚 TRACKING DETAILS</h5>
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
-                            <div><label class="text-xs text-gray-600">Current Status *</label><select id="status" class="w-full px-3 py-2 border rounded text-sm"><option>Booked</option><option>Picked Up</option><option>In Transit</option><option>Reached Destination Hub</option><option>Out for Delivery</option><option>Delivered</option></select></div>
-                            <div><label class="text-xs text-gray-600">Current Location</label><input type="text" id="currentLocation" class="w-full px-3 py-2 border rounded text-sm"></div>
-                            <div><label class="text-xs text-gray-600">Vehicle No.</label><input type="text" id="vehicleNo" class="w-full px-3 py-2 border rounded text-sm"></div>
-                            <div><label class="text-xs text-gray-600">Driver Name</label><input type="text" id="driverName" class="w-full px-3 py-2 border rounded text-sm"></div>
-                            <div><label class="text-xs text-gray-600">Driver Mobile</label><input type="text" id="driverMobile" class="w-full px-3 py-2 border rounded text-sm"></div>
-                            <div><label class="text-xs text-gray-600">Current Hub</label><input type="text" id="hubName" class="w-full px-3 py-2 border rounded text-sm"></div>
-                        </div>
-                    </div>
-
-                    <div class="mb-4">
-                        <label class="text-xs text-gray-600 font-bold">Remarks/Special Instructions</label>
-                        <textarea id="remarks" rows="2" class="w-full px-3 py-2 border rounded text-sm"></textarea>
-                    </div>
-
-                    <button id="addOrderBtn" class="w-full bg-green-600 text-white font-bold py-3 rounded-lg">➕ Add Shipment to Database</button>
+                    <button id="addOrderBtn" class="mt-4 w-full bg-green-600 text-white font-bold py-3 rounded-lg">Add Shipment</button>
                 </div>
 
                 <h4 class="font-bold mb-4">📦 All Shipments (<span id="orderCount">0</span>)</h4>
@@ -194,7 +91,7 @@
             </div>
         </div>
 
-        <!-- OTHER PAGES -->
+        <!-- SERVICES PAGE -->
         <div id="servicesPage" class="hidden bg-white p-6 rounded-lg shadow-lg">
             <h3 class="text-2xl font-bold mb-6">🚚 Our Services</h3>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -204,40 +101,13 @@
             <button id="backBtn2" class="mt-6 bg-gray-800 text-white px-6 py-2 rounded">← Back</button>
         </div>
 
-        <div id="quotePage" class="hidden bg-white p-6 rounded-lg shadow-lg max-w-2xl mx-auto">
-            <h3 class="text-2xl font-bold mb-6">💰 Get Freight Quote</h3>
-            <input type="text" id="fromCity" placeholder="From City" class="w-full px-4 py-3 border rounded-lg mb-3">
-            <input type="text" id="toCity" placeholder="To City" class="w-full px-4 py-3 border rounded-lg mb-3">
-            <input type="number" id="weightQuote" placeholder="Weight (KG)" class="w-full px-4 py-3 border rounded-lg mb-3">
-            <button id="quoteBtn" class="w-full bg-blue-600 text-white font-bold py-3 rounded-lg">Calculate</button>
-            <div id="quoteResult" class="hidden bg-green-50 p-4 rounded-lg text-center mt-4">
-                <p class="text-3xl font-bold text-green-600" id="quoteAmount">₹0</p>
-            </div>
-            <button id="backBtn3" class="mt-6 w-full bg-gray-800 text-white px-6 py-2 rounded">← Back</button>
-        </div>
-
-        <div id="detailsPage" class="hidden bg-white p-6 rounded-lg shadow-lg">
-            <h3 class="text-xl font-bold mb-5">🏢 Company Details</h3>
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div class="p-3 bg-gray-50 rounded-lg"><span class="text-xs font-bold text-gray-400">Company</span><strong class="block text-sm">SHREE LAKSHMI LOGISTIC PVT LTD</strong></div>
-                <div class="p-3 bg-gray-50 rounded-lg"><span class="text-xs font-bold text-gray-400">GST</span><strong class="block text-blue-600 text-sm">29ASLPL8036G1ZC</strong></div>
-                <div class="p-3 bg-gray-50 rounded-lg"><span class="text-xs font-bold text-gray-400">PAN</span><strong class="block text-sm">ASLPL8036G</strong></div>
-                <div class="p-3 bg-gray-50 rounded-lg"><span class="text-xs font-bold text-gray-400">CIN</span><strong class="block text-sm">U63000KA2020PTC134567</strong></div>
-            </div>
-            <button id="backBtn4" class="mt-6 bg-gray-800 text-white px-6 py-2 rounded">← Back</button>
-        </div>
-
-        <div id="faqPage" class="hidden bg-white p-6 rounded-lg shadow-lg">
-            <h3 class="text-2xl font-bold mb-6">❓ FAQ</h3>
-            <details class="bg-gray-50 p-4 rounded-lg mb-3"><summary class="font-bold">Delivery time?</summary><p class="text-sm mt-2">Metro: 2-3 days. Others: 4-7 days.</p></details>
-            <button id="backBtn5" class="mt-6 bg-gray-800 text-white px-6 py-2 rounded">← Back</button>
-        </div>
-
+        <!-- CONTACT PAGE -->
         <div id="contactPage" class="hidden bg-white p-6 rounded-lg shadow-lg max-w-2xl mx-auto">
             <h3 class="text-2xl font-bold mb-6">📞 Contact Us</h3>
             <a href="https://wa.me/917665296227" target="_blank" class="block p-4 bg-green-50 rounded-lg border border-green-200 mb-3"><strong class="text-green-700">🟢 WhatsApp: 7665296227</strong></a>
             <a href="tel:+917665296227" class="block p-4 bg-blue-50 rounded-lg border border-blue-200 mb-3"><strong class="text-blue-800">📱 Call: 7665296227</strong></a>
-            <button id="backBtn6" class="mt-6 w-full bg-gray-800 text-white px-6 py-2 rounded">← Back</button>
+            <div class="p-4 bg-gray-50 rounded-lg"><strong>📍 Address:</strong><br>H1/12 first floor, Yashwantpur, Bengaluru 560022</div>
+            <button id="backBtn3" class="mt-6 w-full bg-gray-800 text-white px-6 py-2 rounded">← Back</button>
         </div>
 
     </main>
@@ -247,63 +117,28 @@
         var orders = JSON.parse(localStorage.getItem('orders') || '[]');
         var pageHistory = ['home'];
 
-        // INITIALIZE SAMPLE DATA
+        // SAMPLE DATA
         if (orders.length === 0) {
             orders = [{
-                orderId: 'SL001',
                 lr: 'LR123456',
-                bookDate: '2026-06-20',
-                ewayBill: 'EW123456789',
-                consignor: 'ABC Company Ltd',
-                consignorMobile: '9876543210',
-                consignorGST: '29ABCDE1234F1Z5',
                 from: 'Hyderabad',
-                fromState: 'Telangana',
-                fromPincode: '500001',
-                consignorAddr: '123, Industrial Area, Hyderabad',
-                consignee: 'XYZ Industries',
-                consigneeMobile: '9876543211',
-                consigneeGST: '29XYZDE5678G1Z5',
                 to: 'Bengaluru',
-                toState: 'Karnataka',
-                toPincode: '560022',
-                consigneeAddr: '456, Tech Park, Bengaluru',
+                sender: 'ABC Company',
+                receiver: 'XYZ Ltd',
                 weight: 250,
-                packages: 5,
-                dimension: '100x50x40 cm',
-                articleType: 'Electronics',
-                declaredValue: 50000,
-                freight: 5000,
-                tax: 900,
-                insurance: 100,
-                payment: 'Paid',
-                deliveryDate: '2026-06-25',
-                serviceType: 'Part Load',
-                invoiceNo: 'INV001',
-                status: 'In Transit',
-                location: 'Hyderabad Hub',
-                vehicle: 'KA01AB1234',
-                driverName: 'Ramesh Kumar',
-                driverMobile: '9876543212',
-                hubName: 'Hyderabad Central Hub',
-                remarks: 'Handle with care - Fragile items',
-                timeline: [
-                    {status: 'Booked', location: 'Hyderabad', date: '2026-06-20 10:00', note: 'Order Confirmed'},
-                    {status: 'Picked Up', location: 'Hyderabad Warehouse', date: '2026-06-20 16:00', note: 'Collected from consignor'},
-                    {status: 'In Transit', location: 'Hyderabad Hub', date: '2026-06-21 14:00', note: 'Dispatched to Bengaluru'}
-                ]
+                status: 'In Transit'
             }];
             localStorage.setItem('orders', JSON.stringify(orders));
         }
 
-        // PAGE NAVIGATION WITH HISTORY
+        // PAGE NAVIGATION
         function showPage(page) {
             document.querySelectorAll('[id$="Page"]').forEach(function(p) {
                 p.classList.add('hidden');
             });
             document.getElementById(page + 'Page').classList.remove('hidden');
             closeMenu();
-
+            
             if (pageHistory[pageHistory.length - 1] !== page) {
                 pageHistory.push(page);
                 history.pushState({page: page}, '', '#' + page);
@@ -311,7 +146,7 @@
             window.scrollTo(0, 0);
         }
 
-        // BROWSER BACK BUTTON HANDLER
+        // BROWSER BACK
         window.addEventListener('popstate', function(e) {
             if (pageHistory.length > 1) {
                 pageHistory.pop();
@@ -332,16 +167,17 @@
             document.getElementById('sidebarMenu').classList.add('hidden');
         }
 
-        function openAdmin() {
-            showPage('adminLogin');
-        }
-
-        // EVENT LISTENERS - ALL ATTACHED AFTER DOM LOADS
+        // WAIT FOR DOM TO LOAD - MOST IMPORTANT
         document.addEventListener('DOMContentLoaded', function() {
-            // MENU BUTTONS
+            
+            // MENU BUTTON
             document.getElementById('menuBtn').addEventListener('click', openMenu);
             document.getElementById('closeMenuBtn').addEventListener('click', closeMenu);
-            document.getElementById('adminBtn').addEventListener('click', openAdmin);
+            document.getElementById('adminBtn').addEventListener('click', function() {
+                showPage('adminLogin');
+            });
+            
+            // CLOSE MENU ON OUTSIDE CLICK
             document.getElementById('sidebarMenu').addEventListener('click', function(e) {
                 if(e.target.id === 'sidebarMenu') closeMenu();
             });
@@ -353,43 +189,29 @@
                 });
             });
 
-            // BACK BUTTONS
-            document.getElementById('backBtn1').addEventListener('click', function() { showPage('home'); });
-            document.getElementById('backBtn2').addEventListener('click', function() { showPage('home'); });
-            document.getElementById('backBtn3').addEventListener('click', function() { showPage('home'); });
-            document.getElementById('backBtn4').addEventListener('click', function() { showPage('home'); });
-            document.getElementById('backBtn5').addEventListener('click', function() { showPage('home'); });
-            document.getElementById('backBtn6').addEventListener('click', function() { showPage('home'); });
-
             // TRACK ORDER
             document.getElementById('trackBtn').addEventListener('click', function() {
                 var input = document.getElementById('trackInput').value.trim().toUpperCase();
                 var error = document.getElementById('trackError');
                 var result = document.getElementById('trackingResult');
                 var resultData = document.getElementById('resultData');
-                var timelineContainer = document.getElementById('timelineContainer');
 
                 error.textContent = '';
                 result.classList.add('hidden');
 
                 if (!input) {
-                    error.textContent = 'Please enter LR/Bilty number!';
+                    error.textContent = 'Please enter LR number!';
                     return;
                 }
 
                 var order = orders.find(function(o) { return o.lr === input; });
 
                 if (!order) {
-                    error.textContent = 'Shipment not found! Please check LR number.';
+                    error.textContent = 'Order not found!';
                     return;
                 }
 
-                resultData.innerHTML = '<div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm"><div><strong>LR No:</strong> ' + order.lr + '</div><div><strong>Status:</strong> <span class="bg-blue-100 text-blue-700 px-2 py-1 rounded text-xs">' + order.status + '</span></div><div><strong>From:</strong> ' + order.from + ', ' + order.fromState + '</div><div><strong>To:</strong> ' + order.to + ', ' + order.toState + '</div><div><strong>Consignor:</strong> ' + order.consignor + '</div><div><strong>Consignee:</strong> ' + order.consignee + '</div><div><strong>Weight:</strong> ' + order.weight + ' KG</div><div><strong>Packages:</strong> ' + order.packages + '</div><div><strong>Freight:</strong> ₹' + order.freight + '</div><div><strong>Payment:</strong> ' + order.payment + '</div><div><strong>Vehicle:</strong> ' + (order.vehicle || 'N/A') + '</div><div><strong>Expected Delivery:</strong> ' + (order.deliveryDate || 'N/A') + '</div></div>';
-
-                timelineContainer.innerHTML = (order.timeline || []).map(function(t, i) {
-                    var isCompleted = i < order.timeline.length - 1;
-                    return '<div class="timeline-item relative ' + (isCompleted ? 'completed' : '') + '"><div class="font-bold text-sm">' + t.status + '</div><div class="text-xs text-gray-600">' + t.location + '</div><div class="text-xs text-gray-500">' + t.date + '</div>' + (t.note ? '<div class="text-xs text-gray-500 italic">' + t.note + '</div>' : '') + '</div>';
-                }).join('');
+                resultData.innerHTML = '<div class="grid grid-cols-2 gap-4 text-sm"><div><strong>LR No:</strong> ' + order.lr + '</div><div><strong>Status:</strong> <span class="bg-blue-100 text-blue-700 px-2 py-1 rounded text-xs">' + order.status + '</span></div><div><strong>From:</strong> ' + order.from + '</div><div><strong>To:</strong> ' + order.to + '</div><div><strong>Sender:</strong> ' + order.sender + '</div><div><strong>Receiver:</strong> ' + order.receiver + '</div><div><strong>Weight:</strong> ' + order.weight + ' KG</div></div>';
 
                 result.classList.remove('hidden');
             });
@@ -405,7 +227,7 @@
                     loadOrders();
                     error.textContent = '';
                 } else {
-                    error.textContent = 'Invalid credentials!';
+                    error.textContent = 'Wrong username or password!';
                 }
             });
 
@@ -414,52 +236,66 @@
                 showPage('home');
             });
 
-            // ADD ORDER
+            // ADD ORDER - 7 FIELDS ONLY
             document.getElementById('addOrderBtn').addEventListener('click', function() {
                 var order = {
-                    orderId: document.getElementById('orderId').value || 'SL' + Date.now(),
                     lr: document.getElementById('lrNo').value,
-                    bookDate: document.getElementById('bookDate').value,
-                    ewayBill: document.getElementById('ewayBill').value,
-                    consignor: document.getElementById('consignorName').value,
-                    consignorMobile: document.getElementById('consignorMobile').value,
-                    consignorGST: document.getElementById('consignorGST').value,
                     from: document.getElementById('fromCity').value,
-                    fromState: document.getElementById('fromState').value,
-                    fromPincode: document.getElementById('fromPincode').value,
-                    consignorAddr: document.getElementById('consignorAddr').value,
-                    consignee: document.getElementById('consigneeName').value,
-                    consigneeMobile: document.getElementById('consigneeMobile').value,
-                    consigneeGST: document.getElementById('consigneeGST').value,
                     to: document.getElementById('toCity').value,
-                    toState: document.getElementById('toState').value,
-                    toPincode: document.getElementById('toPincode').value,
-                    consigneeAddr: document.getElementById('consigneeAddr').value,
+                    sender: document.getElementById('senderName').value,
+                    receiver: document.getElementById('receiverName').value,
                     weight: document.getElementById('weight').value,
-                    packages: document.getElementById('packages').value,
-                    dimension: document.getElementById('dimension').value,
-                    articleType: document.getElementById('articleType').value,
-                    declaredValue: document.getElementById('declaredValue').value,
-                    freight: document.getElementById('freight').value,
-                    tax: document.getElementById('tax').value,
-                    insurance: document.getElementById('insurance').value,
-                    payment: document.getElementById('paymentMode').value,
-                    deliveryDate: document.getElementById('deliveryDate').value,
-                    serviceType: document.getElementById('serviceType').value,
-                    invoiceNo: document.getElementById('invoiceNo').value,
-                    status: document.getElementById('status').value,
-                    location: document.getElementById('currentLocation').value,
-                    vehicle: document.getElementById('vehicleNo').value,
-                    driverName: document.getElementById('driverName').value,
-                    driverMobile: document.getElementById('driverMobile').value,
-                    hubName: document.getElementById('hubName').value,
-                    remarks: document.getElementById('remarks').value,
-                    timeline: [{
-                        status: document.getElementById('status').value,
-                        location: document.getElementById('currentLocation').value || document.getElementById('fromCity').value,
-                        date: new Date().toLocaleString(),
-                        note: 'Shipment Booked'
-                    }]
+                    status: document.getElementById('status').value
                 };
 
-                if (!order.lr || !order.from || !order.to || !order.consign
+                if (!order.lr || !order.from || !order.to || !order.sender || !order.receiver || !order.weight) {
+                    alert('Please fill all required fields!');
+                    return;
+                }
+
+                orders.push(order);
+                localStorage.setItem('orders', JSON.stringify(orders));
+
+                // CLEAR FORM
+                document.getElementById('lrNo').value = '';
+                document.getElementById('fromCity').value = '';
+                document.getElementById('toCity').value = '';
+                document.getElementById('senderName').value = '';
+                document.getElementById('receiverName').value = '';
+                document.getElementById('weight').value = '';
+
+                loadOrders();
+                alert('✅ Shipment added successfully!');
+            });
+
+            // BACK BUTTONS
+            document.getElementById('backBtn1').addEventListener('click', function() { showPage('home'); });
+            document.getElementById('backBtn2').addEventListener('click', function() { showPage('home'); });
+            document.getElementById('backBtn3').addEventListener('click', function() { showPage('home'); });
+
+            // LOAD ORDERS ON START
+            loadOrders();
+        });
+
+        // LOAD ORDERS FUNCTION
+        function loadOrders() {
+            var list = document.getElementById('ordersList');
+            if (!list) return;
+            
+            document.getElementById('orderCount').textContent = orders.length;
+            list.innerHTML = orders.map(function(o, i) {
+                return '<div class="border p-4 rounded-lg"><div class="flex justify-between items-start mb-2"><div><strong class="text-lg">' + o.lr + '</strong><br><span class="text-sm text-gray-600">' + o.from + ' → ' + o.to + '</span></div><span class="bg-blue-100 text-blue-700 px-3 py-1 rounded text-xs">' + o.status + '</span></div><div class="grid grid-cols-2 gap-2 text-xs text-gray-600 mb-2"><div><strong>Sender:</strong> ' + o.sender + '</div><div><strong>Receiver:</strong> ' + o.receiver + '</div><div><strong>Weight:</strong> ' + o.weight + ' KG</div></div><button onclick="deleteOrder(' + i + ')" class="bg-red-500 text-white px-3 py-1 rounded text-sm">Delete</button></div>';
+            }).join('');
+        }
+
+        // DELETE ORDER
+        function deleteOrder(index) {
+            if (confirm('Delete this shipment?')) {
+                orders.splice(index, 1);
+                localStorage.setItem('orders', JSON.stringify(orders));
+                loadOrders();
+            }
+        }
+    </script>
+</body>
+</html>
