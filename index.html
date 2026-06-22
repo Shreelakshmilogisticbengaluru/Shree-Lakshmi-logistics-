@@ -3,18 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="SHREE LAKSHMI LOGISTIC PVT LTD - All India transport, part load, full truck load, warehouse & logistics services. Track LR, bilty, consignment online.">
-    <title>SHREE LAKSHMI LOGISTIC PVT LTD - Transport & Logistics Services</title>
+    <meta name="description" content="SHREE LAKSHMI LOGISTIC PVT LTD - All India transport, part load, full truck load, warehouse & logistics services.">
+    <title>SHREE LAKSHMI LOGISTIC PVT LTD</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-      .slider-img { display: none; }
-      .slider-img.active { display: block; animation: fadeIn 0.5s ease-in-out; }
+     .slider-img { display: none; }
+     .slider-img.active { display: block; animation: fadeIn 0.5s ease-in-out; }
         @keyframes fadeIn {
             from { opacity: 0; transform: scale(1.02); }
             to { opacity: 1; transform: scale(1); }
         }
         body.sidebar-open { overflow: hidden; }
-      .timeline-item::before {
+     .timeline-item::before {
             content: '';
             position: absolute;
             left: -21px;
@@ -30,33 +30,32 @@
 <body class="bg-gray-50 text-gray-800 font-sans min-h-screen flex flex-col justify-between relative">
 
     <header class="bg-blue-900 text-white p-4 shadow-lg fixed top-0 left-0 right-0 z-40 flex justify-between items-center">
-        <button onclick="toggleMenu(true)" aria-label="Open navigation menu" class="p-2 hover:bg-blue-800 rounded-lg transition cursor-pointer flex items-center gap-2">
+        <button onclick="toggleMenu(true)" class="p-2 hover:bg-blue-800 rounded-lg transition cursor-pointer flex items-center gap-2">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
             <span class="font-medium text-sm hidden sm:inline">Menu</span>
         </button>
-
-        <a href="tel:+917665296227" class="bg-blue-700 hover:bg-blue-600 text-white px-3 py-2 rounded-lg font-bold text-xs sm:text-sm flex items-center gap-2 shadow transition whitespace-nowrap">
+        <a href="tel:+917665296227" class="bg-blue-700 hover:bg-blue-600 text-white px-3 py-2 rounded-lg font-bold text-xs sm:text-sm flex items-center gap-2 shadow transition">
             <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1.45 1 1V20c0.55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1.45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
             <span class="hidden sm:inline">Call Now</span>
         </a>
     </header>
 
-    <div id="sidebarMenu" class="fixed inset-0 bg-black/50 z-50 hidden transition-opacity duration-300" onclick="toggleMenu(false)">
+    <div id="sidebarMenu" class="fixed inset-0 bg-black/50 z-50 hidden" onclick="toggleMenu(false)">
         <div class="w-full sm:w-80 bg-blue-900 text-white h-full p-6 shadow-2xl flex flex-col justify-between" onclick="event.stopPropagation()">
             <div>
                 <div class="flex justify-between items-center border-b border-blue-800 pb-4 mb-6">
                     <h3 class="font-bold text-lg tracking-wide">📌 Navigation</h3>
-                    <button onclick="toggleMenu(false)" aria-label="Close menu" class="text-gray-300 hover:text-white text-2xl font-bold cursor-pointer">&times;</button>
+                    <button onclick="toggleMenu(false)" class="text-gray-300 hover:text-white text-2xl font-bold cursor-pointer">&times;</button>
                 </div>
                 <nav class="space-y-2">
-                    <button onclick="openPage('homePage')" class="nav-btn w-full text-left py-3 px-4 rounded-lg hover:bg-blue-700 transition font-medium flex items-center gap-3 cursor-pointer">
-                        <span>🏠</span> Home / Track Shipment
+                    <button onclick="openPage('homePage')" class="nav-btn w-full text-left py-3 px-4 rounded-lg hover:bg-blue-700 transition font-medium flex items-center gap-3 cursor-pointer bg-blue-700">
+                        <span>🏠</span> Home / Track
                     </button>
                     <button onclick="openPage('servicesPage')" class="nav-btn w-full text-left py-3 px-4 rounded-lg hover:bg-blue-700 transition font-medium flex items-center gap-3 cursor-pointer">
                         <span>🚚</span> Our Services
                     </button>
                     <button onclick="openPage('quotePage')" class="nav-btn w-full text-left py-3 px-4 rounded-lg hover:bg-blue-700 transition font-medium flex items-center gap-3 cursor-pointer">
-                        <span>💰</span> Get Freight Quote
+                        <span>💰</span> Get Quote
                     </button>
                     <button onclick="openPage('transportDetailsPage')" class="nav-btn w-full text-left py-3 px-4 rounded-lg hover:bg-blue-700 transition font-medium flex items-center gap-3 cursor-pointer">
                         <span>🏢</span> Company Details
@@ -70,7 +69,7 @@
                 </nav>
             </div>
             <div class="text-xs text-blue-300 border-t border-blue-800 pt-4 text-center">
-                SHREE LAKSHMI LOGISTIC PVT LTD<br>GST: 29ASLPL8036G1ZC
+                SHREE LAKSHMI LOGISTIC PVT LTD
             </div>
         </div>
     </div>
@@ -78,24 +77,21 @@
     <main class="mt-20 flex-grow max-w-6xl w-full mx-auto p-4 mb-8">
 
         <!-- HOME PAGE -->
-        <div id="homePage" class="space-y-8">
+        <div id="homePage" class="page-content space-y-8">
             <div class="text-center my-6">
                 <div class="inline-block p-1 bg-white rounded-full shadow-md mb-3">
-                    <img src="https://i.postimg.cc/3N56G1Rw/image-search-1782066959399.png" alt="SHREE LAKSHMI LOGISTIC Logo" class="w-24 h-24 rounded-full object-cover">
+                    <img src="https://i.postimg.cc/3N56G1Rw/image-search-1782066959399.png" alt="Logo" class="w-24 h-24 rounded-full object-cover">
                 </div>
                 <h1 class="text-2xl sm:text-3xl font-extrabold text-blue-900 uppercase tracking-tight">SHREE LAKSHMI LOGISTIC PVT LTD</h1>
                 <p class="text-sm text-gray-600 mt-2 max-w-xl mx-auto px-4 font-medium">
-                    All India Transport | Part Load | Full Truck Load | Warehouse
+                    All India Transport | Part Load | Full Truck Load
                 </p>
             </div>
 
             <div class="relative w-full h-48 sm:h-64 md:h-80 rounded-2xl overflow-hidden shadow-lg bg-gray-200">
-                <img src="https://i.postimg.cc/5ydGzg06/image-search-1782066953651.png" alt="Logistics Banner 1" class="slider-img active w-full h-full object-cover">
-                <img src="https://i.postimg.cc/B61ktkqG/image-search-1782066972418.png" alt="Logistics Banner 2" loading="lazy" class="slider-img w-full h-full object-cover">
-                <img src="https://i.postimg.cc/T1MSb0w1/image-search-1782066977204.jpg" alt="Logistics Banner 3" loading="lazy" class="slider-img w-full h-full object-cover">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent pointer-events-none flex items-end p-6">
-                    <h2 class="text-white text-xl sm:text-2xl font-bold">Reliable Transport Across India</h2>
-                </div>
+                <img src="https://i.postimg.cc/5ydGzg06/image-search-1782066953651.png" alt="Banner 1" class="slider-img active w-full h-full object-cover">
+                <img src="https://i.postimg.cc/B61ktkqG/image-search-1782066972418.png" alt="Banner 2" loading="lazy" class="slider-img w-full h-full object-cover">
+                <img src="https://i.postimg.cc/T1MSb0w1/image-search-1782066977204.jpg" alt="Banner 3" loading="lazy" class="slider-img w-full h-full object-cover">
             </div>
 
             <div class="bg-white p-6 rounded-2xl shadow-lg border border-gray-100">
@@ -104,7 +100,7 @@
                 </h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
-                        <label for="orderIdInput" class="block text-sm font-semibold text-gray-600 mb-2">Order ID / LR / Bilty Number</label>
+                        <label for="orderIdInput" class="block text-sm font-semibold text-gray-600 mb-2">LR / Bilty Number</label>
                         <input type="text" id="orderIdInput" placeholder="Enter tracking number..." class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-700 text-sm">
                         <p id="orderError" class="text-red-500 text-xs mt-1 h-4"></p>
                     </div>
@@ -115,52 +111,10 @@
                     </div>
                 </div>
             </div>
-
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                <div class="bg-white p-4 rounded-xl shadow text-center border border-gray-100">
-                    <div class="text-2xl font-bold text-blue-600">15+</div>
-                    <div class="text-xs text-gray-500">Years Experience</div>
-                </div>
-                <div class="bg-white p-4 rounded-xl shadow text-center border border-gray-100">
-                    <div class="text-2xl font-bold text-blue-600">500+</div>
-                    <div class="text-xs text-gray-500">Cities Covered</div>
-                </div>
-                <div class="bg-white p-4 rounded-xl shadow text-center border border-gray-100">
-                    <div class="text-2xl font-bold text-blue-600">10K+</div>
-                    <div class="text-xs text-gray-500">Happy Clients</div>
-                </div>
-                <div class="bg-white p-4 rounded-xl shadow text-center border border-gray-100">
-                    <div class="text-2xl font-bold text-blue-600">24/7</div>
-                    <div class="text-xs text-gray-500">Support</div>
-                </div>
-            </div>
-
-            <div class="bg-white p-6 rounded-2xl shadow-lg border border-gray-100">
-                <h2 class="text-xl font-bold text-gray-800 mb-4 flex items-center gap-2">
-                    <span>⭐</span> What Clients Say
-                </h2>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    <div class="bg-gray-50 p-4 rounded-lg">
-                        <div class="text-yellow-400 mb-2">★★★★★</div>
-                        <p class="text-sm text-gray-600 mb-2">"On time delivery har baar. Bahut reliable service hai."</p>
-                        <p class="text-xs font-bold text-gray-800">- Rajesh Kumar, Delhi</p>
-                    </div>
-                    <div class="bg-gray-50 p-4 rounded-lg">
-                        <div class="text-yellow-400 mb-2">★★★★★</div>
-                        <p class="text-sm text-gray-600 mb-2">"Tracking system best hai. Real time update milta hai."</p>
-                        <p class="text-xs font-bold text-gray-800">- Priya Textiles, Mumbai</p>
-                    </div>
-                    <div class="bg-gray-50 p-4 rounded-lg">
-                        <div class="text-yellow-400 mb-2">★★★★★</div>
-                        <p class="text-sm text-gray-600 mb-2">"Rates bhi sahi hain aur maal safe rehta hai."</p>
-                        <p class="text-xs font-bold text-gray-800">- Suresh Industries, Chennai</p>
-                    </div>
-                </div>
-            </div>
         </div>
 
-        <!-- TRACKING RESULT PAGE -->
-        <div id="trackingResultPage" class="bg-white p-6 sm:p-8 rounded-2xl shadow-xl border border-gray-100 max-w-3xl mx-auto hidden">
+        <!-- TRACKING RESULT -->
+        <div id="trackingResultPage" class="page-content bg-white p-6 sm:p-8 rounded-2xl shadow-xl border border-gray-100 max-w-3xl mx-auto hidden">
             <div class="flex justify-between items-start mb-6">
                 <div>
                     <h3 class="text-xl font-bold text-gray-800">Tracking Details</h3>
@@ -176,34 +130,23 @@
                 </div>
                 <div class="relative timeline-item">
                     <p class="text-sm font-bold text-blue-600">Out for Delivery</p>
-                    <p class="text-xs text-gray-500">Hub: Bengaluru - 24 June 2026, 9:30 AM</p>
+                    <p class="text-xs text-gray-500">Bengaluru Hub - 24 June 2026</p>
                 </div>
                 <div class="relative timeline-item">
                     <p class="text-sm font-bold text-gray-800">In Transit</p>
-                    <p class="text-xs text-gray-500">Departed from Hyderabad - 23 June 2026, 6:00 PM</p>
-                </div>
-                <div class="relative timeline-item">
-                    <p class="text-sm font-bold text-gray-800">Picked Up</p>
-                    <p class="text-xs text-gray-500">Hyderabad Warehouse - 23 June 2026, 11:00 AM</p>
+                    <p class="text-xs text-gray-500">Departed Hyderabad - 23 June 2026</p>
                 </div>
                 <div class="relative timeline-item">
                     <p class="text-sm font-bold text-gray-800">Booked</p>
-                    <p class="text-xs text-gray-500">Order Confirmed - 22 June 2026, 4:00 PM</p>
+                    <p class="text-xs text-gray-500">Order Confirmed - 22 June 2026</p>
                 </div>
             </div>
 
-            <div class="grid grid-cols-2 gap-4 text-sm bg-gray-50 p-4 rounded-lg mb-6">
-                <div><span class="text-gray-500">From:</span> <strong>Hyderabad</strong></div>
-                <div><span class="text-gray-500">To:</span> <strong>Bengaluru</strong></div>
-                <div><span class="text-gray-500">Weight:</span> <strong>250 KG</strong></div>
-                <div><span class="text-gray-500">Packages:</span> <strong>5</strong></div>
-            </div>
-
-            <button onclick="goBackHome()" class="w-full bg-gray-800 hover:bg-gray-900 text-white px-6 py-2.5 rounded-xl font-bold text-sm shadow transition cursor-pointer">← Track Another Shipment</button>
+            <button onclick="openPage('homePage')" class="w-full bg-gray-800 hover:bg-gray-900 text-white px-6 py-2.5 rounded-xl font-bold text-sm shadow transition cursor-pointer">← Track Another</button>
         </div>
 
         <!-- SERVICES PAGE -->
-        <div id="servicesPage" class="bg-white p-6 sm:p-8 rounded-2xl shadow-xl border border-gray-100 hidden">
+        <div id="servicesPage" class="page-content bg-white p-6 sm:p-8 rounded-2xl shadow-xl border border-gray-100 hidden">
             <h3 class="text-2xl font-bold text-blue-900 border-b border-gray-100 pb-3 mb-6 flex items-center gap-2">
                 <span>🚚</span> Our Services
             </h3>
@@ -211,33 +154,33 @@
                 <div class="border border-gray-200 p-5 rounded-xl hover:shadow-md transition">
                     <div class="text-3xl mb-3">📦</div>
                     <h4 class="font-bold text-lg mb-2">Part Load Service</h4>
-                    <p class="text-sm text-gray-600 mb-3">Chote consignment ke liye best. Dusre maal ke saath share karke cost bachaayein.</p>
-                    <p class="text-xs text-blue-600 font-bold">Starting from ₹500</p>
+                    <p class="text-sm text-gray-600 mb-3">Chote consignment ke liye best. Cost effective.</p>
+                    <p class="text-xs text-blue-600 font-bold">Starting ₹500</p>
                 </div>
                 <div class="border border-gray-200 p-5 rounded-xl hover:shadow-md transition">
                     <div class="text-3xl mb-3">🚛</div>
-                    <h4 class="font-bold text-lg mb-2">Full Truck Load (FTL)</h4>
-                    <p class="text-sm text-gray-600 mb-3">Poora truck aapka. Direct delivery, no stops. Urgent aur bulk shipment ke liye.</p>
+                    <h4 class="font-bold text-lg mb-2">Full Truck Load</h4>
+                    <p class="text-sm text-gray-600 mb-3">Poora truck aapka. Direct delivery.</p>
                     <p class="text-xs text-blue-600 font-bold">Custom Quote</p>
                 </div>
                 <div class="border border-gray-200 p-5 rounded-xl hover:shadow-md transition">
                     <div class="text-3xl mb-3">🏭</div>
                     <h4 class="font-bold text-lg mb-2">Warehousing</h4>
-                    <p class="text-sm text-gray-600 mb-3">Safe storage solution. Inventory management ke saath.</p>
+                    <p class="text-sm text-gray-600 mb-3">Safe storage with inventory management.</p>
                     <p class="text-xs text-blue-600 font-bold">₹15/sqft/month</p>
                 </div>
                 <div class="border border-gray-200 p-5 rounded-xl hover:shadow-md transition">
                     <div class="text-3xl mb-3">🏠</div>
                     <h4 class="font-bold text-lg mb-2">Door to Door</h4>
-                    <p class="text-sm text-gray-600 mb-3">Pickup se delivery tak hum sambhalenge. Aap tension free rahiye.</p>
-                    <p class="text-xs text-blue-600 font-bold">Included in all services</p>
+                    <p class="text-sm text-gray-600 mb-3">Pickup se delivery tak sab hum karenge.</p>
+                    <p class="text-xs text-blue-600 font-bold">Included</p>
                 </div>
             </div>
-            <button onclick="goBackHome()" class="mt-6 bg-gray-800 hover:bg-gray-900 text-white px-6 py-2.5 rounded-xl font-bold text-sm shadow transition cursor-pointer">← Back to Home</button>
+            <button onclick="openPage('homePage')" class="mt-6 bg-gray-800 hover:bg-gray-900 text-white px-6 py-2.5 rounded-xl font-bold text-sm shadow transition cursor-pointer">← Back to Home</button>
         </div>
 
-        <!-- QUOTE CALCULATOR PAGE -->
-        <div id="quotePage" class="bg-white p-6 sm:p-8 rounded-2xl shadow-xl border border-gray-100 max-w-2xl mx-auto hidden">
+        <!-- QUOTE PAGE -->
+        <div id="quotePage" class="page-content bg-white p-6 sm:p-8 rounded-2xl shadow-xl border border-gray-100 max-w-2xl mx-auto hidden">
             <h3 class="text-2xl font-bold text-blue-900 border-b border-gray-100 pb-3 mb-6 flex items-center gap-2">
                 <span>💰</span> Get Freight Quote
             </h3>
@@ -252,44 +195,31 @@
                         <input type="text" id="toCity" placeholder="e.g. Mumbai" class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500">
                     </div>
                 </div>
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div>
-                        <label class="block text-sm font-semibold text-gray-600 mb-2">Weight (KG)</label>
-                        <input type="number" id="weight" placeholder="e.g. 100" class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500">
-                    </div>
-                    <div>
-                        <label class="block text-sm font-semibold text-gray-600 mb-2">Service Type</label>
-                        <select id="serviceType" class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500">
-                            <option value="part">Part Load</option>
-                            <option value="full">Full Truck Load</option>
-                        </select>
-                    </div>
+                <div>
+                    <label class="block text-sm font-semibold text-gray-600 mb-2">Weight (KG)</label>
+                    <input type="number" id="weight" placeholder="e.g. 100" class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500">
                 </div>
                 <button onclick="calculateQuote()" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-xl shadow transition">
-                    Calculate Estimated Cost
+                    Calculate Cost
                 </button>
                 <div id="quoteResult" class="hidden bg-green-50 border border-green-200 p-4 rounded-xl text-center">
-                    <p class="text-sm text-gray-600">Estimated Freight Cost</p>
+                    <p class="text-sm text-gray-600">Estimated Cost</p>
                     <p class="text-3xl font-bold text-green-600" id="quoteAmount">₹0</p>
-                    <p class="text-xs text-gray-500 mt-2">*Final cost may vary. Contact us for exact quote.</p>
+                    <p class="text-xs text-gray-500 mt-2">*Contact for final quote</p>
                 </div>
             </div>
-            <button onclick="goBackHome()" class="mt-6 w-full bg-gray-800 hover:bg-gray-900 text-white px-6 py-2.5 rounded-xl font-bold text-sm shadow transition cursor-pointer">← Back to Home</button>
+            <button onclick="openPage('homePage')" class="mt-6 w-full bg-gray-800 hover:bg-gray-900 text-white px-6 py-2.5 rounded-xl font-bold text-sm shadow transition cursor-pointer">← Back to Home</button>
         </div>
 
-        <!-- TRANSPORT DETAILS PAGE -->
-        <div id="transportDetailsPage" class="bg-white p-6 sm:p-8 rounded-2xl shadow-xl border border-gray-100 hidden">
+        <!-- COMPANY DETAILS -->
+        <div id="transportDetailsPage" class="page-content bg-white p-6 sm:p-8 rounded-2xl shadow-xl border border-gray-100 hidden">
             <h3 class="text-xl font-bold text-blue-900 border-b border-gray-100 pb-3 mb-5 flex items-center gap-2">
-                <span>🏢</span> Company Official Details
+                <span>🏢</span> Company Details
             </h3>
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div class="p-3 bg-gray-50 rounded-lg">
                     <span class="text-xs font-bold text-gray-400 uppercase block">Company Name</span>
                     <strong class="text-gray-800 text-sm">SHREE LAKSHMI LOGISTIC PVT LTD</strong>
-                </div>
-                <div class="p-3 bg-gray-50 rounded-lg">
-                    <span class="text-xs font-bold text-gray-400 uppercase block">Service Route</span>
-                    <strong class="text-gray-800 text-sm">All India</strong>
                 </div>
                 <div class="p-3 bg-gray-50 rounded-lg">
                     <span class="text-xs font-bold text-gray-400 uppercase block">GST Number</span>
@@ -298,81 +228,62 @@
                         <button onclick="copyText('29ASLPL8036G1ZC')" class="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded hover:bg-blue-200">Copy</button>
                     </div>
                 </div>
-                <div class="p-3 bg-gray-50 rounded-lg">
-                    <span class="text-xs font-bold text-gray-400 uppercase block">PAN Number</span>
-                    <strong class="text-gray-800 text-sm">ASLPL8036G</strong>
-                </div>
                 <div class="p-3 bg-gray-50 rounded-lg sm:col-span-2">
-                    <span class="text-xs font-bold text-gray-400 uppercase block">Registered Address</span>
-                    <strong class="text-gray-800 text-sm">H1/12 first floor, yashwantpur, Bengaluru Karnataka India 560022</strong>
+                    <span class="text-xs font-bold text-gray-400 uppercase block">Address</span>
+                    <strong class="text-gray-800 text-sm">H1/12 first floor, yashwantpur, Bengaluru 560022</strong>
                 </div>
             </div>
-            <button onclick="goBackHome()" class="mt-6 w-full sm:w-auto bg-gray-800 hover:bg-gray-900 text-white px-6 py-2.5 rounded-xl font-bold text-sm shadow transition cursor-pointer">← Back to Home</button>
+            <button onclick="openPage('homePage')" class="mt-6 bg-gray-800 hover:bg-gray-900 text-white px-6 py-2.5 rounded-xl font-bold text-sm shadow transition cursor-pointer">← Back to Home</button>
         </div>
 
         <!-- FAQ PAGE -->
-        <div id="faqPage" class="bg-white p-6 sm:p-8 rounded-2xl shadow-xl border border-gray-100 hidden">
+        <div id="faqPage" class="page-content bg-white p-6 sm:p-8 rounded-2xl shadow-xl border border-gray-100 hidden">
             <h3 class="text-2xl font-bold text-blue-900 border-b border-gray-100 pb-3 mb-6 flex items-center gap-2">
-                <span>❓</span> Frequently Asked Questions
+                <span>❓</span> FAQ
             </h3>
             <div class="space-y-4">
                 <details class="bg-gray-50 p-4 rounded-lg cursor-pointer">
-                    <summary class="font-bold text-gray-800">Delivery mein kitna time lagta hai?</summary>
-                    <p class="text-sm text-gray-600 mt-2">Metro to Metro: 2-3 din. Other cities: 4-7 din. Distance pe depend karta hai.</p>
+                    <summary class="font-bold text-gray-800">Delivery time kitna hai?</summary>
+                    <p class="text-sm text-gray-600 mt-2">Metro: 2-3 din. Others: 4-7 din.</p>
                 </details>
                 <details class="bg-gray-50 p-4 rounded-lg cursor-pointer">
-                    <summary class="font-bold text-gray-800">Kya insurance milta hai?</summary>
-                    <p class="text-sm text-gray-600 mt-2">Haan, transit insurance available hai. Charges extra hain. Booking ke time bataiye.</p>
+                    <summary class="font-bold text-gray-800">Insurance milta hai?</summary>
+                    <p class="text-sm text-gray-600 mt-2">Haan, transit insurance available hai extra charges pe.</p>
                 </details>
                 <details class="bg-gray-50 p-4 rounded-lg cursor-pointer">
-                    <summary class="font-bold text-gray-800">Minimum weight kitna hona chahiye?</summary>
-                    <p class="text-sm text-gray-600 mt-2">Part load ke liye minimum 50 KG. Usse kam hai to courier better rahega.</p>
-                </details>
-                <details class="bg-gray-50 p-4 rounded-lg cursor-pointer">
-                    <summary class="font-bold text-gray-800">COD available hai?</summary>
-                    <p class="text-sm text-gray-600 mt-2">Haan, Cash on Delivery facility hai selected routes pe. Extra 2% charges lagte hain.</p>
+                    <summary class="font-bold text-gray-800">Minimum weight?</summary>
+                    <p class="text-sm text-gray-600 mt-2">Part load: 50 KG minimum.</p>
                 </details>
             </div>
-            <button onclick="goBackHome()" class="mt-6 w-full sm:w-auto bg-gray-800 hover:bg-gray-900 text-white px-6 py-2.5 rounded-xl font-bold text-sm shadow transition cursor-pointer">← Back to Home</button>
+            <button onclick="openPage('homePage')" class="mt-6 bg-gray-800 hover:bg-gray-900 text-white px-6 py-2.5 rounded-xl font-bold text-sm shadow transition cursor-pointer">← Back to Home</button>
         </div>
 
         <!-- CONTACT PAGE -->
-        <div id="contactUsPage" class="bg-white p-6 sm:p-8 rounded-2xl shadow-xl border border-gray-100 max-w-2xl mx-auto hidden">
+        <div id="contactUsPage" class="page-content bg-white p-6 sm:p-8 rounded-2xl shadow-xl border border-gray-100 max-w-2xl mx-auto hidden">
             <h3 class="text-2xl font-bold text-blue-900 border-b border-gray-100 pb-3 mb-6 flex items-center gap-2">
                 <span>📞</span> Contact Us
             </h3>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                <div class="space-y-4">
-                    <a href="https://wa.me/917665296227" target="_blank" rel="noopener" class="block p-4 bg-green-50 rounded-xl border border-green-200 hover:bg-green-100 transition shadow-sm">
-                        <span class="text-xs font-bold text-green-600 uppercase block mb-1">WhatsApp</span>
-                        <strong class="text-green-700 text-lg flex items-center gap-2">🟢 7665296227</strong>
-                    </a>
-                    <a href="tel:+917665296227" class="block p-4 bg-blue-50 rounded-xl border border-blue-200 hover:bg-blue-100 transition shadow-sm">
-                        <span class="text-xs font-bold text-blue-600 uppercase block mb-1">Call Us</span>
-                        <strong class="text-blue-800 text-lg">📱 7665296227</strong>
-                    </a>
-                    <a href="mailto:Shreelakshmilogisticbengaluru@gmail.com" class="block p-4 bg-purple-50 rounded-xl border border-purple-200 hover:bg-purple-100 transition shadow-sm">
-                        <span class="text-xs font-bold text-purple-600 uppercase block mb-1">Email</span>
-                        <strong class="text-purple-800 text-sm break-all">✉ Shreelakshmilogisticbengaluru@gmail.com</strong>
-                    </a>
-                </div>
-                <div class="bg-gray-50 p-4 rounded-xl">
-                    <h4 class="font-bold mb-3">Send Inquiry</h4>
-                    <form onsubmit="submitInquiry(event)" class="space-y-3">
-                        <input type="text" placeholder="Your Name" required class="w-full px-3 py-2 border rounded-lg text-sm">
-                        <input type="tel" placeholder="Phone Number" required class="w-full px-3 py-2 border rounded-lg text-sm">
-                        <textarea placeholder="Your Message" rows="3" required class="w-full px-3 py-2 border rounded-lg text-sm"></textarea>
-                        <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded-lg font-bold text-sm hover:bg-blue-700">Send Message</button>
-                    </form>
-                </div>
-            <button onclick="goBackHome()" class="w-full bg-gray-800 hover:bg-gray-900 text-white px-6 py-2.5 rounded-xl font-bold text-sm shadow transition cursor-pointer">← Back to Home</button>
+            <div class="space-y-4">
+                <a href="https://wa.me/917665296227" target="_blank" class="block p-4 bg-green-50 rounded-xl border border-green-200 hover:bg-green-100 transition shadow-sm">
+                    <span class="text-xs font-bold text-green-600 uppercase block mb-1">WhatsApp</span>
+                    <strong class="text-green-700 text-lg">🟢 7665296227</strong>
+                </a>
+                <a href="tel:+917665296227" class="block p-4 bg-blue-50 rounded-xl border border-blue-200 hover:bg-blue-100 transition shadow-sm">
+                    <span class="text-xs font-bold text-blue-600 uppercase block mb-1">Call</span>
+                    <strong class="text-blue-800 text-lg">📱 7665296227</strong>
+                </a>
+                <a href="mailto:Shreelakshmilogisticbengaluru@gmail.com" class="block p-4 bg-purple-50 rounded-xl border border-purple-200 hover:bg-purple-100 transition shadow-sm">
+                    <span class="text-xs font-bold text-purple-600 uppercase block mb-1">Email</span>
+                    <strong class="text-purple-800 text-sm break-all">✉ Shreelakshmilogisticbengaluru@gmail.com</strong>
+                </a>
+            </div>
+            <button onclick="openPage('homePage')" class="mt-6 w-full bg-gray-800 hover:bg-gray-900 text-white px-6 py-2.5 rounded-xl font-bold text-sm shadow transition cursor-pointer">← Back to Home</button>
         </div>
 
     </main>
 
-    <!-- WHATSAPP FLOAT BUTTON -->
-    <a href="https://wa.me/917665296227" target="_blank" rel="noopener" class="fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg z-30 transition">
-        <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397 0 12.008 0c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 12.004-11.95 12.004-.001 0-.001 0 0 0-2.005-.001-3.98-.535-5.711-1.549L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.42 9.864-9.858.002-2.634-1.023-5.11-2.887-6.974-1.864-1.864-4.341-2.887-6.978-2.888-5.439 0-9.864 4.42-9.868 9.859-.001 1.748.47 3.456 1.364 4.972l-.98 3.58 3.658-.962zm10.744-6.666c-.303-.152-1.791-.882-2.069-.983-.278-.101-.481-.152-.682.152-.201.304-.777.983-.953 1.186-.177.203-.354.23-.657.079-1.371-.689-2.316-1.18-3.239-2.763-.242-.415.242-.385.693-1.284.076-.152.038-.285-.019-.386-.057-.102-.481-1.159-.66-1.584-.175-.42-.35-.363-.481-.369-.125-.005-.268-.006-.412-.006-.144 0-.379.054-.577.271-.198.217-.757.74-.757 1.802 0 1.063.773 2.089.88 2.234.107.145 1.52 2.321 3.682 3.256.514.223.916.356 1.229.455.517.165.987.141 1.359.085.414-.061 1.791-.732 2.043-1.44.253-.707.253-1.314.177-1.44-.077-.126-.278-.203-.581-.355z"/></svg>
+    <a href="https://wa.me/917665296227" target="_blank" class="fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg z-30 transition">
+        <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397 0 12.008 0c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 12.004-11.95 12.004-.001 0-.001 0 0 0-2.005-.001-3.98-.535-5.711-1.549L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.42 9.864-9.858.002-2.634-1.023-5.11-2.887-6.974-1.864-4.341-2.887-6.978-2.888-5.439 0-9.864 4.42-9.868 9.859-.001 1.748.47 3.456 1.364 4.972l-.98 3.58 3.658-.962zm10.744-6.666c-.303-.152-1.791-.882-2.069-.983-.278-.101-.481-.152-.682.152-.201.304-.777.983-.953 1.186-.177.203-.354.23-.657.079-1.371-.689-2.316-1.18-3.239-2.763-.242-.415.242-.385.693-1.284.076-.152.038-.285-.019-.386-.057-.102-.481-1.159-.66-1.584-.175-.42-.35-.363-.481-.369-.125-.005-.268-.006-.412-.006-.144 0-.379.054-.577.271-.198.217-.757.74-.757 1.802 0 1.063.773 2.089.88 2.234.107.145 1.52 2.321 3.682 3.256.514.223.916.356 1.229.455.517.165.987.141 1.359.085.414-.061 1.791-.732 2.043-1.44.253-.707.253-1.314.177-1.44-.077-.126-.278-.203-.581-.355z"/></svg>
     </a>
 
     <footer class="bg-blue-950 text-gray-400 text-center py-6 text-xs border-t border-blue-900 w-full mt-auto">
@@ -380,7 +291,7 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-4 text-left">
                 <div>
                     <h4 class="text-white font-bold mb-2">SHREE LAKSHMI LOGISTIC</h4>
-                    <p class="text-xs">All India Transport & Logistics Services</p>
+                    <p class="text-xs">All India Transport Services</p>
                     <p class="text-xs mt-2">GST: 29ASLPL8036G1ZC</p>
                 </div>
                 <div>
@@ -389,14 +300,12 @@
                         <button onclick="openPage('servicesPage')" class="block hover:text-white">Our Services</button>
                         <button onclick="openPage('quotePage')" class="block hover:text-white">Get Quote</button>
                         <button onclick="openPage('faqPage')" class="block hover:text-white">FAQ</button>
-                        <button onclick="openPage('contactUsPage')" class="block hover:text-white">Contact</button>
                     </div>
                 </div>
                 <div>
                     <h4 class="text-white font-bold mb-2">Contact</h4>
-                    <p class="text-xs">📍 H1/12, Yashwantpur, Bengaluru</p>
+                    <p class="text-xs">📍 Yashwantpur, Bengaluru</p>
                     <p class="text-xs">📱 +91 7665296227</p>
-                    <p class="text-xs">✉ Shreelakshmilogisticbengaluru@gmail.com</p>
                 </div>
             </div>
             <div class="border-t border-blue-800 pt-4">
@@ -406,7 +315,7 @@
     </footer>
 
     <script>
-        // FIX: Yahi main change hai - saare pages add kar diye
+        // FIX 1: Saare page IDs yahan add kiye - yehi main reason tha
         const allPages = ['homePage', 'trackingResultPage', 'servicesPage', 'quotePage', 'transportDetailsPage', 'faqPage', 'contactUsPage'];
 
         window.addEventListener('load', () => {
@@ -441,4 +350,84 @@
 
         function openPage(pageId) {
             toggleMenu(false);
-            history.pushState({page: pageId}, null, '#' + page
+            history.pushState({page: pageId}, null, '#' + pageId.replace('Page', ''));
+            showPage(pageId);
+        }
+
+        // FIX 2: showPage function ko robust banaya
+        function showPage(pageId) {
+            // Pehle saare pages hide karo
+            document.querySelectorAll('.page-content').forEach(el => {
+                el.classList.add('hidden');
+            });
+
+            // Fir selected page show karo
+            const targetPage = document.getElementById(pageId);
+            if (targetPage) {
+                targetPage.classList.remove('hidden');
+            }
+
+            // Nav buttons ka active state update karo
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.classList.remove('bg-blue-700');
+            });
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        window.onpopstate = function(event) {
+            if (event.state && event.state.page) {
+                showPage(event.state.page);
+            } else {
+                showPage('homePage');
+            }
+        };
+
+        function handleTracking() {
+            const inputEl = document.getElementById('orderIdInput');
+            const errorEl = document.getElementById('orderError');
+            const inputValue = inputEl.value.trim();
+
+            errorEl.textContent = '';
+
+            if(inputValue === "") {
+                errorEl.textContent = "Kripya tracking number enter karein!";
+                inputEl.focus();
+                return;
+            }
+
+            document.getElementById('trackingNumber').textContent = inputValue;
+            inputEl.value = "";
+            openPage('trackingResultPage');
+        }
+
+        function calculateQuote() {
+            const weight = parseFloat(document.getElementById('weight').value);
+            const from = document.getElementById('fromCity').value.trim();
+            const to = document.getElementById('toCity').value.trim();
+
+            if(!weight ||!from ||!to) {
+                alert('Kripya sabhi fields bharein!');
+                return;
+            }
+
+            // Simple calculation: ₹5 per kg per 100km (dummy logic)
+            const estimatedCost = Math.round(weight * 8 + 500);
+            document.getElementById('quoteAmount').textContent = '₹' + estimatedCost.toLocaleString('en-IN');
+            document.getElementById('quoteResult').classList.remove('hidden');
+        }
+
+        function copyText(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                alert('Copied: ' + text);
+            });
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                toggleMenu(false);
+            }
+        });
+    </script>
+</body>
+</html>
