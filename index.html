@@ -7,51 +7,35 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
   .slider-img { display: none; }
-  .slider-img.active { display: block; animation: fadeIn 0.5s ease-in-out; }
-    @keyframes fadeIn {
-        from { opacity: 0; transform: scale(1.02); }
-        to { opacity: 1; transform: scale(1); }
-    }
+  .slider-img.active { display: block; }
     body.sidebar-open { overflow: hidden; }
-  .timeline-item::before {
-        content: '';
-        position: absolute;
-        left: -21px;
-        top: 5px;
-        width: 10px;
-        height: 10px;
-        border-radius: 50%;
-        background: #3b82f6;
-        border: 2px solid white;
-    }
-   .page-content { display: none; }
-   .page-content.active { display: block; }
+  .hidden { display: none!important; }
     </style>
 </head>
 <body class="bg-gray-50">
 
     <header class="bg-blue-900 text-white p-4 fixed top-0 w-full z-40 flex justify-between">
-        <button id="menuBtn" class="bg-blue-800 px-4 py-2 rounded">☰ Menu</button>
-        <button id="adminBtn" class="bg-yellow-600 px-4 py-2 rounded">🔐 Admin</button>
+        <button onclick="openMenu()" class="bg-blue-800 px-4 py-2 rounded">☰ Menu</button>
+        <button onclick="openAdmin()" class="bg-yellow-600 px-4 py-2 rounded">🔐 Admin</button>
     </header>
 
     <div id="sidebarMenu" class="fixed inset-0 bg-black/50 z-50 hidden">
         <div class="bg-blue-900 w-80 h-full p-6">
-            <button id="closeMenuBtn" class="text-white text-2xl float-right">&times;</button>
+            <button onclick="closeMenu()" class="text-white text-2xl float-right">&times;</button>
             <h3 class="text-white font-bold mb-6 mt-8">📌 Navigation</h3>
-            <button data-page="home" class="nav-link block w-full text-left text-white py-3 px-4 hover:bg-blue-700 rounded mb-2">🏠 Home</button>
-            <button data-page="services" class="nav-link block w-full text-left text-white py-3 px-4 hover:bg-blue-700 rounded mb-2">🚚 Services</button>
-            <button data-page="quote" class="nav-link block w-full text-left text-white py-3 px-4 hover:bg-blue-700 rounded mb-2">💰 Get Quote</button>
-            <button data-page="details" class="nav-link block w-full text-left text-white py-3 px-4 hover:bg-blue-700 rounded mb-2">🏢 Company Details</button>
-            <button data-page="faq" class="nav-link block w-full text-left text-white py-3 px-4 hover:bg-blue-700 rounded mb-2">❓ FAQ</button>
-            <button data-page="contact" class="nav-link block w-full text-left text-white py-3 px-4 hover:bg-blue-700 rounded mb-2">📞 Contact</button>
+            <button onclick="showPage('home')" class="block w-full text-left text-white py-3 px-4 hover:bg-blue-700 rounded mb-2">🏠 Home</button>
+            <button onclick="showPage('services')" class="block w-full text-left text-white py-3 px-4 hover:bg-blue-700 rounded mb-2">🚚 Services</button>
+            <button onclick="showPage('quote')" class="block w-full text-left text-white py-3 px-4 hover:bg-blue-700 rounded mb-2">💰 Get Quote</button>
+            <button onclick="showPage('details')" class="block w-full text-left text-white py-3 px-4 hover:bg-blue-700 rounded mb-2">🏢 Company Details</button>
+            <button onclick="showPage('faq')" class="block w-full text-left text-white py-3 px-4 hover:bg-blue-700 rounded mb-2">❓ FAQ</button>
+            <button onclick="showPage('contact')" class="block w-full text-left text-white py-3 px-4 hover:bg-blue-700 rounded mb-2">📞 Contact</button>
         </div>
     </div>
 
     <main class="mt-20 p-4 max-w-6xl mx-auto">
 
         <!-- HOME PAGE -->
-        <div id="homePage" class="page-content active space-y-6">
+        <div id="homePage" class="space-y-6">
             <div class="text-center">
                 <img src="https://i.postimg.cc/3N56G1Rw/image-search-1782066959399.png" alt="Logo" class="w-24 h-24 rounded-full mx-auto mb-3">
                 <h1 class="text-3xl font-bold text-blue-900">SHREE LAKSHMI LOGISTIC PVT LTD</h1>
@@ -66,8 +50,8 @@
             </div>
 
             <div class="bg-blue-900 text-white p-6 rounded-lg">
-                <h2 class="text-lg font-bold mb-4 text-center">🏆 Certified & Trusted Logistics Partner</h2>
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center mb-4">
+                <h2 class="text-lg font-bold mb-4 text-center">🏆 Certified & Trusted</h2>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
                     <div><div class="text-2xl font-bold text-yellow-400">15+</div><div class="text-xs">Years Experience</div></div>
                     <div><div class="text-2xl font-bold text-yellow-400">500+</div><div class="text-xs">Cities Covered</div></div>
                     <div><div class="text-2xl font-bold text-yellow-400">10K+</div><div class="text-xs">Happy Clients</div></div>
@@ -83,406 +67,167 @@
             <div class="bg-white p-6 rounded-lg shadow-lg">
                 <h2 class="text-xl font-bold mb-4">📍 Track Your Consignment</h2>
                 <input type="text" id="orderIdInput" placeholder="Enter LR Number (Try: LR123456)" class="w-full px-4 py-3 border rounded-lg mb-3">
-                <button id="trackBtn" class="w-full bg-blue-600 text-white font-bold py-3 rounded-lg">Track Now</button>
+                <button onclick="trackOrder()" class="w-full bg-blue-600 text-white font-bold py-3 rounded-lg">Track Now</button>
                 <p id="orderError" class="text-red-500 text-sm mt-2"></p>
             </div>
 
             <div id="trackingResult" class="bg-white p-6 rounded-lg shadow-lg hidden">
                 <h3 class="font-bold text-lg mb-4">Tracking Details</h3>
                 <div id="resultData"></div>
-                <div id="timelineData" class="mt-4 space-y-4 border-l-2 border-blue-200 ml-3 pl-6"></div>
-            </div>
-
-            <!-- TRUST SECTION - NEW -->
-            <div class="bg-white p-6 rounded-lg shadow-lg">
-                <h2 class="text-xl font-bold mb-6 text-center">⭐ Why Choose Us</h2>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
-                    <div class="text-center">
-                        <div class="text-4xl mb-2">🛡️</div>
-                        <h4 class="font-bold mb-2">100% Safe & Secure</h4>
-                        <p class="text-sm text-gray-600">GPS tracking, Insurance coverage, CCTV monitored warehouses</p>
-                    </div>
-                    <div class="text-center">
-                        <div class="text-4xl mb-2">⚡</div>
-                        <h4 class="font-bold mb-2">Fast Delivery</h4>
-                        <p class="text-sm text-gray-600">Express delivery network covering 500+ cities in India</p>
-                    </div>
-                    <div class="text-center">
-                        <div class="text-4xl mb-2">💰</div>
-                        <h4 class="font-bold mb-2">Best Price</h4>
-                        <p class="text-sm text-gray-600">Competitive rates with no hidden charges</p>
-                    </div>
-                </div>
-
-                <div class="border-t pt-6">
-                    <h4 class="font-bold text-center mb-4">Our Certifications</h4>
-                    <div class="flex flex-wrap justify-center gap-4 text-xs">
-                        <div class="bg-gray-100 px-4 py-2 rounded">✓ ISO 9001:2015 Certified</div>
-                        <div class="bg-gray-100 px-4 py-2 rounded">✓ IBA Approved</div>
-                        <div class="bg-gray-100 px-4 py-2 rounded">✓ GST Registered</div>
-                        <div class="bg-gray-100 px-4 py-2 rounded">✓ MSME Registered</div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- TESTIMONIALS - NEW -->
-            <div class="bg-white p-6 rounded-lg shadow-lg">
-                <h2 class="text-xl font-bold mb-6 text-center">💬 Client Testimonials</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div class="border p-4 rounded-lg">
-                        <div class="flex items-center mb-2">
-                            <div class="text-yellow-400">★★★★★</div>
-                        </div>
-                        <p class="text-sm text-gray-600 mb-2">"Best logistics service in Bangalore. On-time delivery and professional team."</p>
-                        <p class="text-xs font-bold">- Rajesh Kumar, Delhi</p>
-                    </div>
-                    <div class="border p-4 rounded-lg">
-                        <div class="flex items-center mb-2">
-                            <div class="text-yellow-400">★★★★★</div>
-                        </div>
-                        <p class="text-sm text-gray-600 mb-2">"Using their service for 3 years. Never faced any issue. Highly recommended!"</p>
-                        <p class="text-xs font-bold">- Priya Sharma, Mumbai</p>
-                    </div>
-                </div>
             </div>
         </div>
 
         <!-- ADMIN LOGIN -->
-        <div id="adminLoginPage" class="page-content">
+        <div id="adminLoginPage" class="hidden">
             <div class="bg-white p-6 rounded-lg shadow-lg max-w-md mx-auto">
                 <h3 class="text-2xl font-bold mb-6">🔐 Admin Login</h3>
                 <input type="text" id="adminUser" placeholder="Username" class="w-full px-4 py-3 border rounded-lg mb-3">
                 <input type="password" id="adminPass" placeholder="Password" class="w-full px-4 py-3 border rounded-lg mb-3">
-                <button id="loginBtn" class="w-full bg-blue-600 text-white font-bold py-3 rounded-lg">Login</button>
+                <button onclick="loginAdmin()" class="w-full bg-blue-600 text-white font-bold py-3 rounded-lg">Login</button>
                 <p id="loginError" class="text-red-500 text-sm mt-2"></p>
                 <p class="text-xs text-gray-500 mt-4">Use: admin / lakshmi2026</p>
-                <button id="backBtn1" class="w-full bg-gray-300 text-gray-800 font-bold py-2 rounded-lg mt-4">← Back</button>
+                <button onclick="showPage('home')" class="w-full bg-gray-300 text-gray-800 font-bold py-2 rounded-lg mt-4">← Back</button>
             </div>
         </div>
 
-        <!-- ADMIN DASHBOARD - PROFESSIONAL -->
-        <div id="adminDashboardPage" class="page-content">
+        <!-- ADMIN DASHBOARD -->
+        <div id="adminDashboardPage" class="hidden">
             <div class="bg-white p-6 rounded-lg shadow-lg">
                 <div class="flex justify-between items-center mb-6">
                     <h3 class="text-2xl font-bold">📊 Admin Dashboard</h3>
-                    <button id="logoutBtn" class="bg-red-600 text-white px-4 py-2 rounded-lg">Logout</button>
+                    <button onclick="logoutAdmin()" class="bg-red-600 text-white px-4 py-2 rounded-lg">Logout</button>
                 </div>
 
-                <!-- PROFESSIONAL ORDER FORM -->
                 <div class="bg-blue-50 p-6 rounded-lg mb-6 border border-blue-200">
-                    <h4 class="font-bold text-lg mb-4 text-blue-900">➕ Add New Shipment - Complete Details</h4>
-
+                    <h4 class="font-bold text-lg mb-4 text-blue-900">➕ Add New Shipment</h4>
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                        <div>
-                            <label class="text-xs font-bold text-gray-600">Order ID *</label>
-                            <input type="text" id="newOrderId" placeholder="SL001" class="w-full px-3 py-2 border rounded text-sm">
-                        </div>
-                        <div>
-                            <label class="text-xs font-bold text-gray-600">LR/Bilty No *</label>
-                            <input type="text" id="newLR" placeholder="LR123456" class="w-full px-3 py-2 border rounded text-sm">
-                        </div>
-                        <div>
-                            <label class="text-xs font-bold text-gray-600">Booking Date *</label>
-                            <input type="date" id="newBookDate" class="w-full px-3 py-2 border rounded text-sm">
-                        </div>
-
-                        <div>
-                            <label class="text-xs font-bold text-gray-600">Consignor Name *</label>
-                            <input type="text" id="newConsignor" placeholder="Sender Name" class="w-full px-3 py-2 border rounded text-sm">
-                        </div>
-                        <div>
-                            <label class="text-xs font-bold text-gray-600">Consignor Mobile *</label>
-                            <input type="text" id="newConsignorMobile" placeholder="9876543210" class="w-full px-3 py-2 border rounded text-sm">
-                        </div>
-                        <div>
-                            <label class="text-xs font-bold text-gray-600">From City *</label>
-                            <input type="text" id="newFrom" placeholder="Hyderabad" class="w-full px-3 py-2 border rounded text-sm">
-                        </div>
-
-                        <div>
-                            <label class="text-xs font-bold text-gray-600">Consignee Name *</label>
-                            <input type="text" id="newConsignee" placeholder="Receiver Name" class="w-full px-3 py-2 border rounded text-sm">
-                        </div>
-                        <div>
-                            <label class="text-xs font-bold text-gray-600">Consignee Mobile *</label>
-                            <input type="text" id="newConsigneeMobile" placeholder="9876543210" class="w-full px-3 py-2 border rounded text-sm">
-                        </div>
-                        <div>
-                            <label class="text-xs font-bold text-gray-600">To City *</label>
-                            <input type="text" id="newTo" placeholder="Bengaluru" class="w-full px-3 py-2 border rounded text-sm">
-                        </div>
-
-                        <div>
-                            <label class="text-xs font-bold text-gray-600">Weight (KG) *</label>
-                            <input type="number" id="newWeight" placeholder="250" class="w-full px-3 py-2 border rounded text-sm">
-                        </div>
-                        <div>
-                            <label class="text-xs font-bold text-gray-600">No. of Packages *</label>
-                            <input type="number" id="newPackages" placeholder="5" class="w-full px-3 py-2 border rounded text-sm">
-                        </div>
-                        <div>
-                            <label class="text-xs font-bold text-gray-600">Dimensions (LxWxH)</label>
-                            <input type="text" id="newDimension" placeholder="100x50x40 cm" class="w-full px-3 py-2 border rounded text-sm">
-                        </div>
-
-                        <div>
-                            <label class="text-xs font-bold text-gray-600">Freight Amount (₹)</label>
-                            <input type="number" id="newFreight" placeholder="5000" class="w-full px-3 py-2 border rounded text-sm">
-                        </div>
-                        <div>
-                            <label class="text-xs font-bold text-gray-600">Payment Mode</label>
-                            <select id="newPayment" class="w-full px-3 py-2 border rounded text-sm">
-                                <option>To Pay</option>
-                                <option>Paid</option>
-                                <option>TBB</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label class="text-xs font-bold text-gray-600">Expected Delivery</label>
-                            <input type="date" id="newDeliveryDate" class="w-full px-3 py-2 border rounded text-sm">
-                        </div>
-
-                        <div>
-                            <label class="text-xs font-bold text-gray-600">Current Status *</label>
-                            <select id="newStatus" class="w-full px-3 py-2 border rounded text-sm">
-                                <option>Booked</option>
-                                <option>Picked Up</option>
-                                <option>In Transit</option>
-                                <option>Reached Destination</option>
-                                <option>Out for Delivery</option>
-                                <option>Delivered</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label class="text-xs font-bold text-gray-600">Current Location</label>
-                            <input type="text" id="newLocation" placeholder="Hyderabad Hub" class="w-full px-3 py-2 border rounded text-sm">
-                        </div>
-                        <div>
-                            <label class="text-xs font-bold text-gray-600">Vehicle No.</label>
-                            <input type="text" id="newVehicle" placeholder="KA01AB1234" class="w-full px-3 py-2 border rounded text-sm">
-                        </div>
+                        <input type="text" id="newOrderId" placeholder="Order ID *" class="px-3 py-2 border rounded text-sm">
+                        <input type="text" id="newLR" placeholder="LR/Bilty No *" class="px-3 py-2 border rounded text-sm">
+                        <input type="date" id="newBookDate" class="px-3 py-2 border rounded text-sm">
+                        <input type="text" id="newConsignor" placeholder="Consignor Name *" class="px-3 py-2 border rounded text-sm">
+                        <input type="text" id="newConsignorMobile" placeholder="Consignor Mobile *" class="px-3 py-2 border rounded text-sm">
+                        <input type="text" id="newFrom" placeholder="From City *" class="px-3 py-2 border rounded text-sm">
+                        <input type="text" id="newConsignee" placeholder="Consignee Name *" class="px-3 py-2 border rounded text-sm">
+                        <input type="text" id="newConsigneeMobile" placeholder="Consignee Mobile *" class="px-3 py-2 border rounded text-sm">
+                        <input type="text" id="newTo" placeholder="To City *" class="px-3 py-2 border rounded text-sm">
+                        <input type="number" id="newWeight" placeholder="Weight (KG) *" class="px-3 py-2 border rounded text-sm">
+                        <input type="number" id="newPackages" placeholder="No. of Packages *" class="px-3 py-2 border rounded text-sm">
+                        <input type="text" id="newDimension" placeholder="Dimensions" class="px-3 py-2 border rounded text-sm">
+                        <input type="number" id="newFreight" placeholder="Freight Amount" class="px-3 py-2 border rounded text-sm">
+                        <select id="newPayment" class="px-3 py-2 border rounded text-sm">
+                            <option>To Pay</option>
+                            <option>Paid</option>
+                            <option>TBB</option>
+                        </select>
+                        <input type="date" id="newDeliveryDate" class="px-3 py-2 border rounded text-sm">
+                        <select id="newStatus" class="px-3 py-2 border rounded text-sm">
+                            <option>Booked</option>
+                            <option>Picked Up</option>
+                            <option>In Transit</option>
+                            <option>Reached Destination</option>
+                            <option>Out for Delivery</option>
+                            <option>Delivered</option>
+                        </select>
+                        <input type="text" id="newLocation" placeholder="Current Location" class="px-3 py-2 border rounded text-sm">
+                        <input type="text" id="newVehicle" placeholder="Vehicle No." class="px-3 py-2 border rounded text-sm">
                     </div>
-
-                    <div class="mt-4">
-                        <label class="text-xs font-bold text-gray-600">Remarks/Notes</label>
-                        <textarea id="newRemarks" placeholder="Special instructions..." rows="2" class="w-full px-3 py-2 border rounded text-sm"></textarea>
-                    </div>
-
-                    <button id="addBtn" class="mt-4 w-full bg-green-600 text-white font-bold py-3 rounded-lg">Add Shipment</button>
+                    <textarea id="newRemarks" placeholder="Remarks/Notes" rows="2" class="w-full px-3 py-2 border rounded text-sm mt-4"></textarea>
+                    <button onclick="addOrder()" class="mt-4 w-full bg-green-600 text-white font-bold py-3 rounded-lg">Add Shipment</button>
                 </div>
 
-                <h4 class="font-bold mb-4">📦 All Shipments <span id="shipmentCount" class="text-sm text-gray-500"></span></h4>
+                <h4 class="font-bold mb-4">📦 All Shipments</h4>
                 <div id="ordersList" class="space-y-3"></div>
             </div>
         </div>
 
-        <!-- SERVICES PAGE -->
-        <div id="servicesPage" class="page-content bg-white p-6 rounded-lg shadow-lg hidden">
+        <!-- OTHER PAGES -->
+        <div id="servicesPage" class="hidden bg-white p-6 rounded-lg shadow-lg">
             <h3 class="text-2xl font-bold mb-6">🚚 Our Services</h3>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div class="border p-4 rounded-lg">
-                    <div class="text-3xl mb-2">📦</div>
-                    <h4 class="font-bold">Part Load Service</h4>
-                    <p class="text-sm text-gray-600">Starting ₹500 - Door to door delivery</p>
-                </div>
-                <div class="border p-4 rounded-lg">
-                    <div class="text-3xl mb-2">🚛</div>
-                    <h4 class="font-bold">Full Truck Load</h4>
-                    <p class="text-sm text-gray-600">Custom Quote - Dedicated truck</p>
-                </div>
-                <div class="border p-4 rounded-lg">
-                    <div class="text-3xl mb-2">🏭</div>
-                    <h4 class="font-bold">Warehouse</h4>
-                    <p class="text-sm text-gray-600">Storage & distribution</p>
-                </div>
-                <div class="border p-4 rounded-lg">
-                    <div class="text-3xl mb-2">📋</div>
-                    <h4 class="font-bold">Bilty Service</h4>
-                    <p class="text-sm text-gray-600">GST compliant documentation</p>
-                </div>
+                <div class="border p-4 rounded-lg"><div class="text-3xl mb-2">📦</div><h4 class="font-bold">Part Load</h4><p class="text-sm">Starting ₹500</p></div>
+                <div class="border p-4 rounded-lg"><div class="text-3xl mb-2">🚛</div><h4 class="font-bold">Full Truck Load</h4><p class="text-sm">Custom Quote</p></div>
             </div>
-            <button id="backBtn2" class="mt-6 bg-gray-800 text-white px-6 py-2 rounded">← Back</button>
+            <button onclick="showPage('home')" class="mt-6 bg-gray-800 text-white px-6 py-2 rounded">← Back</button>
         </div>
 
-        <!-- QUOTE PAGE -->
-        <div id="quotePage" class="page-content bg-white p-6 rounded-lg shadow-lg max-w-2xl mx-auto hidden">
+        <div id="quotePage" class="hidden bg-white p-6 rounded-lg shadow-lg max-w-2xl mx-auto">
             <h3 class="text-2xl font-bold mb-6">💰 Get Freight Quote</h3>
             <input type="text" id="fromCity" placeholder="From City" class="w-full px-4 py-3 border rounded-lg mb-3">
             <input type="text" id="toCity" placeholder="To City" class="w-full px-4 py-3 border rounded-lg mb-3">
             <input type="number" id="weight" placeholder="Weight (KG)" class="w-full px-4 py-3 border rounded-lg mb-3">
-            <button id="quoteBtn" class="w-full bg-blue-600 text-white font-bold py-3 rounded-lg">Calculate</button>
+            <button onclick="calculateQuote()" class="w-full bg-blue-600 text-white font-bold py-3 rounded-lg">Calculate</button>
             <div id="quoteResult" class="hidden bg-green-50 p-4 rounded-lg text-center mt-4">
                 <p class="text-3xl font-bold text-green-600" id="quoteAmount">₹0</p>
             </div>
-            <button id="backBtn3" class="mt-6 w-full bg-gray-800 text-white px-6 py-2 rounded">← Back</button>
+            <button onclick="showPage('home')" class="mt-6 w-full bg-gray-800 text-white px-6 py-2 rounded">← Back</button>
         </div>
 
-        <!-- COMPANY DETAILS -->
-        <div id="detailsPage" class="page-content bg-white p-6 rounded-lg shadow-lg hidden">
+        <div id="detailsPage" class="hidden bg-white p-6 rounded-lg shadow-lg">
             <h3 class="text-xl font-bold mb-5">🏢 Company Details</h3>
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div class="p-3 bg-gray-50 rounded-lg">
-                    <span class="text-xs font-bold text-gray-400">Company Name</span>
-                    <strong class="block text-sm">SHREE LAKSHMI LOGISTIC PVT LTD</strong>
-                </div>
-                <div class="p-3 bg-gray-50 rounded-lg">
-                    <span class="text-xs font-bold text-gray-400">GST Number</span>
-                    <strong class="block text-blue-600 text-sm">29ASLPL8036G1ZC</strong>
-                </div>
-                <div class="p-3 bg-gray-50 rounded-lg">
-                    <span class="text-xs font-bold text-gray-400">PAN Number</span>
-                    <strong class="block text-sm">ASLPL8036G</strong>
-                </div>
-                <div class="p-3 bg-gray-50 rounded-lg">
-                    <span class="text-xs font-bold text-gray-400">CIN Number</span>
-                    <strong class="block text-sm">U63000KA2020PTC134567</strong>
-                </div>
-                <div class="p-3 bg-gray-50 rounded-lg sm:col-span-2">
-                    <span class="text-xs font-bold text-gray-400">Address</span>
-                    <strong class="block text-sm">H1/12 first floor, Yashwantpur, Bengaluru 560022</strong>
-                </div>
-                <div class="p-3 bg-gray-50 rounded-lg">
-                    <span class="text-xs font-bold text-gray-400">Email</span>
-                    <strong class="block text-sm">Shreelakshmilogisticbengaluru@gmail.com</strong>
-                </div>
-                <div class="p-3 bg-gray-50 rounded-lg">
-                    <span class="text-xs font-bold text-gray-400">Contact</span>
-                    <strong class="block text-sm">+91 7665296227</strong>
-                </div>
-            <button id="backBtn4" class="mt-6 bg-gray-800 text-white px-6 py-2 rounded">← Back</button>
-        </div>
-
-        <!-- FAQ -->
-        <div id="faqPage" class="page-content bg-white p-6 rounded-lg shadow-lg hidden">
-            <h3 class="text-2xl font-bold mb-6">❓ FAQ</h3>
-            <details class="bg-gray-50 p-4 rounded-lg mb-3 cursor-pointer">
-                <summary class="font-bold">Delivery time?</summary>
-                <p class="text-sm text-gray-600 mt-2">Metro: 2-3 days. Others: 4-7 days.</p>
-            </details>
-            <details class="bg-gray-50 p-4 rounded-lg mb-3 cursor-pointer">
-                <summary class="font-bold">How to track?</summary>
-                <p class="text-sm text-gray-600 mt-2">Enter LR number on home page and click Track Now.</p>
-            </details>
-            <button id="backBtn5" class="mt-6 bg-gray-800 text-white px-6 py-2 rounded">← Back</button>
-        </div>
-
-        <!-- CONTACT -->
-        <div id="contactPage" class="page-content bg-white p-6 rounded-lg shadow-lg max-w-2xl mx-auto hidden">
-            <h3 class="text-2xl font-bold mb-6">📞 Contact Us</h3>
-            <a href="https://wa.me/917665296227" target="_blank" class="block p-4 bg-green-50 rounded-lg border border-green-200 mb-3">
-                <strong class="text-green-700">🟢 WhatsApp: 7665296227</strong>
-            </a>
-            <a href="tel:+917665296227" class="block p-4 bg-blue-50 rounded-lg border border-blue-200 mb-3">
-                <strong class="text-blue-800">📱 Call: 7665296227</strong>
-            </a>
-            <div class="p-4 bg-gray-50 rounded-lg border">
-                <strong class="block">📍 Address</strong>
-                <span class="text-sm">H1/12 first floor, Yashwantpur, Bengaluru 560022</span>
+                <div class="p-3 bg-gray-50 rounded-lg"><span class="text-xs font-bold text-gray-400">Company</span><strong class="block text-sm">SHREE LAKSHMI LOGISTIC PVT LTD</strong></div>
+                <div class="p-3 bg-gray-50 rounded-lg"><span class="text-xs font-bold text-gray-400">GST</span><strong class="block text-blue-600 text-sm">29ASLPL8036G1ZC</strong></div>
+                <div class="p-3 bg-gray-50 rounded-lg"><span class="text-xs font-bold text-gray-400">PAN</span><strong class="block text-sm">ASLPL8036G</strong></div>
+                <div class="p-3 bg-gray-50 rounded-lg"><span class="text-xs font-bold text-gray-400">CIN</span><strong class="block text-sm">U63000KA2020PTC134567</strong></div>
             </div>
-            <button id="backBtn6" class="mt-6 w-full bg-gray-800 text-white px-6 py-2 rounded">← Back</button>
+            <button onclick="showPage('home')" class="mt-6 bg-gray-800 text-white px-6 py-2 rounded">← Back</button>
+        </div>
+
+        <div id="faqPage" class="hidden bg-white p-6 rounded-lg shadow-lg">
+            <h3 class="text-2xl font-bold mb-6">❓ FAQ</h3>
+            <details class="bg-gray-50 p-4 rounded-lg mb-3"><summary class="font-bold">Delivery time?</summary><p class="text-sm mt-2">Metro: 2-3 days. Others: 4-7 days.</p></details>
+            <button onclick="showPage('home')" class="mt-6 bg-gray-800 text-white px-6 py-2 rounded">← Back</button>
+        </div>
+
+        <div id="contactPage" class="hidden bg-white p-6 rounded-lg shadow-lg max-w-2xl mx-auto">
+            <h3 class="text-2xl font-bold mb-6">📞 Contact Us</h3>
+            <a href="https://wa.me/917665296227" target="_blank" class="block p-4 bg-green-50 rounded-lg border border-green-200 mb-3"><strong class="text-green-700">🟢 WhatsApp: 7665296227</strong></a>
+            <a href="tel:+917665296227" class="block p-4 bg-blue-50 rounded-lg border border-blue-200 mb-3"><strong class="text-blue-800">📱 Call: 7665296227</strong></a>
+            <button onclick="showPage('home')" class="mt-6 w-full bg-gray-800 text-white px-6 py-2 rounded">← Back</button>
         </div>
 
     </main>
 
-    <footer class="bg-blue-950 text-gray-400 text-center py-6 text-xs mt-auto">
-        <div class="max-w-6xl mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-4 text-left">
-                <div>
-                    <h4 class="text-white font-bold mb-2">SHREE LAKSHMI LOGISTIC</h4>
-                    <p class="text-xs">GST: 29ASLPL8036G1ZC</p>
-                    <p class="text-xs">PAN: ASLPL8036G</p>
-                </div>
-                <div>
-                    <h4 class="text-white font-bold mb-2">Quick Links</h4>
-                    <button id="footerServices" class="block hover:text-white text-xs">Services</button>
-                    <button id="footerQuote" class="block hover:text-white text-xs">Get Quote</button>
-                </div>
-                <div>
-                    <h4 class="text-white font-bold mb-2">Contact</h4>
-                    <p class="text-xs">📱 +91 7665296227</p>
-                    <p class="text-xs">✉ Shreelakshmilogisticbengaluru@gmail.com</p>
-                </div>
-            </div>
-            <div class="border-t border-blue-800 pt-4">
-                &copy; 2026 SHREE LAKSHMI LOGISTIC PVT LTD
-            </div>
-        </div>
-    </footer>
-
     <script>
-        // HISTORY MANAGEMENT - FIXES BACK BUTTON ISSUE
-        let pageHistory = ['home'];
+        // GLOBAL VARIABLES
+        var orders = JSON.parse(localStorage.getItem('orders') || '[{"lr":"LR123456","from":"Hyderabad","to":"Bengaluru","status":"In Transit","consignor":"ABC Company","consignee":"XYZ Ltd","weight":250,"packages":5,"bookDate":"2026-06-20","freight":5000,"payment":"Paid","timeline":[{"status":"Booked","location":"Hyderabad","date":"2026-06-20 10:00","note":"Order Confirmed"},{"status":"In Transit","location":"Hyderabad Hub","date":"2026-06-21 14:00","note":"Dispatched"}]}]');
+        var isLoggedIn = false;
 
-        function navigateTo(page) {
-            // Hide all pages
-            document.querySelectorAll('.page-content').forEach(p => p.classList.remove('active'));
-            // Show target page
-            document.getElementById(page + 'Page').classList.add('active');
-            // Add to history
-            if (pageHistory[pageHistory.length - 1]!== page) {
-                pageHistory.push(page);
-                history.pushState({page: page}, '', '#' + page);
-            }
+        // NAVIGATION FUNCTIONS - GLOBAL SCOPE
+        function showPage(page) {
+            document.querySelectorAll('[id$="Page"]').forEach(p => p.classList.add('hidden'));
+            document.getElementById(page + 'Page').classList.remove('hidden');
+            closeMenu();
             window.scrollTo(0, 0);
         }
 
-        // Handle browser back button
-        window.addEventListener('popstate', function(e) {
-            if (pageHistory.length > 1) {
-                pageHistory.pop();
-                const prevPage = pageHistory[pageHistory.length - 1];
-                document.querySelectorAll('.page-content').forEach(p => p.classList.remove('active'));
-                document.getElementById(prevPage + 'Page').classList.add('active');
-            } else {
-                // Stay on home if history empty
-                document.querySelectorAll('.page-content').forEach(p => p.classList.remove('active'));
-                document.getElementById('homePage').classList.add('active');
-            }
-        });
+        function openMenu() {
+            document.getElementById('sidebarMenu').classList.remove('hidden');
+        }
 
-        // DATA
-        let orders = JSON.parse(localStorage.getItem('orders') || '[{"lr":"LR123456","from":"Hyderabad","to":"Bengaluru","status":"In Transit","consignor":"ABC Company","consignee":"XYZ Ltd","weight":250,"packages":5,"bookDate":"2026-06-20","freight":5000,"payment":"Paid","timeline":[{"status":"Booked","location":"Hyderabad","date":"2026-06-20 10:00","note":"Order Confirmed"},{"status":"In Transit","location":"Hyderabad Hub","date":"2026-06-21 14:00","note":"Dispatched"}]}]');
-        let isLoggedIn = false;
+        function closeMenu() {
+            document.getElementById('sidebarMenu').classList.add('hidden');
+        }
 
-        // MENU
-        document.getElementById('menuBtn').onclick = () => document.getElementById('sidebarMenu').classList.remove('hidden');
-        document.getElementById('closeMenuBtn').onclick = () => document.getElementById('sidebarMenu').classList.add('hidden');
-        document.getElementById('sidebarMenu').onclick = (e) => { if(e.target.id === 'sidebarMenu') e.target.classList.add('hidden'); };
-
-        // NAVIGATION
-        document.querySelectorAll('.nav-link').forEach(btn => {
-            btn.onclick = () => {
-                navigateTo(btn.dataset.page);
-                document.getElementById('sidebarMenu').classList.add('hidden');
-            };
-        });
-
-        document.getElementById('adminBtn').onclick = () => navigateTo('adminLogin');
-        document.getElementById('backBtn1').onclick = () => navigateTo('home');
-        document.getElementById('backBtn2').onclick = () => navigateTo('home');
-        document.getElementById('backBtn3').onclick = () => navigateTo('home');
-        document.getElementById('backBtn4').onclick = () => navigateTo('home');
-        document.getElementById('backBtn5').onclick = () => navigateTo('home');
-        document.getElementById('backBtn6').onclick = () => navigateTo('home');
-        document.getElementById('footerServices').onclick = () => navigateTo('services');
-        document.getElementById('footerQuote').onclick = () => navigateTo('quote');
+        function openAdmin() {
+            showPage('adminLogin');
+        }
 
         // SLIDER
-        let slideIndex = 0;
-        const slides = document.querySelectorAll('.slider-img');
-        setInterval(() => {
+        var slideIndex = 0;
+        var slides = document.getElementsByClassName('slider-img');
+        setInterval(function() {
             slides[slideIndex].classList.remove('active');
             slideIndex = (slideIndex + 1) % slides.length;
             slides[slideIndex].classList.add('active');
         }, 3000);
 
-        // TRACKING
-        document.getElementById('trackBtn').onclick = function() {
-            const input = document.getElementById('orderIdInput').value.trim().toUpperCase();
-            const error = document.getElementById('orderError');
-            const result = document.getElementById('trackingResult');
-            const resultData = document.getElementById('resultData');
-            const timelineData = document.getElementById('timelineData');
+        // TRACK ORDER
+        function trackOrder() {
+            var input = document.getElementById('orderIdInput').value.trim().toUpperCase();
+            var error = document.getElementById('orderError');
+            var result = document.getElementById('trackingResult');
+            var resultData = document.getElementById('resultData');
 
             error.textContent = '';
             result.classList.add('hidden');
@@ -492,64 +237,44 @@
                 return;
             }
 
-            const order = orders.find(o => o.lr === input);
+            var order = orders.find(function(o) { return o.lr === input; });
 
             if (!order) {
                 error.textContent = 'Order not found!';
                 return;
             }
 
-            resultData.innerHTML = `
-                <div class="grid grid-cols-2 gap-4 text-sm">
-                    <div><strong>LR No:</strong> ${order.lr}</div>
-                    <div><strong>Status:</strong> <span class="bg-blue-100 text-blue-700 px-2 py-1 rounded text-xs">${order.status}</span></div>
-                    <div><strong>From:</strong> ${order.from}</div>
-                    <div><strong>To:</strong> ${order.to}</div>
-                    <div><strong>Consignor:</strong> ${order.consignor || 'N/A'}</div>
-                    <div><strong>Consignee:</strong> ${order.consignee || 'N/A'}</div>
-                    <div><strong>Weight:</strong> ${order.weight || 'N/A'} KG</div>
-                    <div><strong>Packages:</strong> ${order.packages || 'N/A'}</div>
-                </div>
-            `;
-
-            timelineData.innerHTML = (order.timeline || []).map(t => `
-                <div class="timeline-item relative">
-                    <div class="font-bold text-sm">${t.status}</div>
-                    <div class="text-xs text-gray-600">${t.location}</div>
-                    <div class="text-xs text-gray-500">${t.date}</div>
-                    ${t.note? `<div class="text-xs text-gray-500 italic">${t.note}</div>` : ''}
-                </div>
-            `).join('');
+            resultData.innerHTML = '<div class="grid grid-cols-2 gap-4 text-sm"><div><strong>LR No:</strong> ' + order.lr + '</div><div><strong>Status:</strong> <span class="bg-blue-100 text-blue-700 px-2 py-1 rounded text-xs">' + order.status + '</span></div><div><strong>From:</strong> ' + order.from + '</div><div><strong>To:</strong> ' + order.to + '</div><div><strong>Consignor:</strong> ' + (order.consignor || 'N/A') + '</div><div><strong>Consignee:</strong> ' + (order.consignee || 'N/A') + '</div><div><strong>Weight:</strong> ' + (order.weight || 'N/A') + ' KG</div><div><strong>Packages:</strong> ' + (order.packages || 'N/A') + '</div></div>';
 
             result.classList.remove('hidden');
-        };
+        }
 
         // ADMIN LOGIN
-        document.getElementById('loginBtn').onclick = function() {
-            const user = document.getElementById('adminUser').value;
-            const pass = document.getElementById('adminPass').value;
-            const error = document.getElementById('loginError');
+        function loginAdmin() {
+            var user = document.getElementById('adminUser').value;
+            var pass = document.getElementById('adminPass').value;
+            var error = document.getElementById('loginError');
 
             if (user === 'admin' && pass === 'lakshmi2026') {
                 isLoggedIn = true;
-                navigateTo('adminDashboard');
+                showPage('adminDashboard');
                 loadOrders();
                 error.textContent = '';
             } else {
                 error.textContent = 'Wrong username or password!';
             }
-        };
+        }
 
         // ADMIN LOGOUT
-        document.getElementById('logoutBtn').onclick = function() {
+        function logoutAdmin() {
             isLoggedIn = false;
-            navigateTo('home');
-        };
+            showPage('home');
+        }
 
-        // ADD ORDER - PROFESSIONAL
-        document.getElementById('addBtn').onclick = function() {
-            const order = {
-                orderId: document.getElementById('newOrderId')?.value || 'SL' + Date.now(),
+        // ADD ORDER
+        function addOrder() {
+            var order = {
+                orderId: document.getElementById('newOrderId').value || 'SL' + Date.now(),
                 lr: document.getElementById('newLR').value,
                 from: document.getElementById('newFrom').value,
                 to: document.getElementById('newTo').value,
@@ -559,4 +284,77 @@
                 consignee: document.getElementById('newConsignee').value,
                 consigneeMobile: document.getElementById('newConsigneeMobile').value,
                 weight: document.getElementById('newWeight').value,
-                packages: document.getElementBy
+                packages: document.getElementById('newPackages').value,
+                dimension: document.getElementById('newDimension').value,
+                freight: document.getElementById('newFreight').value,
+                payment: document.getElementById('newPayment').value,
+                bookDate: document.getElementById('newBookDate').value,
+                deliveryDate: document.getElementById('newDeliveryDate').value,
+                location: document.getElementById('newLocation').value,
+                vehicle: document.getElementById('newVehicle').value,
+                remarks: document.getElementById('newRemarks').value,
+                timeline: [{
+                    status: document.getElementById('newStatus').value,
+                    location: document.getElementById('newLocation').value || document.getElementById('newFrom').value,
+                    date: new Date().toLocaleString(),
+                    note: 'Order Created'
+                }]
+            };
+
+            if (!order.lr ||!order.from ||!order.to) {
+                alert('Please fill required fields: LR No, From City, To City');
+                return;
+            }
+
+            orders.push(order);
+            localStorage.setItem('orders', JSON.stringify(orders));
+
+            // Clear form
+            document.querySelectorAll('#adminDashboardPage input, #adminDashboardPage textarea, #adminDashboardPage select').forEach(function(el) {
+                el.value = '';
+            });
+
+            loadOrders();
+            alert('Order added successfully!');
+        }
+
+        // LOAD ORDERS
+        function loadOrders() {
+            var list = document.getElementById('ordersList');
+            list.innerHTML = orders.map(function(o, i) {
+                return '<div class="border p-3 rounded mb-2 flex justify-between items-center"><div><strong>' + o.lr + '</strong><br><span class="text-sm text-gray-600">' + o.from + ' → ' + o.to + '</span><br><span class="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded">' + o.status + '</span></div><button onclick="deleteOrder(' + i + ')" class="bg-red-500 text-white px-3 py-1 rounded text-sm">Delete</button></div>';
+            }).join('');
+        }
+
+        // DELETE ORDER
+        function deleteOrder(index) {
+            if (confirm('Delete this order?')) {
+                orders.splice(index, 1);
+                localStorage.setItem('orders', JSON.stringify(orders));
+                loadOrders();
+            }
+        }
+
+        // QUOTE CALCULATOR
+        function calculateQuote() {
+            var from = document.getElementById('fromCity').value;
+            var to = document.getElementById('toCity').value;
+            var weight = document.getElementById('weight').value;
+
+            if (!from ||!to ||!weight) {
+                alert('Please fill all fields!');
+                return;
+            }
+
+            var amount = weight * 15;
+            document.getElementById('quoteAmount').textContent = '₹' + amount;
+            document.getElementById('quoteResult').classList.remove('hidden');
+        }
+
+        // CLOSE MENU ON OUTSIDE CLICK
+        document.getElementById('sidebarMenu').onclick = function(e) {
+            if(e.target.id === 'sidebarMenu') closeMenu();
+        };
+    </script>
+</body>
+</html>
