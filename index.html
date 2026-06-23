@@ -265,448 +265,157 @@
                     </ul>
                 </div>
             </div>
-            <button id="backBtn2" class="mt-6 bg-gray-800 hover:bg-gray-900 text-white px-6 py-2 rounded-lg font-bold shadow transition">← Back to Dashboard</button>
-        </div>
-
-        <!-- FREIGHT QUOTE PAGE -->
-        <div id="quotePage" class="hidden bg-white p-6 rounded-xl shadow-lg border border-gray-100 max-w-2xl mx-auto">
-            <h3 class="text-2xl font-bold mb-6 text-blue-900 text-center">💰 Instantly Estimate Freight Costs</h3>
-            <div class="space-y-4">
-                <input type="text" id="fromCityQuote" placeholder="From Dispatching City" class="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-600 outline-none text-sm font-medium">
-                <input type="text" id="toCityQuote" placeholder="To Destination City" class="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-600 outline-none text-sm font-medium">
-                <input type="number" id="weightQuote" placeholder="Total Consignment Weight (KG)" class="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-600 outline-none text-sm font-medium">
-                <button id="quoteBtn" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-lg transition shadow text-base">Calculate Freight Price Estimate</button>
-            </div>
-            <div id="quoteResult" class="hidden bg-green-50 border border-green-200 p-5 rounded-xl text-center mt-5">
-                <p class="text-xs font-bold text-green-700 uppercase tracking-widest">Calculated Cargo Base Rate Estimate</p>
-                <p class="text-4xl font-black text-green-600 mt-1" id="quoteAmount">₹0</p>
-                <p class="text-xs text-gray-500 mt-3 italic">* Prices calculated are base estimates. Actual final prices vary based on materials. Please contact customer support for legal confirmation details.</p>
-            </div>
-            <button id="backBtn3" class="mt-6 w-full bg-gray-800 hover:bg-gray-900 text-white font-bold py-2.5 rounded-lg shadow transition">← Back to Dashboard</button>
-        </div>
-
-        <!-- COMPANY DETAILS PAGE -->
-        <div id="detailsPage" class="hidden bg-white p-6 rounded-xl shadow-lg border border-gray-100">
-            <h3 class="text-xl font-bold text-blue-900 border-b border-gray-100 pb-3 mb-5">🏢 Official Corporate Details</h3>
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div class="p-4 bg-gray-50 rounded-xl border border-gray-100">
-                    <span class="text-xs font-bold text-gray-400 uppercase block tracking-wider">Registered Corporate Identity</span>
-                    <strong class="text-gray-800 text-sm block mt-0.5">SHREE LAKSHMI LOGISTIC PVT LTD</strong>
-                </div>
-                <div class="p-4 bg-gray-50 rounded-xl border border-gray-100">
-                    <span class="text-xs font-bold text-gray-400 uppercase block tracking-wider">GST Verification Identifier</span>
-                    <div class="flex items-center justify-between gap-2 mt-0.5">
-                        <strong class="text-blue-600 text-sm font-mono">29ASLPL8036G1ZC</strong>
-                        <button onclick="copyText('29ASLPL8036G1ZC')" class="text-xs bg-blue-100 hover:bg-blue-200 text-blue-700 px-3 py-1 rounded-md font-bold transition">Copy Code</button>
-                    </div>
-                </div>
-                <div class="p-4 bg-gray-50 rounded-xl border border-gray-100">
-                    <span class="text-xs font-bold text-gray-400 uppercase block tracking-wider">Income Tax PAN Registration</span>
-                    <strong class="text-gray-800 text-sm font-mono block mt-0.5">ASLPL8036G</strong>
-                </div>
-                <div class="p-4 bg-gray-50 rounded-xl border border-gray-100">
-                    <span class="text-xs font-bold text-gray-400 uppercase block tracking-wider">Corporate Identification Number (CIN)</span>
-                    <strong class="text-gray-800 text-sm font-mono block mt-0.5">U63000KA2020PTC134567</strong>
-                </div>
-                <div class="p-4 bg-gray-50 rounded-xl border border-gray-100 sm:col-span-2">
-                    <span class="text-xs font-bold text-gray-400 uppercase block tracking-wider">Registered Headquarter Location Address</span>
-                    <strong class="text-gray-800 text-sm block mt-0.5 leading-relaxed">H1/12 first floor, Yashwantpur, Bengaluru, Karnataka, India - 560022</strong>
-                </div>
-                <div class="p-4 bg-gray-50 rounded-xl border border-gray-100">
-                    <span class="text-xs font-bold text-gray-400 uppercase block tracking-wider">Official Inbound Communication Email</span>
-                    <strong class="text-gray-800 text-sm block mt-0.5 break-all">Shreelakshmilogisticbengaluru@gmail.com</strong>
-                </div>
-                <div class="p-4 bg-gray-50 rounded-xl border border-gray-100">
-                    <span class="text-xs font-bold text-gray-400 uppercase block tracking-wider">Support Communications Access Line</span>
-                    <strong class="text-gray-800 text-sm block mt-0.5">+91 7665296227</strong>
-                </div>
-            </div>
-            <button id="backBtn4" class="mt-6 bg-gray-800 hover:bg-gray-900 text-white px-6 py-2 rounded-lg font-bold shadow transition">← Back to Dashboard</button>
-        </div>
-
-        <!-- FAQ PAGE -->
-        <div id="faqPage" class="hidden bg-white p-6 rounded-xl shadow-lg border border-gray-100">
-            <h3 class="text-2xl font-bold text-blue-900 mb-6">❓ Frequently Asked Questions</h3>
-            <div class="space-y-3">
-                <details class="bg-gray-50 border border-gray-100 p-4 rounded-xl cursor-pointer group transition">
-                    <summary class="font-bold text-gray-800 flex justify-between items-center list-none">
-                        <span>Delivery time kitna lagta hai?</span>
-                        <span class="text-blue-600 font-bold group-open:rotate-180 transition-transform">▼</span>
-                    </summary>
-                    <p class="text-sm text-gray-600 mt-2 border-t pt-2 leading-relaxed">Metro major transport cities take 2-3 days. Standard distance locations require 4-7 days. Deep rural / remote interior destinations require 7-10 open operational tracking days.</p>
-                </details>
-                <details class="bg-gray-50 border border-gray-100 p-4 rounded-xl cursor-pointer group transition">
-                    <summary class="font-bold text-gray-800 flex justify-between items-center list-none">
-                        <span>Tracking system ko kaise access karein?</span>
-                        <span class="text-blue-600 font-bold group-open:rotate-180 transition-transform">▼</span>
-                    </summary>
-                    <p class="text-sm text-gray-600 mt-2 border-t pt-2 leading-relaxed">Simply look on our main tracking interface card present on our Home Dashboard section. Type your corporate LR / Bilty invoice allocation tracking code number and tap on 'Track Shipment' to show comprehensive delivery path information histories instantly.</p>
-                </details>
-                <details class="bg-gray-50 border border-gray-100 p-4 rounded-xl cursor-pointer group transition">
-                    <summary class="font-bold text-gray-800 flex justify-between items-center list-none">
-                        <span>Payment options channels access specifications?</span>
-                        <span class="text-blue-600 font-bold group-open:rotate-180 transition-transform">▼</span>
-                    </summary>
-                    <p class="text-sm text-gray-600 mt-2 border-t pt-2 leading-relaxed">We accept immediate Cash settlements, real-time UPI applications processing, Bank Account Wire Transfers, or standard institutional Cheques. Advance commercial To-Pay delivery settlement infrastructure is fully supported optionally across corporate clients routing requests.</p>
-                </details>
-                <details class="bg-gray-50 border border-gray-100 p-4 rounded-xl cursor-pointer group transition">
-                    <summary class="font-bold text-gray-800 flex justify-between items-center list-none">
-                        <span>Transit Property damage structural insurance protection?</span>
-                        <span class="text-blue-600 font-bold group-open:rotate-180 transition-transform">▼</span>
-                    </summary>
-                    <p class="text-sm text-gray-600 mt-2 border-t pt-2 leading-relaxed">Yes, optional complete transit property protection insurance coverage options are provisioned at request parameters. Standard risk mitigation pricing scales down to a nominal flat fee calculating at 0.2% of verified invoice material valuations declared.</p>
-                </details>
-                <details class="bg-gray-50 border border-gray-100 p-4 rounded-xl cursor-pointer group transition">
-                    <summary class="font-bold text-gray-800 flex justify-between items-center list-none">
-                        <span>Minimum booking load capacity specifications?</span>
-                        <span class="text-blue-600 font-bold group-open:rotate-180 transition-transform">▼</span>
-                    </summary>
-                    <p class="text-sm text-gray-600 mt-2 border-t pt-2 leading-relaxed">For PTL loose parcel services cargo profiles accept starting threshold minima weights scaling from 10 KG upwards. FTL configurations maintain broad matching limits to complete payload vehicle tonnage metrics deployed.</p>
-                </details>
-            </div>
-            <button id="backBtn5" class="mt-6 bg-gray-800 hover:bg-gray-900 text-white px-6 py-2 rounded-lg font-bold shadow transition">← Back to Dashboard</button>
-        </div>
-
-        <!-- CONTACT PAGE -->
-        <div id="contactPage" class="hidden bg-white p-6 rounded-xl shadow-lg border border-gray-100 max-w-2xl mx-auto">
-            <h3 class="text-2xl font-bold text-blue-900 mb-6 text-center">📞 Instant Communications Desk</h3>
-            <div class="space-y-4 text-sm text-gray-700 bg-gray-50 p-6 rounded-xl border border-gray-100 shadow-inner">
-                <div class="flex items-start gap-3"><span class="text-lg">🏢</span><div><p class="text-xs font-bold text-gray-400 uppercase">Entity Identity</p><p class="font-bold text-gray-800 text-base">SHREE LAKSHMI LOGISTIC PVT LTD</p></div></div>
-                <div class="flex items-start gap-3"><span class="text-lg">📍</span><div><p class="text-xs font-bold text-gray-400 uppercase">Registered Address Hub</p><p class="font-bold text-gray-800">H1/12 first floor, Yashwantpur, Bengaluru 560022</p></div></div>
-                <div class="flex items-start gap-3"><span class="text-lg">📞</span><div><p class="text-xs font-bold text-gray-400 uppercase">Instant Operations Telephone Hotline</p><p class="font-bold text-blue-700 text-lg">+91 7665296227</p></div></div>
-                <div class="flex items-start gap-3"><span class="text-lg">✉️</span><div><p class="text-xs font-bold text-gray-400 uppercase">Customer Helpdesk Email Box</p><p class="font-bold text-gray-800 font-mono">Shreelakshmilogisticbengaluru@gmail.com</p></div></div>
-            </div>
-            <button id="backBtn6" class="mt-6 bg-gray-800 hover:bg-gray-900 text-white px-6 py-2.5 rounded-lg font-bold w-full shadow transition">← Back to Dashboard</button>
         </div>
 
     </main>
 
-    <!-- COMPREHENSIVE CONTROL LOGIC SCRIPT DATA INFRASTRUCTURE -->
+    <!-- INTERACTIVE SCRIPTS -->
     <script>
-        // 1. ADVANCED SPA ROUTING CONTROLLERS WITH HISTORIES NAVIGATION INTEGRATION (Fixes back button)
-        function renderPage() {
-            const hash = window.location.hash || '#home';
-            const pageRegistry = ['homePage', 'adminLoginPage', 'adminDashboardPage', 'servicesPage', 'quotePage', 'detailsPage', 'faqPage', 'contactPage'];
-            
-            pageRegistry.forEach(id => {
-                const pageElement = document.getElementById(id);
-                if(pageElement) pageElement.classList.add('hidden');
-            });
-
-            if (hash === '#home' || hash === '') {
-                document.getElementById('homePage').classList.remove('hidden');
-            } else if (hash === '#services') {
-                document.getElementById('servicesPage').classList.remove('hidden');
-            } else if (hash === '#quote') {
-                document.getElementById('quotePage').classList.remove('hidden');
-            } else if (hash === '#details') {
-                document.getElementById('detailsPage').classList.remove('hidden');
-            } else if (hash === '#faq') {
-                document.getElementById('faqPage').classList.remove('hidden');
-            } else if (hash === '#contact') {
-                document.getElementById('contactPage').classList.remove('hidden');
-            } else if (hash === '#adminLogin') {
-                document.getElementById('adminLoginPage').classList.remove('hidden');
-            } else if (hash === '#adminDashboard') {
-                document.getElementById('adminDashboardPage').classList.remove('hidden');
-            }
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        window.addEventListener('hashchange', renderPage);
-        window.addEventListener('DOMContentLoaded', () => {
-            if(!window.location.hash) {
-                window.location.hash = '#home';
-            }
-            renderPage();
-            startSlider();
-        });
-
-        // 2. INTERACTIVE SIDEBAR CONTROLLER UI
+        // --- 1. Sidebar Menu Navigation Toggle ---
         const menuBtn = document.getElementById('menuBtn');
-        const sidebarMenu = document.getElementById('sidebarMenu');
         const closeMenuBtn = document.getElementById('closeMenuBtn');
+        const sidebarMenu = document.getElementById('sidebarMenu');
 
         menuBtn.addEventListener('click', () => sidebarMenu.classList.remove('hidden'));
         closeMenuBtn.addEventListener('click', () => sidebarMenu.classList.add('hidden'));
-        sidebarMenu.addEventListener('click', (e) => {
-            if(e.target === sidebarMenu) sidebarMenu.classList.add('hidden');
-        });
 
-        document.querySelectorAll('.nav-link').forEach(link => {
+        // --- 2. Multi-Page System Configuration ---
+        const navLinks = document.querySelectorAll('.nav-link');
+        const pages = ['homePage', 'servicesPage', 'adminLoginPage', 'adminDashboardPage']; 
+
+        navLinks.forEach(link => {
             link.addEventListener('click', (e) => {
-                const targetingPath = e.currentTarget.getAttribute('data-page');
-                window.location.hash = '#' + targetingPath;
+                const targetPageId = e.target.getAttribute('data-page') + 'Page';
+                pages.forEach(pId => {
+                    const pg = document.getElementById(pId);
+                    if (pg) pg.classList.add('hidden');
+                });
+                const targetPage = document.getElementById(targetPageId);
+                if (targetPage) targetPage.classList.remove('hidden');
                 sidebarMenu.classList.add('hidden');
             });
         });
 
-        document.getElementById('adminBtn').addEventListener('click', () => {
-            window.location.hash = '#adminLogin';
-        });
-
-        ['backBtn1', 'backBtn2', 'backBtn3', 'backBtn4', 'backBtn5', 'backBtn6'].forEach(id => {
-            const el = document.getElementById(id);
-            if(el) {
-                el.addEventListener('click', () => {
-                    window.location.hash = '#home';
-                });
-            }
-        });
-
-        // 3. IMAGE ROTATION ENGINE (SLIDER)
-        let activeIndex = 0;
-        const imgSlides = document.querySelectorAll('.slider-img');
-        function startSlider() {
-            if(imgSlides.length === 0) return;
+        // --- 3. Automatic Banner Slider ---
+        const sliders = document.querySelectorAll('.slider-img');
+        let currentSlide = 0;
+        if (sliders.length > 0) {
             setInterval(() => {
-                imgSlides[activeIndex].classList.remove('active');
-                activeIndex = (activeIndex + 1) % imgSlides.length;
-                imgSlides[activeIndex].classList.add('active');
-            }, 3500);
+                sliders[currentSlide].classList.remove('active');
+                currentSlide = (currentSlide + 1) % sliders.length;
+                sliders[currentSlide].classList.add('active');
+            }, 3000);
         }
 
-        // 4. PROFESSIONAL HIGH-TRUST LOGISTICS SPECIFIC TRACKING DATA STREAMS
-        let shipments = [
-            { 
-                lrNo: 'LR123456', 
-                from: 'Bengaluru Hub [BLR]', 
-                to: 'Delhi Warehouse [DEL]', 
-                sender: 'Rajesh Kumar Industries', 
-                receiver: 'Amit Sharma Logistics', 
-                weight: 120, 
-                status: 'In Transit',
-                edd: '25 June 2026',
-                bookingDate: '23 June 2026',
-                history: [
-                    { time: '23 June 2026, 10:30 AM', loc: 'Yashwantpur Hub, Bengaluru', activity: 'Shipment Successfully Received, Booked & Electronic Way Bill Manifest Verified.' },
-                    { time: '23 June 2026, 04:15 PM', loc: 'Nelamangala Sorting Yard', activity: 'Consignment Sorted, Loaded Into Line-Haul Vehicle Container and Departed.' },
-                    { time: '24 June 2026, 09:00 AM', loc: 'Pune Hub Transshipment Center', activity: 'In Transit - Vehicle Checked In at Way-Bridge Facility. Moving Ahead Towards Target Destination Site Container Yard.' }
-                ]
-            }
-        ];
+        // --- 4. Admin Routing Configuration ---
+        const adminBtn = document.getElementById('adminBtn');
+        const backBtn1 = document.getElementById('backBtn1');
 
+        adminBtn.addEventListener('click', () => {
+            pages.forEach(pId => {
+                const pg = document.getElementById(pId);
+                if (pg) pg.classList.add('hidden');
+            });
+            document.getElementById('adminLoginPage').classList.remove('hidden');
+        });
+
+        if (backBtn1) {
+            backBtn1.addEventListener('click', () => {
+                document.getElementById('adminLoginPage').classList.add('hidden');
+                document.getElementById('homePage').classList.remove('hidden');
+            });
+        }
+
+        // --- 5. PROFESSIONAL CONSIGNMENT TRACKING SYSTEM ---
         const trackBtn = document.getElementById('trackBtn');
-        const trackInput = document.getElementById('trackInput');
-        const trackingResult = document.getElementById('trackingResult');
-        const resultData = document.getElementById('resultData');
-        const trackError = document.getElementById('trackError');
-
         trackBtn.addEventListener('click', () => {
-            const lookupValue = trackInput.value.trim().toUpperCase();
-            trackError.textContent = '';
-            trackingResult.classList.add('hidden');
-
-            if(!lookupValue) {
-                trackError.textContent = 'Please type a valid active LR / Bilty Number tracking code identifier.';
+            const input = document.getElementById('trackInput').value.trim();
+            const resultDiv = document.getElementById('trackingResult');
+            const resultData = document.getElementById('resultData');
+            const errorMsg = document.getElementById('trackError');
+            
+            if(input === '') {
+                errorMsg.innerText = "Please enter a valid LR Number.";
+                resultDiv.classList.add('hidden');
                 return;
             }
 
-            const record = shipments.find(s => s.lrNo.toUpperCase() === lookupValue);
-            
-            if(record) {
-                // Generate Status Styles
-                let badgeColor = "bg-blue-600";
-                let pulseAnimation = "";
-                if(record.status === "Delivered") badgeColor = "bg-green-600";
-                if(record.status === "Booked") badgeColor = "bg-yellow-600";
-                if(record.status === "In Transit" || record.status === "Out for Delivery") {
-                    pulseAnimation = "animate-pulse";
-                }
-
-                // Render dynamic stepper layout
-                let stepperHTML = record.history.map((step, idx) => {
-                    const isLatest = idx === record.history.length - 1;
-                    return `
-                        <div class="flex gap-4 relative timeline-item pb-4">
-                            <div class="flex flex-col items-center relative timeline-line">
-                                <div class="w-4 h-4 rounded-full flex items-center justify-center z-10 ${isLatest ? 'bg-blue-600 ring-4 ring-blue-100' : 'bg-gray-300'}">
-                                    <div class="w-2 h-2 rounded-full bg-white"></div>
+            if(input === '823360453000') {
+                errorMsg.innerText = "";
+                resultDiv.classList.remove('hidden');
+                
+                // Professional Invoice style template injection
+                resultData.innerHTML = `
+                    <div class="border border-blue-200 rounded-lg overflow-hidden bg-white shadow-sm">
+                        <!-- Invoice Header -->
+                        <div class="bg-blue-900 text-white p-4 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
+                            <div>
+                                <p class="text-xs uppercase tracking-wider text-blue-200 font-bold">Consignment Note</p>
+                                <h3 class="text-xl font-black">LR No: ${input}</h3>
+                            </div>
+                            <span class="bg-green-500 text-white text-xs px-3 py-1.5 rounded-full font-extrabold uppercase tracking-wide shadow-sm">
+                                🚚 Received In Transport
+                            </span>
+                        </div>
+                        
+                        <!-- Details Grid -->
+                        <div class="p-5 space-y-4 text-gray-800">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 border-b border-gray-100 pb-4">
+                                <div>
+                                    <span class="text-xs text-gray-400 font-bold uppercase block mb-0.5">Consignee Name</span>
+                                    <p class="font-bold text-gray-900 text-base">Ajay Kumar Singh</p>
+                                </div>
+                                <div>
+                                    <span class="text-xs text-gray-400 font-bold uppercase block mb-0.5">Booking / Order Date</span>
+                                    <p class="font-semibold text-gray-700">23/06/2026 07:00 AM</p>
                                 </div>
                             </div>
-                            <div class="flex-1 -mt-0.5 bg-white p-3 border rounded-xl shadow-sm hover:shadow transition duration-200">
-                                <p class="text-xs font-bold text-blue-900 flex justify-between items-center">
-                                    <span>📍 ${step.loc}</span>
-                                    <span class="text-gray-400 font-medium font-mono">${step.time}</span>
+
+                            <div class="border-b border-gray-100 pb-4">
+                                <span class="text-xs text-gray-400 font-bold uppercase block mb-0.5">Delivery Address</span>
+                                <p class="font-medium text-gray-700 leading-relaxed">
+                                    C/o-Ajay kumar singh, Thari Road opposite of balanand ashram school, Near kunda Thana, Deoghar, Jharkhand - <strong class="text-gray-900 font-bold">814143</strong>
                                 </p>
-                                <p class="text-sm text-gray-600 font-medium mt-1">${step.activity}</p>
+                            </div>
+
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 border-b border-gray-100 pb-4">
+                                <div>
+                                    <span class="text-xs text-gray-400 font-bold uppercase block mb-0.5">Consignment Items</span>
+                                    <p class="font-bold text-blue-900 bg-blue-50/80 px-2.5 py-1.5 rounded border border-blue-100 inline-block text-sm">
+                                        📦 75 kg cashew w180, w240, w400
+                                    </p>
+                                </div>
+                                <div>
+                                    <span class="text-xs text-gray-400 font-bold uppercase block mb-0.5">Estimated Delivery Window</span>
+                                    <p class="font-bold text-green-700 bg-green-50 px-2.5 py-1.5 rounded border border-green-100 inline-block text-sm">
+                                        📅 27/06/2026 to 28/06/2026
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Live Timeline Tracker status check -->
+                            <div>
+                                <span class="text-xs text-gray-400 font-bold uppercase block mb-2">Current Status</span>
+                                <div class="flex items-center gap-2 text-sm text-gray-700 font-medium">
+                                    <span class="w-3 h-3 bg-green-500 rounded-full animate-ping"></span>
+                                    <p>Shipped <span class="text-gray-400 mx-1">→</span> <span class="text-green-600 font-bold">Received in transport</span></p>
+                                </div>
                             </div>
                         </div>
-                    `;
-                }).reverse().join(''); // Show latest tracking step at top
 
-                resultData.innerHTML = `
-                    <div class="bg-gradient-to-r from-blue-900 to-blue-800 text-white p-5 rounded-xl mb-6 shadow-inner flex flex-col md:flex-row md:justify-between md:items-center gap-4">
-                        <div>
-                            <span class="text-xs font-bold tracking-widest text-blue-200 uppercase">Live Consignment Status Tracking</span>
-                            <h2 class="text-2xl font-black tracking-wide mt-1">${record.from} <span class="text-yellow-400">➔</span> ${record.to}</h2>
-                            <p class="text-sm text-blue-100 font-medium mt-1">Estimated Delivery: <span class="text-white font-bold underline decoration-yellow-400 decoration-2">${record.edd || 'Under Calculation'}</span></p>
-                        </div>
-                        <div class="flex flex-col items-start md:items-end gap-1">
-                            <span class="${badgeColor} ${pulseAnimation} text-white px-4 py-1.5 rounded-full text-xs font-black uppercase shadow tracking-widest">
-                                ● ${record.status}
-                            </span>
-                            <span class="text-xs text-blue-200 font-mono mt-1">Booked On: ${record.bookingDate || 'N/A'}</span>
-                        </div>
-                    </div>
-
-                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 bg-gray-50 p-4 rounded-xl border border-gray-100 text-sm mb-6 shadow-sm">
-                        <div><p class="text-gray-400 text-xs font-bold tracking-wider">LR/BILTY NUMBER</p><p class="font-extrabold text-gray-800 font-mono mt-0.5">${record.lrNo}</p></div>
-                        <div><p class="text-gray-400 text-xs font-bold tracking-wider">CONSIGNMENT WEIGHT</p><p class="font-extrabold text-gray-800 mt-0.5">${record.weight} KG</p></div>
-                        <div><p class="text-gray-400 text-xs font-bold tracking-wider">CONSIGNOR (SENDER)</p><p class="font-extrabold text-gray-800 mt-0.5 truncate">${record.sender}</p></div>
-                        <div><p class="text-gray-400 text-xs font-bold tracking-wider">CONSIGNEE (RECEIVER)</p><p class="font-extrabold text-gray-800 mt-0.5 truncate">${record.receiver}</p></div>
-                    </div>
-
-                    <div>
-                        <h4 class="font-black text-gray-800 text-base mb-4 flex items-center gap-2">
-                            <span class="inline-block w-2.5 h-5 bg-blue-900 rounded-sm"></span>
-                            Real-Time Transit Trajectory Audit Trails
-                        </h4>
-                        <div class="pl-1">
-                            ${stepperHTML}
+                        <!-- Professional Footer Note -->
+                        <div class="bg-gray-50 border-t border-gray-100 p-3 text-center">
+                            <p class="text-xs font-semibold text-blue-900 tracking-wide">
+                                Thank you for choosing Shree Lakshmi Logistics Pvt Ltd...
+                            </p>
                         </div>
                     </div>
                 `;
-                trackingResult.classList.remove('hidden');
-                trackingResult.scrollIntoView({ behavior: 'smooth' });
             } else {
-                trackError.textContent = 'Verification Failed. No live transport shipment metrics found matching this LR code parameter identifier. (Try: LR123456)';
+                errorMsg.innerText = "LR Number not found. Please check and try again.";
+                resultDiv.classList.add('hidden');
             }
         });
-
-        // 5. SECURE ADMIN CONFIGURATION GATEWAY TERMINALS
-        const adminUser = document.getElementById('adminUser');
-        const adminPass = document.getElementById('adminPass');
-        const loginBtn = document.getElementById('loginBtn');
-        const loginError = document.getElementById('loginError');
-        const logoutBtn = document.getElementById('logoutBtn');
-
-        loginBtn.addEventListener('click', () => {
-            if(adminUser.value === 'admin' && adminPass.value === 'lakshmi2026') {
-                loginError.textContent = '';
-                window.location.hash = '#adminDashboard';
-                updateOrdersList();
-            } else {
-                loginError.textContent = 'Access Authorization Denied. Invalid administrative tracking credentials entered.';
-            }
-        });
-
-        logoutBtn.addEventListener('click', () => {
-            adminUser.value = '';
-            adminPass.value = '';
-            window.location.hash = '#home';
-        });
-
-        // Add Shipment Fields Data Connectors
-        const lrNo = document.getElementById('lrNo');
-        const fromCity = document.getElementById('fromCity');
-        const toCity = document.getElementById('toCity');
-        const senderName = document.getElementById('senderName');
-        const receiverName = document.getElementById('receiverName');
-        const weight = document.getElementById('weight');
-        const status = document.getElementById('status');
-        const eddInput = document.getElementById('eddInput');
-        const addOrderBtn = document.getElementById('addOrderBtn');
-        const orderCount = document.getElementById('orderCount');
-        const ordersList = document.getElementById('ordersList');
-
-        function updateOrdersList() {
-            orderCount.textContent = shipments.length;
-            ordersList.innerHTML = '';
-            shipments.forEach((s, idx) => {
-                const itemDiv = document.createElement('div');
-                itemDiv.className = 'border p-4 rounded-xl bg-gray-50 border-gray-100 shadow-sm flex flex-col sm:flex-row justify-between sm:items-center gap-3 text-xs';
-                itemDiv.innerHTML = `
-                    <div>
-                        <span class="font-mono bg-blue-100 text-blue-800 px-2 py-0.5 rounded font-bold">${s.lrNo}</span> 
-                        <span class="font-bold text-gray-800 ml-1">${s.from} ➔ ${s.to}</span><br>
-                        <span class="text-gray-500 block mt-1">Sender: <strong class="text-gray-700">${s.sender}</strong> | Receiver: <strong class="text-gray-700">${s.receiver}</strong> | Weight: <strong>${s.weight} KG</strong></span>
-                        <span class="text-gray-400 block mt-0.5">Est. Arrival Date: ${s.edd || 'Unset'}</span>
-                    </div>
-                    <div class="flex items-center gap-2 self-end sm:self-center">
-                        <span class="bg-blue-900 text-white font-extrabold px-3 py-1 rounded-full uppercase text-[10px] tracking-wider shadow-sm">${s.status}</span>
-                        <button onclick="deleteShipment(${idx})" class="bg-red-100 hover:bg-red-500 text-red-700 hover:text-white p-2 rounded-lg transition duration-200 font-bold">✕ Delete</button>
-                    </div>
-                `;
-                ordersList.appendChild(itemDiv);
-            });
-        }
-
-        addOrderBtn.addEventListener('click', () => {
-            if(!lrNo.value || !fromCity.value || !toCity.value || !senderName.value || !receiverName.value || !weight.value) {
-                alert('Validation Alert. Missing mandatory data parameters.');
-                return;
-            }
-            
-            const targetEDD = eddInput.value.trim() || "Within 4 Days";
-            const dateObj = new Date();
-            const currentFormattedDate = dateObj.getDate() + " " + dateObj.toLocaleString('en-US', { month: 'long' }) + " " + dateObj.getFullYear();
-
-            // Structure data entry fields smoothly with built-in initial timeline tracking steps
-            const newRecord = {
-                lrNo: lrNo.value.trim().toUpperCase(),
-                from: fromCity.value.trim(),
-                to: toCity.value.trim(),
-                sender: senderName.value.trim(),
-                receiver: receiverName.value.trim(),
-                weight: parseFloat(weight.value),
-                status: status.value,
-                edd: targetEDD,
-                bookingDate: currentFormattedDate,
-                history: [
-                    { 
-                        time: currentFormattedDate + ', ' + dateObj.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' }), 
-                        loc: fromCity.value.trim() + ' Processing Facility', 
-                        activity: `Shipment Record Manifest Initiated. Current Status Flagged As [${status.value}]. Cargo verified at entry weight scales.` 
-                    }
-                ]
-            };
-
-            shipments.push(newRecord);
-            
-            // Flush input fields
-            lrNo.value = ''; fromCity.value = ''; toCity.value = '';
-            senderName.value = ''; receiverName.value = ''; weight.value = ''; eddInput.value = '';
-            
-            updateOrdersList();
-            alert('Success! New High-Trust Dynamic Freight Record Published to Live Tracking Database Engine.');
-        });
-
-        window.deleteShipment = function(index) {
-            if(confirm('Confirm Data Action. Are you completely sure you want to drop this transport asset record from live systems database listings?')) {
-                shipments.splice(index, 1);
-                updateOrdersList();
-            }
-        };
-
-        // 6. FREIGHT PRICING RATE ESTIMATION CALCULATORS
-        const fromCityQuote = document.getElementById('fromCityQuote');
-        const toCityQuote = document.getElementById('toCityQuote');
-        const weightQuote = document.getElementById('weightQuote');
-        const quoteBtn = document.getElementById('quoteBtn');
-        const quoteResult = document.getElementById('quoteResult');
-        const quoteAmount = document.getElementById('quoteAmount');
-
-        quoteBtn.addEventListener('click', () => {
-            const massValue = parseFloat(weightQuote.value);
-            if(!fromCityQuote.value || !toCityQuote.value || !massValue || massValue <= 0) {
-                alert('Calculation Warning. Please write precise cargo parameters details.');
-                return;
-            }
-            // Standard logistic algorithmic base calculation: 7 Rs/KG + constant flat handling processing metrics fee
-            const computedMatrix = Math.round(massValue * 7 + 350);
-            quoteAmount.textContent = '₹' + computedMatrix;
-            quoteResult.classList.remove('hidden');
-        });
-
-        // 7. SYSTEM INTERACTIVE CLIPBOARD UTILITIES
-        window.copyText = function(text) {
-            navigator.clipboard.writeText(text).then(() => {
-                alert('System Notification. Data successfully secured to device clipboard: ' + text);
-            }).catch(err => {
-                console.error('Terminal error logging text streaming payload: ', err);
-            });
-        }
     </script>
 </body>
 </html>
