@@ -6,36 +6,38 @@
     <title>SHREE LAKSHMI LOGISTIC PVT LTD</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        .hidden { display: none!important; }
+        .hidden { display: none !important; }
         .slider-img { display: none; }
         .slider-img.active { display: block; }
+        /* Smooth scrolling */
+        html { scroll-behavior: smooth; }
     </style>
 </head>
 <body class="bg-gray-50 flex flex-col min-h-screen">
 
     <header class="bg-blue-900 text-white p-4 fixed top-0 w-full z-40 flex justify-between items-center shadow-md">
         <button id="menuBtn" class="bg-blue-800 px-4 py-2 rounded hover:bg-blue-700 transition">☰ Menu</button>
-        <h1 class="font-bold text-lg sm:text-xl text-center w-full sm:w-auto">LAKSHMI LOGISTIC</h1>
-        <div class="w-20 hidden sm:block"></div> <!-- Spacer for flex alignment -->
+        
+        <a href="https://wa.me/917665296227" target="_blank" class="bg-green-500 hover:bg-green-600 text-white font-bold px-4 py-2 rounded transition flex items-center gap-2 shadow">
+            💬 Contact Us
+        </a>
     </header>
 
-    <!-- SIDEBAR MENU -->
     <div id="sidebarMenu" class="fixed inset-0 bg-black/60 z-50 hidden transition-opacity">
         <div class="bg-blue-900 w-72 sm:w-80 h-full p-6 shadow-2xl overflow-y-auto">
             <button id="closeMenuBtn" class="text-white text-3xl float-right hover:text-red-400">&times;</button>
             <h3 class="text-white font-bold mb-8 mt-8 text-xl border-b border-blue-700 pb-2">📌 Navigation</h3>
-            <button data-page="home" class="nav-link block w-full text-left text-white py-3 px-4 hover:bg-blue-700 rounded mb-2 transition">🏠 Home</button>
-            <button data-page="services" class="nav-link block w-full text-left text-white py-3 px-4 hover:bg-blue-700 rounded mb-2 transition">🚚 Services</button>
-            <button data-page="quote" class="nav-link block w-full text-left text-white py-3 px-4 hover:bg-blue-700 rounded mb-2 transition">💰 Get Quote</button>
-            <button data-page="details" class="nav-link block w-full text-left text-white py-3 px-4 hover:bg-blue-700 rounded mb-2 transition">🏢 Company Details</button>
-            <button data-page="faq" class="nav-link block w-full text-left text-white py-3 px-4 hover:bg-blue-700 rounded mb-2 transition">❓ FAQ</button>
-            <button data-page="contact" class="nav-link block w-full text-left text-white py-3 px-4 hover:bg-blue-700 rounded mb-2 transition">📞 Contact</button>
+            <a href="#home" class="block w-full text-left text-white py-3 px-4 hover:bg-blue-700 rounded mb-2 transition">🏠 Home</a>
+            <a href="#services" class="block w-full text-left text-white py-3 px-4 hover:bg-blue-700 rounded mb-2 transition">🚚 Services</a>
+            <a href="#quote" class="block w-full text-left text-white py-3 px-4 hover:bg-blue-700 rounded mb-2 transition">💰 Get Quote</a>
+            <a href="#details" class="block w-full text-left text-white py-3 px-4 hover:bg-blue-700 rounded mb-2 transition">🏢 Company Details</a>
+            <a href="#faq" class="block w-full text-left text-white py-3 px-4 hover:bg-blue-700 rounded mb-2 transition">❓ FAQ</a>
+            <a href="#contact" class="block w-full text-left text-white py-3 px-4 hover:bg-blue-700 rounded mb-2 transition">📞 Contact</a>
         </div>
     </div>
 
     <main class="mt-20 p-4 max-w-6xl mx-auto flex-grow w-full">
 
-        <!-- HOME PAGE -->
         <div id="homePage" class="page-section">
             <div class="text-center mb-6">
                 <img src="https://i.postimg.cc/3N56G1Rw/image-search-1782066959399.png" alt="Logo" class="w-24 h-24 rounded-full mx-auto mb-3 shadow-md border-2 border-blue-900">
@@ -50,7 +52,6 @@
                 <img src="https://i.postimg.cc/T1MSb0w1/image-search-1782066977204.jpg" class="slider-img w-full h-full object-cover">
             </div>
 
-            <!-- TRACKING SECTION -->
             <div class="bg-white p-6 sm:p-8 rounded-xl shadow-xl border-t-4 border-blue-600 mb-8">
                 <h2 class="text-xl sm:text-2xl font-bold mb-4 flex items-center gap-2">
                     <span>📍</span> Track Your Consignment
@@ -77,7 +78,6 @@
                 </div>
             </div>
 
-            <!-- TRUST SECTION -->
             <div class="bg-white p-6 sm:p-8 rounded-xl shadow-lg mb-8">
                 <h2 class="text-2xl font-bold mb-8 text-center text-gray-800">⭐ Why Choose Us</h2>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
@@ -100,18 +100,16 @@
             </div>
         </div>
 
-        <!-- NEW PROFESSIONAL TRACKING DETAIL PAGE -->
         <div id="trackingDetailPage" class="page-section hidden max-w-4xl mx-auto">
             <div class="bg-white p-6 sm:p-8 rounded-xl shadow-xl border-t-4 border-orange-500 relative overflow-hidden">
                 <div class="absolute top-0 right-0 bg-orange-100 text-orange-800 px-4 py-1 rounded-bl-xl font-bold text-sm border-b border-l border-orange-200">
-                    Live Status
+                    🔴 Live Status
                 </div>
                 
                 <h3 class="text-2xl font-extrabold mb-6 text-gray-800 border-b pb-4 flex items-center gap-2">
                     📦 Shipment Tracking Details
                 </h3>
                 
-                <!-- Tracking IDs Grid -->
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
                     <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 shadow-sm flex justify-between items-center">
                         <span class="text-gray-500 font-medium">E-way Bill No.</span>
@@ -123,29 +121,24 @@
                     </div>
                 </div>
 
-                <!-- LIVE TIMELINE -->
                 <div class="mb-10 px-2 sm:px-10">
-                    <h4 class="font-bold text-lg mb-6 text-center text-gray-700">Order Status: <span class="text-orange-500 animate-pulse">In Transit 🚚</span></h4>
+                    <h4 class="font-bold text-lg mb-6 text-center text-gray-700">Order Status: <span class="text-orange-500">In Transit 🚚</span></h4>
                     <div class="relative flex justify-between items-center">
-                        <!-- Progress Line -->
                         <div class="absolute left-0 top-1/2 transform -translate-y-1/2 w-full h-1.5 bg-gray-200 z-0 rounded-full"></div>
                         <div class="absolute left-0 top-1/2 transform -translate-y-1/2 w-1/2 h-1.5 bg-green-500 z-0 rounded-full"></div>
 
-                        <!-- Step 1 -->
                         <div class="relative z-10 text-center bg-white px-2">
                             <div class="w-10 h-10 mx-auto bg-green-500 rounded-full border-4 border-white shadow flex items-center justify-center text-white font-bold">✓</div>
                             <p class="mt-2 text-xs sm:text-sm font-bold text-gray-800">Booked</p>
                             <p class="text-xs text-gray-500">Bengaluru</p>
                         </div>
                         
-                        <!-- Step 2 -->
                         <div class="relative z-10 text-center bg-white px-2">
-                            <div class="w-10 h-10 mx-auto bg-orange-500 rounded-full border-4 border-white shadow flex items-center justify-center text-white text-lg">🚚</div>
+                            <div class="w-12 h-12 mx-auto bg-orange-500 rounded-full border-4 border-white shadow flex items-center justify-center text-white text-xl animate-bounce">🚚</div>
                             <p class="mt-2 text-xs sm:text-sm font-bold text-orange-600">In Transit</p>
                             <p class="text-xs text-gray-500">On the way</p>
                         </div>
 
-                        <!-- Step 3 -->
                         <div class="relative z-10 text-center bg-white px-2">
                             <div class="w-10 h-10 mx-auto bg-gray-300 rounded-full border-4 border-white shadow flex items-center justify-center text-white text-lg">📍</div>
                             <p class="mt-2 text-xs sm:text-sm font-bold text-gray-400">Delivered</p>
@@ -154,27 +147,23 @@
                     </div>
                 </div>
 
-                <!-- Expected Delivery Card -->
                 <div class="bg-gradient-to-r from-blue-50 to-blue-100 p-6 rounded-xl border border-blue-200 mb-8 text-center shadow-inner">
                     <p class="text-sm font-semibold text-blue-800 uppercase tracking-wider mb-1">Delivery Expected By</p>
                     <p class="text-3xl font-black text-blue-900">30/06/2026</p>
                 </div>
 
-                <!-- Consignor & Consignee Details -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                    <!-- From -->
                     <div class="border-2 border-gray-100 p-5 rounded-xl bg-white shadow-sm hover:shadow-md transition">
                         <h4 class="font-bold text-blue-900 mb-3 border-b-2 border-gray-100 pb-2 flex items-center gap-2">
-                            <span class="bg-blue-100 text-blue-600 px-2 py-1 rounded text-xs">FROM</span> Consignor
+                            <span class="bg-blue-100 text-blue-600 px-2 py-1 rounded text-xs font-black">FROM</span> Consignor
                         </h4>
                         <p class="font-extrabold text-gray-800 text-lg">Babu Trading Company</p>
                         <p class="text-sm text-gray-600 mt-2">Yashwantpur,</p>
                         <p class="text-sm text-gray-600">Bengaluru, Karnataka 560022</p>
                     </div>
-                    <!-- To -->
                     <div class="border-2 border-gray-100 p-5 rounded-xl bg-white shadow-sm hover:shadow-md transition">
                         <h4 class="font-bold text-blue-900 mb-3 border-b-2 border-gray-100 pb-2 flex items-center gap-2">
-                            <span class="bg-green-100 text-green-600 px-2 py-1 rounded text-xs">TO</span> Consignee
+                            <span class="bg-green-100 text-green-600 px-2 py-1 rounded text-xs font-black">TO</span> Consignee
                         </h4>
                         <p class="font-extrabold text-gray-800 text-lg">Royal plaza</p>
                         <p class="text-sm text-gray-600 mt-2">Gaziyabad,</p>
@@ -186,12 +175,11 @@
                 </div>
                 
                 <button onclick="window.history.back()" class="w-full bg-gray-800 hover:bg-gray-900 text-white font-bold py-4 rounded-xl shadow-lg transition flex justify-center items-center gap-2">
-                    <span>←</span> Back to Home
+                    <span>←</span> Back
                 </button>
             </div>
         </div>
 
-        <!-- SERVICES PAGE -->
         <div id="servicesPage" class="page-section hidden bg-white p-6 rounded-xl shadow-lg">
             <h3 class="text-2xl font-bold mb-6 text-blue-900 border-b pb-2">🚚 Our Services</h3>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -239,7 +227,6 @@
             <button onclick="window.history.back()" class="mt-8 bg-gray-800 text-white px-8 py-3 rounded-lg font-bold">← Back</button>
         </div>
 
-        <!-- QUOTE PAGE -->
         <div id="quotePage" class="page-section hidden bg-white p-6 sm:p-8 rounded-xl shadow-lg max-w-2xl mx-auto">
             <h3 class="text-2xl font-bold mb-6 text-blue-900 border-b pb-2">💰 Get Freight Quote</h3>
             <div class="space-y-4">
@@ -256,7 +243,6 @@
             <button onclick="window.history.back()" class="mt-8 w-full bg-gray-800 hover:bg-gray-900 text-white font-bold py-3 rounded-lg">← Back</button>
         </div>
 
-        <!-- COMPANY DETAILS -->
         <div id="detailsPage" class="page-section hidden bg-white p-6 sm:p-8 rounded-xl shadow-lg">
             <h3 class="text-2xl font-bold text-blue-900 border-b pb-3 mb-6">🏢 Company Details</h3>
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -295,7 +281,6 @@
             <button onclick="window.history.back()" class="mt-8 bg-gray-800 hover:bg-gray-900 text-white font-bold px-8 py-3 rounded-lg">← Back</button>
         </div>
 
-        <!-- FAQ -->
         <div id="faqPage" class="page-section hidden bg-white p-6 sm:p-8 rounded-xl shadow-lg">
             <h3 class="text-2xl font-bold text-blue-900 mb-6 border-b pb-2">❓ Frequently Asked Questions</h3>
             <div class="space-y-4">
@@ -323,7 +308,6 @@
             <button onclick="window.history.back()" class="mt-8 bg-gray-800 text-white font-bold px-8 py-3 rounded-lg">← Back</button>
         </div>
 
-        <!-- CONTACT -->
         <div id="contactPage" class="page-section hidden bg-white p-6 sm:p-8 rounded-xl shadow-lg max-w-2xl mx-auto">
             <h3 class="text-2xl font-bold text-blue-900 mb-6 border-b pb-2">📞 Contact Us</h3>
             <div class="space-y-4">
@@ -369,7 +353,6 @@
 
     </main>
 
-    <!-- TRUSTED FOOTER ADDED HERE (Universal) -->
     <footer class="bg-gray-900 text-gray-300 py-10 mt-auto border-t-4 border-blue-600">
         <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
             <div class="md:col-span-2">
@@ -412,44 +395,34 @@
     </footer>
 
     <script>
-        // HISTORY API & NAVIGATION SETUP (For Step-By-Step Back Button)
-        if (!history.state) {
-            history.replaceState({page: 'home'}, '', '#home');
-        }
-
-        function showPage(page) {
-            // Hide all pages
+        // HASH-BASED ROUTER SYSTEM
+        function handleHashRoute() {
+            var hash = window.location.hash.replace('#', '') || 'home';
+            
+            // Sab pages chhupao
             document.querySelectorAll('.page-section').forEach(function(p) {
                 p.classList.add('hidden');
             });
-            // Show target page
-            document.getElementById(page + 'Page').classList.remove('hidden');
-            closeMenu();
-
-            // Push to history ONLY if it's a new page
-            if (!history.state || history.state.page !== page) {
-                history.pushState({page: page}, '', '#' + page);
+            
+            // Jo hash hai us page ko dikhao
+            var targetPage = document.getElementById(hash + 'Page');
+            if (targetPage) {
+                targetPage.classList.remove('hidden');
+            } else {
+                document.getElementById('homePage').classList.remove('hidden');
             }
             
-            // Scroll to top
+            closeMenu();
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // Handle Mobile/Browser Back Button
-        window.addEventListener('popstate', function(e) {
-            document.querySelectorAll('.page-section').forEach(function(p) {
-                p.classList.add('hidden');
-            });
-
-            if (e.state && e.state.page) {
-                var target = document.getElementById(e.state.page + 'Page');
-                if(target) {
-                    target.classList.remove('hidden');
-                } else {
-                    document.getElementById('homePage').classList.remove('hidden');
-                }
+        window.addEventListener('hashchange', handleHashRoute);
+        
+        window.addEventListener('load', function() {
+            if(!window.location.hash) {
+                window.location.hash = 'home';
             } else {
-                document.getElementById('homePage').classList.remove('hidden');
+                handleHashRoute();
             }
         });
 
@@ -478,13 +451,6 @@
                 if(e.target.id === 'sidebarMenu') closeMenu();
             });
 
-            // NAVIGATION LINKS
-            document.querySelectorAll('.nav-link').forEach(function(btn) {
-                btn.addEventListener('click', function() {
-                    showPage(this.dataset.page);
-                });
-            });
-
             // PROFESSIONAL TRACKING LOGIC
             document.getElementById('trackBtn').addEventListener('click', function() {
                 var input = document.getElementById('trackInput').value.trim();
@@ -497,9 +463,8 @@
                     return;
                 }
 
-                // Check specific hardcoded ID as requested
                 if (input === '1238233604530') {
-                    showPage('trackingDetail');
+                    window.location.hash = 'trackingDetail';
                 } else {
                     error.textContent = 'Tracking details not found for this number. Please check and try again.';
                 }
@@ -516,7 +481,7 @@
                     return;
                 }
 
-                var amount = weight * 15; // Basic calculation
+                var amount = weight * 15; 
                 document.getElementById('quoteAmount').textContent = '₹' + amount;
                 document.getElementById('quoteResult').classList.remove('hidden');
             });
