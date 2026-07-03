@@ -57,7 +57,7 @@
                     <span>📍</span> Track Your Consignment
                 </h2>
                 <div class="flex flex-col sm:flex-row gap-3">
-                    <input type="text" id="trackInput" placeholder="Enter E-way Bill / LR Number (e.g. 1238233604530)" class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-blue-600 transition">
+                    <input type="text" id="trackInput" placeholder="Enter E-way Bill / LR Number (e.g. 128233604530)" class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-blue-600 transition">
                     <button id="trackBtn" class="w-full sm:w-48 bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg shadow-md transition">Track Now</button>
                 </div>
                 <p id="trackError" class="text-red-500 text-sm mt-3 font-medium"></p>
@@ -101,9 +101,9 @@
         </div>
 
         <div id="trackingDetailPage" class="page-section hidden max-w-4xl mx-auto">
-            <div class="bg-white p-6 sm:p-8 rounded-xl shadow-xl border-t-4 border-orange-500 relative overflow-hidden">
-                <div class="absolute top-0 right-0 bg-orange-100 text-orange-800 px-4 py-1 rounded-bl-xl font-bold text-sm border-b border-l border-orange-200">
-                    🔴 Live Status
+            <div class="bg-white p-6 sm:p-8 rounded-xl shadow-xl border-t-4 border-green-500 relative overflow-hidden">
+                <div class="absolute top-0 right-0 bg-green-100 text-green-800 px-4 py-1 rounded-bl-xl font-bold text-sm border-b border-l border-green-200">
+                    🟢 Live Status
                 </div>
                 
                 <h3 class="text-2xl font-extrabold mb-6 text-gray-800 border-b pb-4 flex items-center gap-2">
@@ -112,72 +112,171 @@
                 
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
                     <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 shadow-sm flex justify-between items-center">
-                        <span class="text-gray-500 font-medium">E-way Bill No.</span>
-                        <span class="font-bold text-lg text-blue-900">1238233604530</span>
+                        <span class="text-gray-500 font-medium">Tracking / LR No.</span>
+                        <span class="font-bold text-lg text-blue-900">128233604530</span>
                     </div>
                     <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 shadow-sm flex justify-between items-center">
-                        <span class="text-gray-500 font-medium">Order ID</span>
-                        <span class="font-bold text-lg text-blue-900">123456</span>
+                        <span class="text-gray-500 font-medium">Status</span>
+                        <span class="font-bold text-lg text-green-600">Shipped</span>
                     </div>
                 </div>
 
-                <div class="mb-10 px-2 sm:px-10">
-                    <h4 class="font-bold text-lg mb-6 text-center text-gray-700">Order Status: <span class="text-orange-500">In Transit 🚚</span></h4>
-                    <div class="relative flex justify-between items-center">
-                        <div class="absolute left-0 top-1/2 transform -translate-y-1/2 w-full h-1.5 bg-gray-200 z-0 rounded-full"></div>
-                        <div class="absolute left-0 top-1/2 transform -translate-y-1/2 w-1/2 h-1.5 bg-green-500 z-0 rounded-full"></div>
+                <!-- FLIPKART STYLE PROGRESS BAR -->
+                <div class="mb-12 px-2 sm:px-6">
+                    <div class="relative flex justify-between items-start mt-8">
+                        <!-- Background Gray Line -->
+                        <div class="absolute left-10 right-10 top-5 h-1.5 bg-gray-200 z-0 rounded-full"></div>
+                        <!-- Green Line up to 'Shipped' -->
+                        <div class="absolute left-10 top-5 w-1/2 h-1.5 bg-green-500 z-0 rounded-full"></div>
 
-                        <div class="relative z-10 text-center bg-white px-2">
-                            <div class="w-10 h-10 mx-auto bg-green-500 rounded-full border-4 border-white shadow flex items-center justify-center text-white font-bold">✓</div>
-                            <p class="mt-2 text-xs sm:text-sm font-bold text-gray-800">Booked</p>
-                            <p class="text-xs text-gray-500">Bengaluru</p>
+                        <!-- 1. In Transit -->
+                        <div class="relative z-10 text-center w-1/3 flex flex-col items-center">
+                            <div class="w-10 h-10 bg-green-500 rounded-full border-4 border-white shadow-md flex items-center justify-center text-white font-bold text-lg">✓</div>
+                            <p class="mt-2 text-sm sm:text-base font-bold text-gray-800">In transit</p>
                         </div>
                         
-                        <div class="relative z-10 text-center bg-white px-2">
-                            <div class="w-12 h-12 mx-auto bg-orange-500 rounded-full border-4 border-white shadow flex items-center justify-center text-white text-xl animate-bounce">🚚</div>
-                            <p class="mt-2 text-xs sm:text-sm font-bold text-orange-600">In Transit</p>
-                            <p class="text-xs text-gray-500">On the way</p>
+                        <!-- 2. Shipped -->
+                        <div class="relative z-10 text-center w-1/3 flex flex-col items-center">
+                            <div class="w-10 h-10 bg-green-500 rounded-full border-4 border-white shadow-md flex items-center justify-center text-white font-bold text-lg">✓</div>
+                            <p class="mt-2 text-sm sm:text-base font-bold text-green-600">Shipped</p>
+                            <p class="text-xs font-semibold text-gray-500 mt-1">recieved parcel</p>
                         </div>
 
-                        <div class="relative z-10 text-center bg-white px-2">
-                            <div class="w-10 h-10 mx-auto bg-gray-300 rounded-full border-4 border-white shadow flex items-center justify-center text-white text-lg">📍</div>
-                            <p class="mt-2 text-xs sm:text-sm font-bold text-gray-400">Delivered</p>
-                            <p class="text-xs text-gray-400">Dehli</p>
+                        <!-- 3. Delivery -->
+                        <div class="relative z-10 text-center w-1/3 flex flex-col items-center">
+                            <div class="w-10 h-10 bg-gray-300 rounded-full border-4 border-white shadow-md flex items-center justify-center text-white text-lg">📍</div>
+                            <p class="mt-2 text-sm sm:text-base font-bold text-gray-400">Delivery</p>
+                            <p class="text-xs font-semibold text-gray-500 mt-1">delivery expected 10 july 2026</p>
                         </div>
                     </div>
                 </div>
 
-                <div class="bg-gradient-to-r from-blue-50 to-blue-100 p-6 rounded-xl border border-blue-200 mb-8 text-center shadow-inner">
-                    <p class="text-sm font-semibold text-blue-800 uppercase tracking-wider mb-1">Delivery Expected By</p>
-                    <p class="text-3xl font-black text-blue-900">30/06/2026</p>
-                </div>
-
+                <!-- CONSIGNOR & CONSIGNEE DETAILS -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                    <div class="border-2 border-gray-100 p-5 rounded-xl bg-white shadow-sm hover:shadow-md transition">
-                        <h4 class="font-bold text-blue-900 mb-3 border-b-2 border-gray-100 pb-2 flex items-center gap-2">
-                            <span class="bg-blue-100 text-blue-600 px-2 py-1 rounded text-xs font-black">FROM</span> Consignor
+                    <!-- Consignor -->
+                    <div class="border border-gray-200 p-5 rounded-xl bg-white shadow-sm hover:shadow-md transition relative">
+                        <h4 class="font-bold text-blue-900 mb-4 border-b border-gray-100 pb-2 flex items-center gap-2">
+                            <span class="bg-blue-100 text-blue-600 px-2 py-1 rounded text-xs font-black">FROM</span> Consignor Details
                         </h4>
-                        <p class="font-extrabold text-gray-800 text-lg">Babu Trading Company</p>
+                        <p class="font-extrabold text-gray-800 text-lg uppercase tracking-wide">BABU TRADING COMPANY</p>
+                        <p class="text-sm font-bold text-gray-700 mt-2">Sandeep <span class="font-normal text-gray-500">(Sales Manager)</span></p>
                         <p class="text-sm text-gray-600 mt-2">Yashwantpur,</p>
-                        <p class="text-sm text-gray-600">Bengaluru, Karnataka 560022</p>
+                        <p class="text-sm text-gray-600">Bengaluru, Karnataka, India 560022</p>
+                        <div class="mt-4 bg-green-50 inline-block px-3 py-1.5 rounded-lg border border-green-200 text-sm">
+                            <strong class="text-green-800">WhatsApp:</strong> <a href="https://wa.me/918619229982" target="_blank" class="text-green-600 font-bold ml-1">8619229982</a>
+                        </div>
                     </div>
-                    <div class="border-2 border-gray-100 p-5 rounded-xl bg-white shadow-sm hover:shadow-md transition">
-                        <h4 class="font-bold text-blue-900 mb-3 border-b-2 border-gray-100 pb-2 flex items-center gap-2">
-                            <span class="bg-green-100 text-green-600 px-2 py-1 rounded text-xs font-black">TO</span> Consignee
+                    <!-- Consignee -->
+                    <div class="border border-gray-200 p-5 rounded-xl bg-white shadow-sm hover:shadow-md transition relative">
+                        <h4 class="font-bold text-orange-900 mb-4 border-b border-gray-100 pb-2 flex items-center gap-2">
+                            <span class="bg-orange-100 text-orange-600 px-2 py-1 rounded text-xs font-black">TO</span> Consignee Details
                         </h4>
-                        <p class="font-extrabold text-gray-800 text-lg">Royal plaza</p>
-                        <p class="text-sm text-gray-600 mt-2">Gaziyabad,</p>
-                        <p class="text-sm text-gray-600">Uttar Pradesh 123456</p>
-                        <div class="mt-3 bg-gray-50 inline-block px-3 py-1 rounded-md border text-sm">
-                            <strong class="text-gray-700">Contact:</strong> <a href="tel:9999999999" class="text-blue-600 font-bold">9999999999</a>
+                        <div class="flex justify-between items-start">
+                            <p class="font-extrabold text-gray-800 text-lg uppercase tracking-wide">Zaid kirana store</p>
+                            <span class="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded font-semibold whitespace-nowrap">Booking: 03/07/26 11:12 AM</span>
+                        </div>
+                        <p class="text-sm text-gray-600 mt-3">Himalaya bakery pass barrel market Dali limda,</p>
+                        <p class="text-sm text-gray-600">Ahmedabad - 380028</p>
+                        <div class="mt-4 bg-blue-50 inline-block px-3 py-1.5 rounded-lg border border-blue-200 text-sm">
+                            <strong class="text-blue-900">Contact:</strong> <a href="tel:+919824995426" class="text-blue-600 font-bold ml-1">+91 9824995426</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ITEM & PAYMENT DETAILS -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                    <!-- Item Info -->
+                    <div class="bg-gray-50 border border-gray-200 p-5 rounded-xl">
+                        <h4 class="font-bold text-gray-800 mb-3 border-b border-gray-200 pb-2">📦 Shipment Summary</h4>
+                        <div class="flex justify-between items-center mb-3">
+                            <div>
+                                <span class="text-gray-500 text-xs uppercase font-bold block mb-1">Item Name</span>
+                                <strong class="text-gray-900">Dry fruits and spices</strong>
+                            </div>
+                            <a href="#checkItems" class="bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold px-4 py-2.5 rounded-lg shadow-md transition flex items-center gap-1">
+                                Check Items <span>→</span>
+                            </a>
+                        </div>
+                        <div class="mt-4 bg-white p-3 rounded border border-gray-100">
+                            <span class="text-gray-500 text-xs uppercase font-bold block mb-1">Total Weight</span>
+                            <strong class="text-blue-700 text-xl">256 Kgs</strong>
+                        </div>
+                    </div>
+                    <!-- Payment Info -->
+                    <div class="bg-yellow-50 border border-yellow-200 p-5 rounded-xl">
+                        <h4 class="font-bold text-gray-800 mb-3 border-b border-yellow-200 pb-2 flex items-center justify-between">
+                            <span>💳 Payment System</span>
+                            <span class="bg-red-100 text-red-700 px-3 py-1 rounded-md text-xs font-black shadow-sm">TO PAY</span>
+                        </h4>
+                        <div class="space-y-3 text-sm mt-4">
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-600 font-medium">Total Amount:</span>
+                                <strong class="text-gray-900 text-base">61,800/-</strong>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-600 font-medium">Advance Deposit (UPI):</span>
+                                <strong class="text-green-600 text-base">21,800/-</strong>
+                            </div>
+                            <div class="flex justify-between items-center border-t border-yellow-200 pt-3 mt-1">
+                                <span class="text-gray-900 font-bold">Remaining Amount:</span>
+                                <strong class="text-red-600 text-xl">40,000/-</strong>
+                            </div>
                         </div>
                     </div>
                 </div>
                 
+                <!-- Trust Footer in Tracking -->
+                <div class="mt-4 mb-6 text-center bg-blue-50 p-4 rounded-lg border border-blue-100">
+                    <p class="text-blue-900 font-bold sm:text-lg">Thank you for choosing Shree Lakshmi Logistics Pvt Ltd</p>
+                    <p class="text-sm text-blue-700 mt-1">Your trusted partner for safe & secure transport 🚛</p>
+                </div>
+
                 <button onclick="window.history.back()" class="w-full bg-gray-800 hover:bg-gray-900 text-white font-bold py-4 rounded-xl shadow-lg transition flex justify-center items-center gap-2">
                     <span>←</span> Back
                 </button>
             </div>
+        </div>
+
+        <!-- NEW PAGE: CHECK ITEMS DETAIL -->
+        <div id="checkItemsPage" class="page-section hidden max-w-4xl mx-auto bg-white p-6 sm:p-8 rounded-xl shadow-lg border-t-4 border-blue-600">
+            <h3 class="text-2xl font-bold mb-6 text-blue-900 border-b pb-3 flex items-center gap-2">
+                📋 Detailed Items List
+            </h3>
+            
+            <div class="bg-blue-50 p-4 rounded-lg mb-6 flex justify-between items-center border border-blue-100">
+                <span class="font-bold text-gray-700">LR No: <span class="text-blue-900">128233604530</span></span>
+                <span class="font-bold text-gray-700">Category: <span class="text-blue-900">Dry fruits and spices</span></span>
+            </div>
+
+            <div class="overflow-x-auto rounded-lg border border-gray-200 shadow-sm">
+                <table class="w-full text-left border-collapse min-w-[500px]">
+                    <thead>
+                        <tr class="bg-gray-800 text-white">
+                            <th class="p-4 text-sm uppercase tracking-wider font-semibold w-1/4">Qty / Pkg</th>
+                            <th class="p-4 text-sm uppercase tracking-wider font-semibold">Item Description</th>
+                            <th class="p-4 text-sm uppercase tracking-wider font-semibold text-right w-1/4">Weight</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-gray-700 divide-y divide-gray-200">
+                        <tr class="hover:bg-gray-50 transition"><td class="p-4 font-bold text-gray-900 bg-gray-50">3 BOX</td><td class="p-4 font-medium text-gray-800">CASHEW W240</td><td class="p-4 text-right font-bold text-gray-600">30 KGS</td></tr>
+                        <tr class="hover:bg-gray-50 transition"><td class="p-4 font-bold text-gray-900 bg-gray-50">1 BOX</td><td class="p-4 font-medium text-gray-800">AKHROT</td><td class="p-4 text-right font-bold text-gray-600">5 KGS</td></tr>
+                        <tr class="hover:bg-gray-50 transition"><td class="p-4 font-bold text-gray-900 bg-gray-50">2 BAG</td><td class="p-4 font-medium text-gray-800">CARLOFONIA ALMOND</td><td class="p-4 text-right font-bold text-gray-600">40 KGS</td></tr>
+                        <tr class="hover:bg-gray-50 transition"><td class="p-4 font-bold text-gray-900 bg-gray-50">5 BOX</td><td class="p-4 font-medium text-gray-800">gud batti</td><td class="p-4 text-right font-bold text-gray-600">50 KGS</td></tr>
+                        <tr class="hover:bg-gray-50 transition"><td class="p-4 font-bold text-gray-900 bg-gray-50">1 BAG</td><td class="p-4 font-medium text-gray-800">RAZMA SEED</td><td class="p-4 text-right font-bold text-gray-600">10 KGS</td></tr>
+                        <tr class="hover:bg-gray-50 transition"><td class="p-4 font-bold text-gray-900 bg-gray-50">1 BAG</td><td class="p-4 font-medium text-gray-800">RICE</td><td class="p-4 text-right font-bold text-gray-600">30 KGS</td></tr>
+                        <tr class="hover:bg-gray-50 transition"><td class="p-4 font-bold text-gray-900 bg-gray-50">2 BAG</td><td class="p-4 font-medium text-gray-800">SUGAR</td><td class="p-4 text-right font-bold text-gray-600">100 KGS</td></tr>
+                    </tbody>
+                    <tfoot>
+                        <tr class="bg-gray-100 border-t-2 border-gray-300">
+                            <td class="p-4 text-right font-bold text-gray-900 text-lg uppercase" colspan="2">Total Weight :</td>
+                            <td class="p-4 text-right font-black text-blue-700 text-xl">256 Kgs</td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+            <button onclick="window.history.back()" class="mt-8 w-full bg-gray-800 hover:bg-gray-900 text-white font-bold py-4 rounded-xl shadow-lg transition flex justify-center items-center gap-2">
+                <span>←</span> Back to Tracking
+            </button>
         </div>
 
         <div id="servicesPage" class="page-section hidden bg-white p-6 rounded-xl shadow-lg">
@@ -451,7 +550,7 @@
                 if(e.target.id === 'sidebarMenu') closeMenu();
             });
 
-            // PROFESSIONAL TRACKING LOGIC
+            // PROFESSIONAL TRACKING LOGIC UPDATED
             document.getElementById('trackBtn').addEventListener('click', function() {
                 var input = document.getElementById('trackInput').value.trim();
                 var error = document.getElementById('trackError');
@@ -463,7 +562,8 @@
                     return;
                 }
 
-                if (input === '1238233604530') {
+                // Changed to your specific tracking number
+                if (input === '128233604530') {
                     window.location.hash = 'trackingDetail';
                 } else {
                     error.textContent = 'Tracking details not found for this number. Please check and try again.';
